@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,14 +22,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jOf-OO-GFM">
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="🍻🍻🍻" translatesAutoresizingMaskIntoConstraints="NO" id="jOf-OO-GFM">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="jOf-OO-GFM" secondAttribute="height" multiplier="375:44" id="93A-Qu-nI1"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jqz-g9-cbf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jqz-g9-cbf">
                                 <rect key="frame" x="0.0" y="371" width="375" height="247"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,8 +39,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9P-Z0-JSq" userLabel="Beer Name Frame">
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x9P-Z0-JSq" userLabel="Beer Name Frame">
                                                     <rect key="frame" x="8" y="0.0" width="359" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#1234 - Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFr-Ia-xez">
                                                             <rect key="frame" x="8" y="12" width="359" height="21"/>
@@ -54,12 +52,10 @@
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="x9P-Z0-JSq" secondAttribute="height" multiplier="359:44" id="HFd-NT-D1I"/>
-                                                    </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pq9-jh-Jjh" userLabel="Rating Buttons Frame">
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pq9-jh-Jjh" userLabel="Rating Buttons Frame">
                                                     <rect key="frame" x="8" y="43" width="359" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrv-HU-Ghg">
                                                             <rect key="frame" x="92" y="7" width="35" height="30"/>
@@ -81,19 +77,8 @@
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="PuT-Fe-b6G"/>
-                                                        <constraint firstAttribute="width" secondItem="Pq9-jh-Jjh" secondAttribute="height" multiplier="359:44" id="fHC-rk-m53"/>
-                                                    </constraints>
                                                 </view>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Pq9-jh-Jjh" firstAttribute="top" secondItem="x9P-Z0-JSq" secondAttribute="bottom" constant="-1" id="HAg-0E-1dK"/>
-                                                <constraint firstItem="x9P-Z0-JSq" firstAttribute="centerX" secondItem="FA1-G6-eDk" secondAttribute="centerX" id="dOk-Cy-fcy"/>
-                                                <constraint firstItem="x9P-Z0-JSq" firstAttribute="top" secondItem="FA1-G6-eDk" secondAttribute="topMargin" constant="-8" id="mG5-2F-8LV"/>
-                                                <constraint firstItem="Pq9-jh-Jjh" firstAttribute="centerX" secondItem="FA1-G6-eDk" secondAttribute="centerX" id="mUI-uZ-E49"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="x9P-Z0-JSq" secondAttribute="leading" id="nOR-oD-wG4"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="searchResultLabel" destination="IFr-Ia-xez" id="FNI-P4-9u8"/>
@@ -105,72 +90,43 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="2J1-w6-1GD"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RCn-xy-n0Y">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RCn-xy-n0Y">
                                 <rect key="frame" x="16" y="116" width="343" height="247"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a beer by its number, it's easy!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="rn9-Uq-tde">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a beer by its number, it's easy!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="rn9-Uq-tde">
                                         <rect key="frame" x="8.5" y="8" width="327" height="86"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="86" id="H1D-Dt-gzh"/>
-                                            <constraint firstAttribute="width" secondItem="rn9-Uq-tde" secondAttribute="height" multiplier="327:86" id="UVC-nT-Hf1"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Tap search bar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkm-WD-ZE9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1. Tap search bar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkm-WD-ZE9">
                                         <rect key="frame" x="8.5" y="102" width="327" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Pkm-WD-ZE9" secondAttribute="height" multiplier="327:40" id="Maj-Fq-yTC"/>
-                                            <constraint firstAttribute="height" constant="40" id="Uiu-Jz-ERg"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Enter a beer number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS6-t3-XUD">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2. Enter a beer number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS6-t3-XUD">
                                         <rect key="frame" x="8.5" y="150" width="327" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="TTO-E0-XVk"/>
-                                            <constraint firstAttribute="width" secondItem="mS6-t3-XUD" secondAttribute="height" multiplier="327:40" id="vQU-YY-aUH"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Rate it!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1de-tj-jXN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3. Rate it!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1de-tj-jXN">
                                         <rect key="frame" x="8.5" y="198" width="327" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="J3C-yl-CiY"/>
-                                            <constraint firstAttribute="width" secondItem="1de-tj-jXN" secondAttribute="height" multiplier="327:40" id="y83-0G-GLK"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="mS6-t3-XUD" firstAttribute="top" secondItem="Pkm-WD-ZE9" secondAttribute="bottom" constant="8" id="91g-41-BE2"/>
-                                    <constraint firstItem="Pkm-WD-ZE9" firstAttribute="top" secondItem="rn9-Uq-tde" secondAttribute="bottom" constant="8" id="D4l-Zb-cRa"/>
-                                    <constraint firstItem="rn9-Uq-tde" firstAttribute="top" secondItem="RCn-xy-n0Y" secondAttribute="top" constant="8" id="KW6-q9-0jv"/>
-                                    <constraint firstAttribute="width" secondItem="RCn-xy-n0Y" secondAttribute="height" multiplier="343:247" id="KrP-AM-G1c"/>
-                                    <constraint firstItem="1de-tj-jXN" firstAttribute="top" secondItem="mS6-t3-XUD" secondAttribute="bottom" constant="8" id="Nrz-iz-IfO"/>
-                                    <constraint firstAttribute="height" constant="247" id="biM-I2-Svq"/>
-                                    <constraint firstItem="mS6-t3-XUD" firstAttribute="centerX" secondItem="RCn-xy-n0Y" secondAttribute="centerX" id="nXR-ae-xFK"/>
-                                    <constraint firstItem="rn9-Uq-tde" firstAttribute="centerX" secondItem="RCn-xy-n0Y" secondAttribute="centerX" id="sJl-QD-dsZ"/>
-                                    <constraint firstItem="1de-tj-jXN" firstAttribute="centerX" secondItem="RCn-xy-n0Y" secondAttribute="centerX" id="uNj-2j-kFt"/>
-                                    <constraint firstItem="Pkm-WD-ZE9" firstAttribute="centerX" secondItem="RCn-xy-n0Y" secondAttribute="centerX" id="wdN-ww-Bz7"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="jOf-OO-GFM" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="88i-tT-GFi"/>
-                            <constraint firstItem="RCn-xy-n0Y" firstAttribute="top" secondItem="jOf-OO-GFM" secondAttribute="bottom" id="R1j-WY-FWI"/>
-                            <constraint firstItem="RCn-xy-n0Y" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="U9k-aA-fdQ"/>
-                            <constraint firstItem="jOf-OO-GFM" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-16" id="tJu-aL-Frc"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Quick Add" image="first" id="acW-dT-cKf" userLabel="Quick Add"/>
                     <connections>
@@ -203,7 +159,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Dr-xg-Fz2" id="l6S-6W-33K">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✅" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPL-eZ-rSY">
@@ -340,12 +296,15 @@
                                         <rect key="frame" x="8" y="3" width="68" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="My Beers"/>
+                                        <connections>
+                                            <action selector="userDidPressMyBeers:" destination="6tQ-SC-MJl" eventType="touchUpInside" id="crU-2O-0j6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KdN-u8-dXr" userLabel="Favorite Beers View">
-                                <rect key="frame" x="16" y="257" width="343" height="361"/>
+                                <rect key="frame" x="0.0" y="257" width="375" height="361"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -373,12 +332,24 @@
                     <view key="view" contentMode="scaleToFill" id="Ccq-r1-h6W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="🍻🍻🍻" translatesAutoresizingMaskIntoConstraints="NO" id="cyE-mi-oNU">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c2e-he-75O">
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="juZ-Ps-B6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1556" y="1733"/>
+            <point key="canvasLocation" x="1556" y="1732.9835082458771"/>
         </scene>
         <!--Beer List-->
         <scene sceneID="wg7-f3-ORb">
@@ -392,42 +363,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="OXa-Oo-0QE">
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="🍻🍻🍻" translatesAutoresizingMaskIntoConstraints="NO" id="OXa-Oo-0QE">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="OXa-Oo-0QE" secondAttribute="height" multiplier="375:44" id="Hzz-9R-wsq"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-Ch-Fup">
-                                <rect key="frame" x="16" y="108" width="343" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="0SM-Ch-Fup" secondAttribute="height" multiplier="49:4" id="dvL-V9-jAG"/>
-                                </constraints>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TTi-Ce-mex">
+                                <rect key="frame" x="0.0" y="144" width="375" height="474"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-Ch-Fup">
+                                <rect key="frame" x="0.0" y="108" width="375" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Number"/>
                                     <segment title="Name"/>
                                     <segment title="Brewer"/>
                                 </segments>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TTi-Ce-mex">
-                                <rect key="frame" x="0.0" y="144" width="375" height="466"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="TTi-Ce-mex" secondAttribute="height" multiplier="375:518" id="JyX-Fb-QES"/>
-                                    <constraint firstAttribute="height" constant="518" id="xYS-pP-aRJ"/>
-                                </constraints>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="OXa-Oo-0QE" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-16" id="0B6-fI-8Ca"/>
-                            <constraint firstItem="OXa-Oo-0QE" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="0fz-M2-C5y"/>
-                            <constraint firstItem="0SM-Ch-Fup" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="0u6-mF-6P2"/>
-                            <constraint firstItem="TTi-Ce-mex" firstAttribute="top" secondItem="0SM-Ch-Fup" secondAttribute="bottom" constant="8" id="BQn-zE-SF7"/>
-                            <constraint firstItem="0SM-Ch-Fup" firstAttribute="top" secondItem="OXa-Oo-0QE" secondAttribute="bottom" id="Eq3-9f-chi"/>
-                            <constraint firstItem="TTi-Ce-mex" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-16" id="JWN-rG-mM8"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Beer List" image="second" id="cPa-gy-q4n" userLabel="Beer List"/>
                 </viewController>

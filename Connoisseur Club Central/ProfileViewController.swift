@@ -22,6 +22,9 @@ class ProfileViewController: UIViewController {
     }
     
 
+    @IBAction func userDidPressMyBeers(_ sender: Any) {
+        performSegue(withIdentifier: "showMyBeers", sender: nil)
+    }
     /*
     // MARK: - Navigation
 

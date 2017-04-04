@@ -17,6 +17,8 @@ class TodaysBeersViewController: UIViewController, UITableViewDelegate, UITableV
     var daBeers = [Beer]()
 
     
+    //This is a change
+    
     //Reuse cell ID constant
     let cellReuseIdentifier = "BeerListingTableViewCell"
     
