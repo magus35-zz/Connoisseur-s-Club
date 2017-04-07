@@ -22,6 +22,8 @@
 		99C52BC91E6E26C300B7F9F6 /* Connoisseur_Club_CentralUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BC81E6E26C300B7F9F6 /* Connoisseur_Club_CentralUITests.swift */; };
 		99C52BD71E6E27B800B7F9F6 /* BeerListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BD61E6E27B800B7F9F6 /* BeerListingTableViewCell.swift */; };
 		99C52BD91E6E3FA200B7F9F6 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BD81E6E3FA200B7F9F6 /* Beer.swift */; };
+		99D5D7B91E985B3800096426 /* TheBeerList.csv in Resources */ = {isa = PBXBuildFile; fileRef = 99D5D7B81E985B3800096426 /* TheBeerList.csv */; };
+		99D5D7BB1E985B5000096426 /* TheBeerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D5D7BA1E985B5000096426 /* TheBeerList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		99C52BCA1E6E26C300B7F9F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99C52BD61E6E27B800B7F9F6 /* BeerListingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerListingTableViewCell.swift; sourceTree = "<group>"; };
 		99C52BD81E6E3FA200B7F9F6 /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		99D5D7B81E985B3800096426 /* TheBeerList.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TheBeerList.csv; sourceTree = "<group>"; };
+		99D5D7BA1E985B5000096426 /* TheBeerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheBeerList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 				99C52BAC1E6E26C300B7F9F6 /* Main.storyboard */,
 				99C52BA61E6E26C300B7F9F6 /* AppDelegate.swift */,
 				99C52BD81E6E3FA200B7F9F6 /* Beer.swift */,
+				99D5D7B81E985B3800096426 /* TheBeerList.csv */,
+				99D5D7BA1E985B5000096426 /* TheBeerList.swift */,
 				9986684E1E8DA6E20094FFC0 /* Quick Add */,
 				9986684D1E8DA6DB0094FFC0 /* Beer List */,
 				9986684F1E8DA6E80094FFC0 /* Today's Beers */,
@@ -297,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99C52BB31E6E26C300B7F9F6 /* LaunchScreen.storyboard in Resources */,
+				99D5D7B91E985B3800096426 /* TheBeerList.csv in Resources */,
 				99C52BB01E6E26C300B7F9F6 /* Assets.xcassets in Resources */,
 				9931F8601E930A19005D9D20 /* ProfilePic.jpg in Resources */,
 				99C52BAE1E6E26C300B7F9F6 /* Main.storyboard in Resources */,
@@ -333,6 +340,7 @@
 				9931F8621E931B16005D9D20 /* MyBeersViewController.swift in Sources */,
 				998668521E8DAA6D0094FFC0 /* TodaysBeersViewController.swift in Sources */,
 				99C52BA91E6E26C300B7F9F6 /* QuickAddViewController.swift in Sources */,
+				99D5D7BB1E985B5000096426 /* TheBeerList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
