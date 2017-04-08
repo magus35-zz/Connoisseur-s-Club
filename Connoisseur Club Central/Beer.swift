@@ -12,10 +12,12 @@ class Beer {
     var beerWasTried:Bool?
     var beerNumber:Int?
     var beerName:String?
+    var beerBrewer:String?
     
-    init(beerWasTried: Bool, beerNumber: Int, beerName: String) {
+    init(beerWasTried: Bool, beerNumber: Int, beerName: String, beerBrewer: String) {
         self.beerWasTried = beerWasTried
         self.beerNumber = beerNumber
         self.beerName = beerName
+        self.beerBrewer = beerBrewer
     }
 }

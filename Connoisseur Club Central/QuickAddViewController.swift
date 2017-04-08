@@ -23,7 +23,7 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchResults.append(Beer(beerWasTried: true, beerNumber: 1234, beerName: "good beer"))
+        searchResults.append(Beer(beerWasTried: true, beerNumber: 1234, beerName: "good beer", beerBrewer: ""))
     }
 
     override func didReceiveMemoryWarning() {

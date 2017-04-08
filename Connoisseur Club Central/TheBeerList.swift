@@ -9,9 +9,9 @@
 import Foundation
 
 class TheBeerList {
-    var theBeers:[Beer]
+    var theBeers:[Int:Beer] = [:]
     
-    
+    static let sharedInstance = TheBeerList()
     
     init (){
         var arrayOfStrings:[String]?
@@ -25,7 +25,8 @@ class TheBeerList {
         }
         for beer in arrayOfStrings! {
             let beerInfo = beer.components(separatedBy: ",")
-            
+            let currentBeer:Beer = Beer(beerWasTried: false, beerNumber: Int(beerInfo[0])!, beerName: beerInfo[1], beerBrewer: beerInfo[2])
+            theBeers[currentBeer.beerNumber!] = currentBeer
         }
     }
 }

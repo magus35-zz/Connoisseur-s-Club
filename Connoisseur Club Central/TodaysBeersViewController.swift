@@ -13,7 +13,12 @@ class TodaysBeersViewController: UIViewController, UITableViewDelegate, UITableV
     //Outlet for the Table View
     @IBOutlet weak var beerTable: UITableView!
     
-    //Beer listing array
+    //Beer List Singleton
+    var allTheBeers = TheBeerList.sharedInstance
+    var todaysBeers = TodaysBeerList.sharedInstance
+    
+    
+    //List of today's beers
     var daBeers = [Beer]()
 
     
@@ -25,6 +30,9 @@ class TodaysBeersViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for beerNumber in todaysBeers.todaysBeers {
+            daBeers.append(allTheBeers.theBeers[beerNumber]!)
+        }
         
         loadSampleBeerListings()
     }
@@ -115,8 +123,8 @@ class TodaysBeersViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     private func loadSampleBeerListings() {
-        let listing1 = Beer(beerWasTried: true, beerNumber: 1, beerName: "Beer Name")
-        let listing2 = Beer(beerWasTried: false, beerNumber: 9999, beerName: "This is a longer beer name")
+        let listing1 = Beer(beerWasTried: true, beerNumber: 1, beerName: "Beer Name", beerBrewer: "")
+        let listing2 = Beer(beerWasTried: false, beerNumber: 9999, beerName: "This is a longer beer name", beerBrewer: "")
         
         daBeers += [listing1,listing2]
     }
