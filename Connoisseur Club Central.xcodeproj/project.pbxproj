@@ -164,7 +164,6 @@
 			children = (
 				99C52BAC1E6E26C300B7F9F6 /* Main.storyboard */,
 				99C52BA61E6E26C300B7F9F6 /* AppDelegate.swift */,
-				99D5D7B81E985B3800096426 /* TheBeerList.csv */,
 				99D5D7BE1E98601D00096426 /* Data Model */,
 				9986684E1E8DA6E20094FFC0 /* Quick Add */,
 				9986684D1E8DA6DB0094FFC0 /* Beer List */,
@@ -202,6 +201,7 @@
 				99C52BD81E6E3FA200B7F9F6 /* Beer.swift */,
 				99D5D7BA1E985B5000096426 /* TheBeerList.swift */,
 				99D5D7BC1E98601200096426 /* TodaysBeerList.swift */,
+				99D5D7B81E985B3800096426 /* TheBeerList.csv */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";

@@ -11,6 +11,16 @@ import Foundation
 class TheBeerList {
     var theBeers:[Int:Beer] = [:]
     
+    var beerKeys:[Int] {
+        get {
+            var theKeys:[Int] = []
+            for key in theBeers.keys {
+                theKeys.append(key)
+            }
+            return theKeys
+        }
+    }
+    
     static let sharedInstance = TheBeerList()
     
     init (){
