@@ -13,4 +13,7 @@ struct Constants {
         static let BeerListing = "BeerListingTableViewCell"
         static let SearchResult = "SearchResultTableViewCell"
     }
+    struct Segues {
+        static let MyBeers = "showMyBeers"
+    }
 }

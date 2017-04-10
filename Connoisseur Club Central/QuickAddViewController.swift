@@ -56,6 +56,9 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
+    
+    //MARK: Actions
+    
     //Resign first responder on search bar when search button is tapped
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
