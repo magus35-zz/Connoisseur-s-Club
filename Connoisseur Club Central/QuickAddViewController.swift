@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuickAddViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class QuickAddViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var quickAddSearchBar: UISearchBar!
     @IBOutlet weak var quickAddTable: UITableView!
@@ -49,6 +49,11 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.searchResultLabel.text = "\(theBeer.beerName!), \(theBeer.beerNumber!), \(theBeer.beerWasTried!)"
         
         return cell
+    }
+    
+    //Resign first responder on search barwhen search bar is tapped
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 

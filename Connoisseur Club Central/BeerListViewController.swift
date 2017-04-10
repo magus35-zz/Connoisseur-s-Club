@@ -36,14 +36,17 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        //Get a cell of type BeerListingTableViewCell
         guard let cell = self.beerListTable.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? BeerListingTableViewCell
             else {
                 fatalError("The dequeued cell is not an instance of BeerListingTableViewCell")
         }
         
-        
+        //Fetch the appropriate beer from the beer list
         let listing = beerList.theBeers[beerList.beerKeys[indexPath.row]]!
-        // Configure the cell...
+        
+        
+        //Populate the cell
         if listing.beerWasTried == true {
             cell.beerWasTriedLabel.text = "✅"
         } else {
@@ -55,7 +58,10 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
 
-
+    //Resign first responder when search bar is tapped
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 
 }
 
