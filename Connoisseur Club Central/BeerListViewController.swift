@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class BeerListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
@@ -14,18 +15,17 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var searchTypeSelector: UISegmentedControl!
     @IBOutlet weak var beerListTable: UITableView!
     
+    //Singleton for the whole beer list
     var beerList = TheBeerList.sharedInstance
     
-    var cellReuseIdentifier = "BeerListCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // number of rows in table view
@@ -37,7 +37,7 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //Get a cell of type BeerListingTableViewCell
-        guard let cell = self.beerListTable.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? BeerListingTableViewCell
+        guard let cell = self.beerListTable.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.BeerListing, for: indexPath) as? BeerListingTableViewCell
             else {
                 fatalError("The dequeued cell is not an instance of BeerListingTableViewCell")
         }

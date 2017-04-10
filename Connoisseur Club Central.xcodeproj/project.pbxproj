@@ -14,6 +14,8 @@
 		9986684C1E8DA6D10094FFC0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9986684B1E8DA6D10094FFC0 /* ProfileViewController.swift */; };
 		998668521E8DAA6D0094FFC0 /* TodaysBeersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998668511E8DAA6D0094FFC0 /* TodaysBeersViewController.swift */; };
 		998668541E8DF4AC0094FFC0 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998668531E8DF4AC0094FFC0 /* SearchResultTableViewCell.swift */; };
+		998775501E9B6DA80003B13F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9987754F1E9B6DA80003B13F /* GoogleService-Info.plist */; };
+		998775521E9C23490003B13F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998775511E9C23490003B13F /* Constants.swift */; };
 		99C52BA71E6E26C300B7F9F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BA61E6E26C300B7F9F6 /* AppDelegate.swift */; };
 		99C52BA91E6E26C300B7F9F6 /* QuickAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BA81E6E26C300B7F9F6 /* QuickAddViewController.swift */; };
 		99C52BAB1E6E26C300B7F9F6 /* BeerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BAA1E6E26C300B7F9F6 /* BeerListViewController.swift */; };
@@ -59,6 +61,8 @@
 		9986684B1E8DA6D10094FFC0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		998668511E8DAA6D0094FFC0 /* TodaysBeersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodaysBeersViewController.swift; sourceTree = "<group>"; };
 		998668531E8DF4AC0094FFC0 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		9987754F1E9B6DA80003B13F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		998775511E9C23490003B13F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		99C52BA31E6E26C300B7F9F6 /* Connoisseur Club Central.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Connoisseur Club Central.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99C52BA61E6E26C300B7F9F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99C52BA81E6E26C300B7F9F6 /* QuickAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddViewController.swift; sourceTree = "<group>"; };
@@ -111,40 +115,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9986684D1E8DA6DB0094FFC0 /* Beer List */ = {
-			isa = PBXGroup;
-			children = (
-				99C52BAA1E6E26C300B7F9F6 /* BeerListViewController.swift */,
-			);
-			name = "Beer List";
-			sourceTree = "<group>";
-		};
-		9986684E1E8DA6E20094FFC0 /* Quick Add */ = {
-			isa = PBXGroup;
-			children = (
-				99C52BA81E6E26C300B7F9F6 /* QuickAddViewController.swift */,
-			);
-			name = "Quick Add";
-			sourceTree = "<group>";
-		};
-		9986684F1E8DA6E80094FFC0 /* Today's Beers */ = {
-			isa = PBXGroup;
-			children = (
-				998668511E8DAA6D0094FFC0 /* TodaysBeersViewController.swift */,
-			);
-			name = "Today's Beers";
-			sourceTree = "<group>";
-		};
-		998668501E8DA6F90094FFC0 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				9931F85F1E930A19005D9D20 /* ProfilePic.jpg */,
-				9986684B1E8DA6D10094FFC0 /* ProfileViewController.swift */,
-				9931F8611E931B16005D9D20 /* MyBeersViewController.swift */,
-			);
-			name = Profile;
-			sourceTree = "<group>";
-		};
 		998668551E8DF4BD0094FFC0 /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +122,18 @@
 				998668531E8DF4AC0094FFC0 /* SearchResultTableViewCell.swift */,
 			);
 			name = "Table Cells";
+			sourceTree = "<group>";
+		};
+		998775531E9C23630003B13F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				99C52BA81E6E26C300B7F9F6 /* QuickAddViewController.swift */,
+				99C52BAA1E6E26C300B7F9F6 /* BeerListViewController.swift */,
+				998668511E8DAA6D0094FFC0 /* TodaysBeersViewController.swift */,
+				9986684B1E8DA6D10094FFC0 /* ProfileViewController.swift */,
+				9931F8611E931B16005D9D20 /* MyBeersViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		99C52B9A1E6E26C300B7F9F6 = {
@@ -181,15 +163,16 @@
 			children = (
 				99C52BAC1E6E26C300B7F9F6 /* Main.storyboard */,
 				99C52BA61E6E26C300B7F9F6 /* AppDelegate.swift */,
+				998775511E9C23490003B13F /* Constants.swift */,
 				99D5D7BE1E98601D00096426 /* Data Model */,
-				9986684E1E8DA6E20094FFC0 /* Quick Add */,
-				9986684D1E8DA6DB0094FFC0 /* Beer List */,
-				9986684F1E8DA6E80094FFC0 /* Today's Beers */,
-				998668501E8DA6F90094FFC0 /* Profile */,
-				99C52BAF1E6E26C300B7F9F6 /* Assets.xcassets */,
+				998775531E9C23630003B13F /* ViewControllers */,
 				998668551E8DF4BD0094FFC0 /* Table Cells */,
+				99C52BAF1E6E26C300B7F9F6 /* Assets.xcassets */,
+				9931F85F1E930A19005D9D20 /* ProfilePic.jpg */,
 				99C52BB11E6E26C300B7F9F6 /* LaunchScreen.storyboard */,
+				99D5D7B81E985B3800096426 /* TheBeerList.csv */,
 				99C52BB41E6E26C300B7F9F6 /* Info.plist */,
+				9987754F1E9B6DA80003B13F /* GoogleService-Info.plist */,
 			);
 			path = "Connoisseur Club Central";
 			sourceTree = "<group>";
@@ -218,7 +201,6 @@
 				99C52BD81E6E3FA200B7F9F6 /* Beer.swift */,
 				99D5D7BA1E985B5000096426 /* TheBeerList.swift */,
 				99D5D7BC1E98601200096426 /* TodaysBeerList.swift */,
-				99D5D7B81E985B3800096426 /* TheBeerList.csv */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -323,6 +305,7 @@
 				TargetAttributes = {
 					99C52BA21E6E26C300B7F9F6 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = UZ35626636;
 						ProvisioningStyle = Automatic;
 					};
 					99C52BB81E6E26C300B7F9F6 = {
@@ -367,6 +350,7 @@
 				99C52BB01E6E26C300B7F9F6 /* Assets.xcassets in Resources */,
 				9931F8601E930A19005D9D20 /* ProfilePic.jpg in Resources */,
 				99C52BAE1E6E26C300B7F9F6 /* Main.storyboard in Resources */,
+				998775501E9B6DA80003B13F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +524,7 @@
 				998668521E8DAA6D0094FFC0 /* TodaysBeersViewController.swift in Sources */,
 				99C52BA91E6E26C300B7F9F6 /* QuickAddViewController.swift in Sources */,
 				99D5D7BB1E985B5000096426 /* TheBeerList.swift in Sources */,
+				998775521E9C23490003B13F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +675,7 @@
 			baseConfigurationReference = 0F239D2FE018428C34A4A5CF /* Pods-Connoisseur Club Central.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UZ35626636;
 				INFOPLIST_FILE = "Connoisseur Club Central/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Joecean.Connoisseur-Club-Central";
@@ -703,6 +689,7 @@
 			baseConfigurationReference = 1A2FB9D5116025299C7796C2 /* Pods-Connoisseur Club Central.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UZ35626636;
 				INFOPLIST_FILE = "Connoisseur Club Central/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Joecean.Connoisseur-Club-Central";

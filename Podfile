@@ -7,7 +7,7 @@ target 'Connoisseur Club Central' do
 
   # Pods for Connoisseur Club Central
  pod 'Firebase/Core'
-
+ pod 'Firebase/Database'
 
   target 'Connoisseur Club CentralTests' do
     inherit! :search_paths
