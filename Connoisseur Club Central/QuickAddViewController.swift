@@ -43,13 +43,13 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
     //Create a cell for each row in table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //Try to set the cell, otherwise catch the error
+        //Try to get a cell of type SearchResultTableViewCell, otherwise catch the error
         guard let cell = self.quickAddTable.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.SearchResult, for: indexPath) as? SearchResultTableViewCell
             else {
                 fatalError("The dequeued cell is not an instance of \(Constants.CellIdentifiers.SearchResult)")
         }
         
-        //Format cell
+        //Fetch appropriate beer and populate cell with data
         let theBeer = searchResults[indexPath.row]
         cell.searchResultLabel.text = "\(theBeer.beerName!), \(theBeer.beerNumber!), \(theBeer.beerWasTried!)"
         

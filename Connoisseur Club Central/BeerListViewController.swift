@@ -11,6 +11,8 @@ import Firebase
 
 class BeerListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
+    
+    //MARK: Properties
     @IBOutlet weak var beerListSearchBar: UISearchBar!
     @IBOutlet weak var searchTypeSelector: UISegmentedControl!
     @IBOutlet weak var beerListTable: UITableView!
@@ -19,24 +21,27 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     var beerList = TheBeerList.sharedInstance
     
     
+    //MARK: ViewController maintenance
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    // number of rows in table view
+    
+    //MARK: Protocol Required Methods
+    
+    //Set number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.beerList.theBeers.count
     }
     
-    // create a cell for each table view row
+    //Create a cell for each row in table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //Get a cell of type BeerListingTableViewCell
+        //Try to get a cell of type SearchResultTableViewCell, otherwise catch the error
         guard let cell = self.beerListTable.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.BeerListing, for: indexPath) as? BeerListingTableViewCell
             else {
                 fatalError("The dequeued cell is not an instance of BeerListingTableViewCell")
@@ -46,7 +51,7 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         let listing = beerList.theBeers[beerList.beerKeys[indexPath.row]]!
         
         
-        //Populate the cell
+        //Populate cell with data
         if listing.beerWasTried == true {
             cell.beerWasTriedLabel.text = "✅"
         } else {
@@ -58,7 +63,7 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
 
-    //Resign first responder when search bar is tapped
+    //Resign first responder on search bar when search button is tapped
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
