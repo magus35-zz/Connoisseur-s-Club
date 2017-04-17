@@ -11,6 +11,10 @@ import Foundation
 class TheBeerList {
     var theBeers:[Int:Beer] = [:]
     
+    var theBeers2:[String:[String:String]] = [:]
+    
+    
+    
     var beerKeys:[Int] {
         get {
             var theKeys:[Int] = []

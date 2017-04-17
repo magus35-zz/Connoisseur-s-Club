@@ -13,9 +13,9 @@ import Firebase
 class QuickAddViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     //MARK: Properties
+    
     @IBOutlet weak var quickAddSearchBar: UISearchBar!
     @IBOutlet weak var quickAddTable: UITableView!
-    
     
     //Contain the searchResults of the user's search
     var searchResults:[Beer] = []
@@ -26,6 +26,21 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         //Sample data for #testing
         searchResults.append(Beer(beerWasTried: true, beerNumber: 1234, beerName: "good beer", beerBrewer: ""))
+        
+        
+        let oneBeerEntry = ["beerNumber":"42", "beerName":"Hop craziness", "beerBrewer":"NotBud"]
+        
+        TheBeerList.sharedInstance.theBeers2["42"] = oneBeerEntry
+        print ("Added fake beer")
+        
+        do {
+            let data = try JSONSerialization.data(withJSONObject: TheBeerList.sharedInstance.theBeers2)
+            let str = String(data: data, encoding: .utf8)
+            print(str!)
+        } catch let e {
+                print("Error: \(e)")
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

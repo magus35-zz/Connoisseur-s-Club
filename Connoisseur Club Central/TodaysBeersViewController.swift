@@ -12,6 +12,7 @@ import Firebase
 class TodaysBeersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK: Properties
+    
     @IBOutlet weak var beerTable: UITableView!
     
     var allTheBeers = TheBeerList.sharedInstance
@@ -22,6 +23,7 @@ class TodaysBeersViewController: UIViewController, UITableViewDelegate, UITableV
 
     
     //MARK: ViewController Maintenance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         for beerNumber in todaysBeers.todaysBeers {
