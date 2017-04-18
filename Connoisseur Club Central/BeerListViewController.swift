@@ -52,11 +52,6 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         //Populate cell with data
-        if listing.beerWasTried == true {
-            cell.beerWasTriedLabel.text = "✅"
-        } else {
-            cell.beerWasTriedLabel.text = ""
-        }
         cell.beerNumberLabel.text = "#\(listing.beerNumber!)"
         cell.beerNameLabel.text = listing.beerName
         

@@ -25,7 +25,7 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         //Sample data for #testing
-        searchResults.append(Beer(beerWasTried: true, beerNumber: 1234, beerName: "good beer", beerBrewer: ""))
+        searchResults.append(Beer(beerNumber: 1234, beerName: "good beer", beerBrewer: ""))
         
         
         let oneBeerEntry = ["beerNumber":"42", "beerName":"Hop craziness", "beerBrewer":"NotBud"]
@@ -66,7 +66,7 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
         
         //Fetch appropriate beer and populate cell with data
         let theBeer = searchResults[indexPath.row]
-        cell.searchResultLabel.text = "\(theBeer.beerName!), \(theBeer.beerNumber!), \(theBeer.beerWasTried!)"
+        cell.searchResultLabel.text = "\(theBeer.beerName!), \(theBeer.beerNumber!)"
         
         return cell
     }

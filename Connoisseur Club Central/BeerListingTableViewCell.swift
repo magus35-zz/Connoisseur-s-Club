@@ -10,7 +10,6 @@ import UIKit
 
 class BeerListingTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var beerWasTriedLabel: UILabel!
     @IBOutlet weak var beerNumberLabel: UILabel!
     @IBOutlet weak var beerNameLabel: UILabel!
     

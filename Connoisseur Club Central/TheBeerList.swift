@@ -39,7 +39,7 @@ class TheBeerList {
         }
         for beer in arrayOfStrings! {
             let beerInfo = beer.components(separatedBy: ",")
-            let currentBeer:Beer = Beer(beerWasTried: false, beerNumber: Int(beerInfo[0])!, beerName: beerInfo[1], beerBrewer: beerInfo[2])
+            let currentBeer:Beer = Beer(beerNumber: Int(beerInfo[0])!, beerName: beerInfo[1], beerBrewer: beerInfo[2])
             theBeers[currentBeer.beerNumber!] = currentBeer
         }
     }

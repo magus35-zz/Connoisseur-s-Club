@@ -39,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ePp-as-bib" id="FA1-G6-eDk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x9P-Z0-JSq" userLabel="Beer Name Frame">
@@ -162,7 +162,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Dr-xg-Fz2" id="l6S-6W-33K">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✅" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPL-eZ-rSY">
@@ -196,7 +196,6 @@
                                         <connections>
                                             <outlet property="beerNameLabel" destination="ZLL-am-gdp" id="joY-fw-rbq"/>
                                             <outlet property="beerNumberLabel" destination="yYT-rj-PFK" id="6CI-ti-EDE"/>
-                                            <outlet property="beerWasTriedLabel" destination="xPL-eZ-rSY" id="baQ-7P-xVQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -386,7 +385,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kSw-IQ-gZW" id="Iar-NZ-vNx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✅" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHw-SQ-AVl">
@@ -420,7 +419,6 @@
                                         <connections>
                                             <outlet property="beerNameLabel" destination="nYZ-Tw-vpw" id="he2-1P-vx4"/>
                                             <outlet property="beerNumberLabel" destination="4XE-YQ-H24" id="e6K-xa-tcF"/>
-                                            <outlet property="beerWasTriedLabel" destination="iHw-SQ-AVl" id="1b9-MS-b3C"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
