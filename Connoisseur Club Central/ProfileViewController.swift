@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     //MARK: ViewController Maintenance
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
     }
 
     override func didReceiveMemoryWarning() {

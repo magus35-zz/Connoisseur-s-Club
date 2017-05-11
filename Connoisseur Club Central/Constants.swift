@@ -12,6 +12,7 @@ struct Constants {
     struct CellIdentifiers {
         static let BeerListing = "BeerListingTableViewCell"
         static let SearchResult = "SearchResultTableViewCell"
+        static let FailedSearch = "SearchFailedTableViewCell"
     }
     struct Segues {
         static let MyBeers = "showMyBeers"

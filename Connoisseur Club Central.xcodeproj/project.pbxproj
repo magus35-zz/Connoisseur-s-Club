@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		2C3731EBD78A5F30FA3CA378 /* Pods_Connoisseur_Club_CentralUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8885F15D55BBA745F6C0D392 /* Pods_Connoisseur_Club_CentralUITests.framework */; };
 		68E820BF85ACC0326B2B8F81 /* Pods_Connoisseur_Club_CentralTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7DB8C7B12A7E84A3724AB4 /* Pods_Connoisseur_Club_CentralTests.framework */; };
+		990EA95A1EC30070002D0842 /* BeerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990EA9591EC30070002D0842 /* BeerList.swift */; };
 		9931F8601E930A19005D9D20 /* ProfilePic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9931F85F1E930A19005D9D20 /* ProfilePic.jpg */; };
 		9931F8621E931B16005D9D20 /* MyBeersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9931F8611E931B16005D9D20 /* MyBeersViewController.swift */; };
+		996D3AE51EC3EF4E007C3DA5 /* Connoisseur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D3AE41EC3EF4E007C3DA5 /* Connoisseur.swift */; };
 		9986684C1E8DA6D10094FFC0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9986684B1E8DA6D10094FFC0 /* ProfileViewController.swift */; };
 		998668521E8DAA6D0094FFC0 /* TodaysBeersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998668511E8DAA6D0094FFC0 /* TodaysBeersViewController.swift */; };
 		998668541E8DF4AC0094FFC0 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998668531E8DF4AC0094FFC0 /* SearchResultTableViewCell.swift */; };
@@ -27,8 +29,6 @@
 		99C52BD71E6E27B800B7F9F6 /* BeerListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BD61E6E27B800B7F9F6 /* BeerListingTableViewCell.swift */; };
 		99C52BD91E6E3FA200B7F9F6 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BD81E6E3FA200B7F9F6 /* Beer.swift */; };
 		99D5D7B91E985B3800096426 /* TheBeerList.csv in Resources */ = {isa = PBXBuildFile; fileRef = 99D5D7B81E985B3800096426 /* TheBeerList.csv */; };
-		99D5D7BB1E985B5000096426 /* TheBeerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D5D7BA1E985B5000096426 /* TheBeerList.swift */; };
-		99D5D7BD1E98601200096426 /* TodaysBeerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D5D7BC1E98601200096426 /* TodaysBeerList.swift */; };
 		E5FC4CC4AA7C7518C89DE5BA /* Pods_Connoisseur_Club_Central.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436DDFD46741864D5A86732D /* Pods_Connoisseur_Club_Central.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,8 +56,10 @@
 		7D7DB8C7B12A7E84A3724AB4 /* Pods_Connoisseur_Club_CentralTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connoisseur_Club_CentralTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D2FC08BCD342B7D7E314D2 /* Pods-Connoisseur Club CentralTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connoisseur Club CentralTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Connoisseur Club CentralTests/Pods-Connoisseur Club CentralTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8885F15D55BBA745F6C0D392 /* Pods_Connoisseur_Club_CentralUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connoisseur_Club_CentralUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		990EA9591EC30070002D0842 /* BeerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerList.swift; sourceTree = "<group>"; };
 		9931F85F1E930A19005D9D20 /* ProfilePic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ProfilePic.jpg; sourceTree = "<group>"; };
 		9931F8611E931B16005D9D20 /* MyBeersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBeersViewController.swift; sourceTree = "<group>"; };
+		996D3AE41EC3EF4E007C3DA5 /* Connoisseur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connoisseur.swift; sourceTree = "<group>"; };
 		9986684B1E8DA6D10094FFC0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		998668511E8DAA6D0094FFC0 /* TodaysBeersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodaysBeersViewController.swift; sourceTree = "<group>"; };
 		998668531E8DF4AC0094FFC0 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -80,8 +82,6 @@
 		99C52BD61E6E27B800B7F9F6 /* BeerListingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerListingTableViewCell.swift; sourceTree = "<group>"; };
 		99C52BD81E6E3FA200B7F9F6 /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		99D5D7B81E985B3800096426 /* TheBeerList.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TheBeerList.csv; sourceTree = "<group>"; };
-		99D5D7BA1E985B5000096426 /* TheBeerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheBeerList.swift; sourceTree = "<group>"; };
-		99D5D7BC1E98601200096426 /* TodaysBeerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodaysBeerList.swift; sourceTree = "<group>"; };
 		AA37F94CF319798AA7437C0B /* Pods-Connoisseur Club CentralUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connoisseur Club CentralUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Connoisseur Club CentralUITests/Pods-Connoisseur Club CentralUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B30263A7BD8517BB97E96C85 /* Pods-Connoisseur Club CentralUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connoisseur Club CentralUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Connoisseur Club CentralUITests/Pods-Connoisseur Club CentralUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EDC5CDD4705F3420A94130DF /* Pods-Connoisseur Club CentralTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connoisseur Club CentralTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Connoisseur Club CentralTests/Pods-Connoisseur Club CentralTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,9 +198,9 @@
 		99D5D7BE1E98601D00096426 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				996D3AE41EC3EF4E007C3DA5 /* Connoisseur.swift */,
 				99C52BD81E6E3FA200B7F9F6 /* Beer.swift */,
-				99D5D7BA1E985B5000096426 /* TheBeerList.swift */,
-				99D5D7BC1E98601200096426 /* TodaysBeerList.swift */,
+				990EA9591EC30070002D0842 /* BeerList.swift */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -515,15 +515,15 @@
 			files = (
 				99C52BD71E6E27B800B7F9F6 /* BeerListingTableViewCell.swift in Sources */,
 				99C52BAB1E6E26C300B7F9F6 /* BeerListViewController.swift in Sources */,
-				99D5D7BD1E98601200096426 /* TodaysBeerList.swift in Sources */,
 				998668541E8DF4AC0094FFC0 /* SearchResultTableViewCell.swift in Sources */,
 				99C52BA71E6E26C300B7F9F6 /* AppDelegate.swift in Sources */,
 				9986684C1E8DA6D10094FFC0 /* ProfileViewController.swift in Sources */,
 				99C52BD91E6E3FA200B7F9F6 /* Beer.swift in Sources */,
 				9931F8621E931B16005D9D20 /* MyBeersViewController.swift in Sources */,
 				998668521E8DAA6D0094FFC0 /* TodaysBeersViewController.swift in Sources */,
+				996D3AE51EC3EF4E007C3DA5 /* Connoisseur.swift in Sources */,
+				990EA95A1EC30070002D0842 /* BeerList.swift in Sources */,
 				99C52BA91E6E26C300B7F9F6 /* QuickAddViewController.swift in Sources */,
-				99D5D7BB1E985B5000096426 /* TheBeerList.swift in Sources */,
 				998775521E9C23490003B13F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
