@@ -13,7 +13,13 @@ import WebKit
 class TodaysBeersViewController: UIViewController, WKUIDelegate {
 
     //MARK: Outlets & Properties
+    //
+    //Outlets
     @IBOutlet weak var todaysBeersNavigationItem: UINavigationItem!
+    
+    //Properties
+    var theServer = Server.sharedInstance
+    
     
     //MARK: ViewController Methods
     

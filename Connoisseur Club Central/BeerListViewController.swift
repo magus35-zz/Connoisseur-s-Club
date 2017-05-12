@@ -13,11 +13,14 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
 
     
     //MARK: Outlets & Properties
+    //
+    //Outlets
     @IBOutlet weak var beerListSearchBar: UISearchBar!
     @IBOutlet weak var beerListTable: UITableView!
     @IBOutlet weak var beerListNavigationItem: UINavigationItem!
     
-    //Singleton for the whole beer list
+    //Properties
+    var theServer = Server.sharedInstance
     
     
     //MARK: ViewController maintenance
@@ -29,6 +32,7 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
 
     
     //MARK: Protocol Required Methods
+    //
     
     //Set number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

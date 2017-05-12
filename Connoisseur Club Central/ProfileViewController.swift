@@ -13,8 +13,11 @@ class ProfileViewController: UIViewController {
 
     //MARK: Outlets & Properties
     //
+    //Outlets
     @IBOutlet weak var profileNavigationItem: UINavigationItem!
     
+    //Properties
+    var theServer = Server.sharedInstance
     
     //MARK: ViewController Maintenance
     //
@@ -22,10 +25,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         profileNavigationItem.title = "Profile"
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     

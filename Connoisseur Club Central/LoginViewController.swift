@@ -11,22 +11,26 @@ import UIKit
 class LoginViewController: UIViewController {
 
     //MARK: Outlets & Properties
+    //
+    //Outlets
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     @IBOutlet weak var statusLabel: UILabel!
     
-    
+    //Properties
     var theServer = Server.sharedInstance
     
     
     //MARK: View Controller methods
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
         registerSampleUsers()
     }
     
     //MARK: Actions
+    //
     @IBAction func userDidTapLogin(_ sender: UIButton) {
         if inputIsValid() {
             let connoisseurCredentials = Credentials(username: usernameField.text!, password: passwordField.text!)
@@ -43,6 +47,7 @@ class LoginViewController: UIViewController {
     
     
     //MARK: Helper functions
+    //
     func inputIsValid() -> Bool {
         if usernameField.text == "" || passwordField.text == "" {
             return false

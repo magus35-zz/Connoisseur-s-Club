@@ -11,6 +11,13 @@ import Firebase
 
 class MyBeersViewController: UIViewController, UISearchBarDelegate {
 
+    //Outlets & Properties
+    //
+    //Outlets
+    
+    //Properties
+    var theServer = Server.sharedInstance
+    
     //MARK: ViewController Maintenance
     override func viewDidLoad() {
         super.viewDidLoad()
