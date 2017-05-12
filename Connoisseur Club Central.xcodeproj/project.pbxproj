@@ -12,6 +12,8 @@
 		990EA95A1EC30070002D0842 /* BeerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990EA9591EC30070002D0842 /* BeerList.swift */; };
 		9931F8601E930A19005D9D20 /* ProfilePic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9931F85F1E930A19005D9D20 /* ProfilePic.jpg */; };
 		9931F8621E931B16005D9D20 /* MyBeersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9931F8611E931B16005D9D20 /* MyBeersViewController.swift */; };
+		9944E6C61EC678E90080E2CD /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9944E6C41EC678E90080E2CD /* RootNavigationController.swift */; };
+		9944E6C71EC678E90080E2CD /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9944E6C51EC678E90080E2CD /* RootTabBarController.swift */; };
 		996D3AE51EC3EF4E007C3DA5 /* Connoisseur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D3AE41EC3EF4E007C3DA5 /* Connoisseur.swift */; };
 		9986684C1E8DA6D10094FFC0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9986684B1E8DA6D10094FFC0 /* ProfileViewController.swift */; };
 		998668521E8DAA6D0094FFC0 /* TodaysBeersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998668511E8DAA6D0094FFC0 /* TodaysBeersViewController.swift */; };
@@ -61,6 +63,8 @@
 		990EA9591EC30070002D0842 /* BeerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerList.swift; sourceTree = "<group>"; };
 		9931F85F1E930A19005D9D20 /* ProfilePic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ProfilePic.jpg; sourceTree = "<group>"; };
 		9931F8611E931B16005D9D20 /* MyBeersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBeersViewController.swift; sourceTree = "<group>"; };
+		9944E6C41EC678E90080E2CD /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		9944E6C51EC678E90080E2CD /* RootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		996D3AE41EC3EF4E007C3DA5 /* Connoisseur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connoisseur.swift; sourceTree = "<group>"; };
 		9986684B1E8DA6D10094FFC0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		998668511E8DAA6D0094FFC0 /* TodaysBeersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodaysBeersViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 		998775531E9C23630003B13F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9944E6C41EC678E90080E2CD /* RootNavigationController.swift */,
+				9944E6C51EC678E90080E2CD /* RootTabBarController.swift */,
 				99B3C0441EC51B5D0021B29C /* LoginViewController.swift */,
 				99C52BA81E6E26C300B7F9F6 /* QuickAddViewController.swift */,
 				99C52BAA1E6E26C300B7F9F6 /* BeerListViewController.swift */,
@@ -527,6 +533,8 @@
 				9986684C1E8DA6D10094FFC0 /* ProfileViewController.swift in Sources */,
 				99C52BD91E6E3FA200B7F9F6 /* Beer.swift in Sources */,
 				9931F8621E931B16005D9D20 /* MyBeersViewController.swift in Sources */,
+				9944E6C61EC678E90080E2CD /* RootNavigationController.swift in Sources */,
+				9944E6C71EC678E90080E2CD /* RootTabBarController.swift in Sources */,
 				998668521E8DAA6D0094FFC0 /* TodaysBeersViewController.swift in Sources */,
 				996D3AE51EC3EF4E007C3DA5 /* Connoisseur.swift in Sources */,
 				990EA95A1EC30070002D0842 /* BeerList.swift in Sources */,

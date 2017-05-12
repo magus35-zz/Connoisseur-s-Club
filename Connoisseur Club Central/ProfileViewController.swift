@@ -11,10 +11,17 @@ import Firebase
 
 class ProfileViewController: UIViewController {
 
+    //MARK: Outlets & Properties
+    //
+    @IBOutlet weak var profileNavigationItem: UINavigationItem!
+    
+    
     //MARK: ViewController Maintenance
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
+        profileNavigationItem.title = "Profile"
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +30,7 @@ class ProfileViewController: UIViewController {
     
     
     //MARK: Actions
+    //
     
     //Navigate to My Beers View
     @IBAction func userDidPressMyBeers(_ sender: Any) {

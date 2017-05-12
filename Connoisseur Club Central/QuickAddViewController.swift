@@ -13,15 +13,17 @@ import Firebase
 class QuickAddViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     //MARK: Outlets & Properties
+    //
     
     //Outlets
     @IBOutlet var quickAddView: UIView!
     @IBOutlet weak var quickAddSearchBar: UISearchBar!
     @IBOutlet weak var quickAddTable: UITableView!
+    @IBOutlet weak var quickAddNavigationItem: UINavigationItem!
     
-    //Master list of beers
-    var theBeerList = BeerList.sharedInstance
-
+    //Properties
+    var theServer = Server.sharedInstance
+    
     //Contain the searchResults of the user's search
     var searchResults:[Beer?] = []
     
@@ -29,18 +31,17 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: ViewController Maintenance
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !theBeerList.hasReadFromCSV {
-            theBeerList.readBeerFromCSV()
-        }
         
         quickAddSearchBar.keyboardType = .numberPad
         addSearchToolbar(toSearchBar: quickAddSearchBar)
+        quickAddNavigationItem.title = "Quick Add"
         
         self.automaticallyAdjustsScrollViewInsets = false
     }
     
     
     //MARK: Table View Methods
+    //
     
     //Set number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,7 +80,7 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
     //Dismiss keyboard when user taps the Search button on the search field's keyboard toolbar
     func userDidPressSearchButton() -> Void {
         searchResults.removeAll()
-        searchResults.append(theBeerList.getBeer(withNumber: Int(quickAddSearchBar.text!)!))
+        searchResults.append(theServer.requestBeer(withNumber: Int(quickAddSearchBar.text!)!))
         quickAddTable.reloadData()
         quickAddSearchBar.resignFirstResponder()
     }

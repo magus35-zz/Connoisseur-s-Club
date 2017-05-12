@@ -12,6 +12,10 @@ class RootTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewControllers?[0].navigationItem.title = "Quick Add"
+        viewControllers?[1].navigationItem.title = "Beer List"
+        viewControllers?[2].navigationItem.title = "Today's Beers"
+        viewControllers?[3].navigationItem.title = "Profile"
 
         // Do any additional setup after loading the view.
     }

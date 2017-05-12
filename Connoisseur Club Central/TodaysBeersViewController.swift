@@ -13,16 +13,14 @@ import WebKit
 class TodaysBeersViewController: UIViewController, WKUIDelegate {
 
     //MARK: Outlets & Properties
-    
-    var petesView: WKWebView!
-
+    @IBOutlet weak var todaysBeersNavigationItem: UINavigationItem!
     
     //MARK: ViewController Methods
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        todaysBeersNavigationItem.title = "Today's Beers"
         
         //let theURL = URL(string:"http://www.petesbrassrail.com/FrameSpecials.aspx")
         

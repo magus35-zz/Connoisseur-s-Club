@@ -151,6 +151,7 @@
                     <tabBarItem key="tabBarItem" title="Quick Add" image="first" id="acW-dT-cKf" userLabel="Quick Add"/>
                     <navigationItem key="navigationItem" title="Quick Add" id="rNU-9C-fDO"/>
                     <connections>
+                        <outlet property="quickAddNavigationItem" destination="rNU-9C-fDO" id="dej-T4-OQf"/>
                         <outlet property="quickAddSearchBar" destination="jOf-OO-GFM" id="mwz-lQ-xtr"/>
                         <outlet property="quickAddTable" destination="jqz-g9-cbf" id="NGe-Ji-iyY"/>
                         <outlet property="quickAddView" destination="tsR-hK-woN" id="g25-8d-idc"/>
@@ -175,6 +176,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Today's Beers" id="DKh-dh-de4" userLabel="Today's Beers"/>
                     <navigationItem key="navigationItem" title="Today's Beers" id="Y1w-ac-JU7"/>
+                    <connections>
+                        <outlet property="todaysBeersNavigationItem" destination="Y1w-ac-JU7" id="QId-aR-kJK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sp1-mW-eMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,14 +196,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWJ-QI-Dkv">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="admin" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWJ-QI-Dkv">
                                 <rect key="frame" x="108" y="211" width="251" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yn0-aH-omc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="pass" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yn0-aH-omc">
                                 <rect key="frame" x="108" y="249" width="251" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -349,6 +353,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" id="3sM-oU-gTI" userLabel="Profile"/>
                     <navigationItem key="navigationItem" title="Profile" id="k1Q-Mg-OIx"/>
                     <connections>
+                        <outlet property="profileNavigationItem" destination="k1Q-Mg-OIx" id="F7o-9y-6qS"/>
                         <segue destination="ZHb-Oj-nQX" kind="show" identifier="showMyBeersSegue" id="GWB-BB-15N"/>
                     </connections>
                 </viewController>
@@ -469,6 +474,7 @@
                     <navigationItem key="navigationItem" title="Beer List" id="Olv-dl-IMe"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="beerListNavigationItem" destination="Olv-dl-IMe" id="3xr-79-kff"/>
                         <outlet property="beerListSearchBar" destination="OXa-Oo-0QE" id="Zza-JU-JmJ"/>
                         <outlet property="beerListTable" destination="TTi-Ce-mex" id="4sC-9Y-sRf"/>
                     </connections>

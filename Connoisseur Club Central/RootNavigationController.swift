@@ -8,10 +8,7 @@
 
 import UIKit
 
-class RootNavigationController: UINavigationController {
-
-    var loggedInConnoisseur:Connoisseur = Connoisseur()
-    
+class RootNavigationController: UINavigationController {    
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

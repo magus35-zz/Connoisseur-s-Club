@@ -14,18 +14,17 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     
     //MARK: Outlets & Properties
     @IBOutlet weak var beerListSearchBar: UISearchBar!
-    @IBOutlet weak var searchTypeSelector: UISegmentedControl!
     @IBOutlet weak var beerListTable: UITableView!
+    @IBOutlet weak var beerListNavigationItem: UINavigationItem!
     
     //Singleton for the whole beer list
-    var theBeerList = BeerList.sharedInstance
     
     
     //MARK: ViewController maintenance
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
-
+        beerListNavigationItem.title = "Beer List"
     }
 
     
@@ -33,7 +32,7 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     
     //Set number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.theBeerList.getBeerCount()
+        return 0
     }
     
     //Create a cell for each row in table view

@@ -15,14 +15,16 @@ struct Credentials {
 
 class Server {
     //MARK: Properties
+    //
     private var allTheInformation:[Credentials:Connoisseur] = [:]
     private var authenticatedUser:Connoisseur?
-    
+    private var theBeerList = BeerList(fromBeerList: true)
     
     static let sharedInstance = Server()
     
     
     //MARK: Accessors
+    //
     func requestConnoisseur(withCredentials creds: Credentials) -> Connoisseur? {
         if let connoisseur = allTheInformation[creds] {
             return connoisseur
@@ -31,8 +33,16 @@ class Server {
         }
     }
     
+    func requestBeerList() -> BeerList {
+        return theBeerList
+    }
+    
+    func requestBeer(withNumber num: Int) -> Beer? {
+        return theBeerList.getBeer(withNumber: num)
+    }
     
     //MARK: Mutators
+    //
     func registerConnoisseur(withCredentials creds: Credentials) -> Void {
         allTheInformation[creds] = Connoisseur()
     }
