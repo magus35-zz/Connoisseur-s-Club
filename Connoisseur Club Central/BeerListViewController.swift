@@ -28,10 +28,6 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
     
     //MARK: Protocol Required Methods
     

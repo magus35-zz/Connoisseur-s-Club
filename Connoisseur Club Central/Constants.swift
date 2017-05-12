@@ -15,6 +15,7 @@ struct Constants {
         static let FailedSearch = "SearchFailedTableViewCell"
     }
     struct Segues {
-        static let MyBeers = "showMyBeers"
+        static let MyBeers = "showMyBeersSegue"
+        static let login = "loginSegue"
     }
 }

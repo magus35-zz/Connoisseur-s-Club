@@ -26,6 +26,8 @@ class Connoisseur {
     private var name:String
     private var connoisseurID:Int
     
+    static let sharedInstance = Connoisseur()
+    
     
     //MARK: Initializers
     init(name: String, connoisseurID: Int) {
@@ -33,6 +35,10 @@ class Connoisseur {
         self.connoisseurID = connoisseurID
     }
     
+    init() {
+        self.name = ""
+        self.connoisseurID = 0
+    }
     
     //MARK: Accessors
     

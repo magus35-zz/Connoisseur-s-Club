@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="adN-KQ-Xom">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XHk-kJ-VbN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -149,6 +149,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Quick Add" image="first" id="acW-dT-cKf" userLabel="Quick Add"/>
+                    <navigationItem key="navigationItem" title="Quick Add" id="rNU-9C-fDO"/>
                     <connections>
                         <outlet property="quickAddSearchBar" destination="jOf-OO-GFM" id="mwz-lQ-xtr"/>
                         <outlet property="quickAddTable" destination="jqz-g9-cbf" id="NGe-Ji-iyY"/>
@@ -173,10 +174,80 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Today's Beers" id="DKh-dh-de4" userLabel="Today's Beers"/>
+                    <navigationItem key="navigationItem" title="Today's Beers" id="Y1w-ac-JU7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sp1-mW-eMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="552.79999999999995" y="877.51124437781118"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="RAZ-1c-Xf9">
+            <objects>
+                <viewController id="XHk-kJ-VbN" customClass="LoginViewController" customModule="Connoisseur_Club_Central" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="220-3H-NAq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rcs-1n-BZf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bKx-xS-y7T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWJ-QI-Dkv">
+                                <rect key="frame" x="108" y="211" width="251" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yn0-aH-omc">
+                                <rect key="frame" x="108" y="249" width="251" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQC-kM-Cx5">
+                                <rect key="frame" x="16" y="216" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g9-DQ-Zij">
+                                <rect key="frame" x="168" y="318" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="userDidTapLogin:" destination="XHk-kJ-VbN" eventType="touchUpInside" id="cav-pJ-Wgt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pe1-IZ-w7y">
+                                <rect key="frame" x="16" y="356" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4D-cs-5Mj">
+                                <rect key="frame" x="16" y="254" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="passwordField" destination="yn0-aH-omc" id="hUD-pG-W7z"/>
+                        <outlet property="statusLabel" destination="Pe1-IZ-w7y" id="yAZ-Gc-9XD"/>
+                        <outlet property="usernameField" destination="aWJ-QI-Dkv" id="qae-0u-xCg"/>
+                        <segue destination="adN-KQ-Xom" kind="show" identifier="loginSegue" id="IBr-1R-I1a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Lt-Bh-cC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2.3999999999999999" y="-1573.7631184407796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WvL-gz-xHl">
@@ -276,16 +347,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="3sM-oU-gTI" userLabel="Profile"/>
-                    <navigationItem key="navigationItem" id="HHt-eB-UCa"/>
+                    <navigationItem key="navigationItem" title="Profile" id="k1Q-Mg-OIx"/>
                     <connections>
-                        <segue destination="ZHb-Oj-nQX" kind="show" identifier="showMyBeers" id="GWB-BB-15N"/>
+                        <segue destination="ZHb-Oj-nQX" kind="show" identifier="showMyBeersSegue" id="GWB-BB-15N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yiR-Hp-bcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1556" y="877.51124437781118"/>
         </scene>
-        <!--My Beers View Controller-->
+        <!--My Beers-->
         <scene sceneID="es3-5T-YCH">
             <objects>
                 <viewController id="ZHb-Oj-nQX" customClass="MyBeersViewController" customModule="Connoisseur_Club_Central" customModuleProvider="target" sceneMemberID="viewController">
@@ -313,6 +384,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="My Beers" id="Y2q-Wr-1FM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="juZ-Ps-B6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -394,6 +466,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Beer List" image="second" id="cPa-gy-q4n" userLabel="Beer List"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Beer List" id="Olv-dl-IMe"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="beerListSearchBar" destination="OXa-Oo-0QE" id="Zza-JU-JmJ"/>

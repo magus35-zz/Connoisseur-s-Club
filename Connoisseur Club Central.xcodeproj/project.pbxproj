@@ -18,6 +18,8 @@
 		998668541E8DF4AC0094FFC0 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998668531E8DF4AC0094FFC0 /* SearchResultTableViewCell.swift */; };
 		998775501E9B6DA80003B13F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9987754F1E9B6DA80003B13F /* GoogleService-Info.plist */; };
 		998775521E9C23490003B13F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998775511E9C23490003B13F /* Constants.swift */; };
+		99B3C0431EC5160B0021B29C /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C0421EC5160B0021B29C /* Server.swift */; };
+		99B3C0451EC51B5D0021B29C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C0441EC51B5D0021B29C /* LoginViewController.swift */; };
 		99C52BA71E6E26C300B7F9F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BA61E6E26C300B7F9F6 /* AppDelegate.swift */; };
 		99C52BA91E6E26C300B7F9F6 /* QuickAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BA81E6E26C300B7F9F6 /* QuickAddViewController.swift */; };
 		99C52BAB1E6E26C300B7F9F6 /* BeerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BAA1E6E26C300B7F9F6 /* BeerListViewController.swift */; };
@@ -65,6 +67,8 @@
 		998668531E8DF4AC0094FFC0 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		9987754F1E9B6DA80003B13F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		998775511E9C23490003B13F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		99B3C0421EC5160B0021B29C /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		99B3C0441EC51B5D0021B29C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		99C52BA31E6E26C300B7F9F6 /* Connoisseur Club Central.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Connoisseur Club Central.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99C52BA61E6E26C300B7F9F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99C52BA81E6E26C300B7F9F6 /* QuickAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 		998775531E9C23630003B13F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				99B3C0441EC51B5D0021B29C /* LoginViewController.swift */,
 				99C52BA81E6E26C300B7F9F6 /* QuickAddViewController.swift */,
 				99C52BAA1E6E26C300B7F9F6 /* BeerListViewController.swift */,
 				998668511E8DAA6D0094FFC0 /* TodaysBeersViewController.swift */,
@@ -201,6 +206,7 @@
 				996D3AE41EC3EF4E007C3DA5 /* Connoisseur.swift */,
 				99C52BD81E6E3FA200B7F9F6 /* Beer.swift */,
 				990EA9591EC30070002D0842 /* BeerList.swift */,
+				99B3C0421EC5160B0021B29C /* Server.swift */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B3C0451EC51B5D0021B29C /* LoginViewController.swift in Sources */,
 				99C52BD71E6E27B800B7F9F6 /* BeerListingTableViewCell.swift in Sources */,
 				99C52BAB1E6E26C300B7F9F6 /* BeerListViewController.swift in Sources */,
 				998668541E8DF4AC0094FFC0 /* SearchResultTableViewCell.swift in Sources */,
@@ -524,6 +531,7 @@
 				996D3AE51EC3EF4E007C3DA5 /* Connoisseur.swift in Sources */,
 				990EA95A1EC30070002D0842 /* BeerList.swift in Sources */,
 				99C52BA91E6E26C300B7F9F6 /* QuickAddViewController.swift in Sources */,
+				99B3C0431EC5160B0021B29C /* Server.swift in Sources */,
 				998775521E9C23490003B13F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
