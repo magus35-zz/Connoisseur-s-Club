@@ -201,14 +201,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="pass" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yn0-aH-omc">
                                 <rect key="frame" x="108" y="249" width="251" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQC-kM-Cx5">
                                 <rect key="frame" x="16" y="216" width="84" height="21"/>
@@ -246,28 +246,12 @@
                         <outlet property="passwordField" destination="yn0-aH-omc" id="hUD-pG-W7z"/>
                         <outlet property="statusLabel" destination="Pe1-IZ-w7y" id="yAZ-Gc-9XD"/>
                         <outlet property="usernameField" destination="aWJ-QI-Dkv" id="qae-0u-xCg"/>
-                        <segue destination="adN-KQ-Xom" kind="show" identifier="loginSegue" id="IBr-1R-I1a"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="loginSegue" id="N5Y-y5-5xZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Lt-Bh-cC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2.3999999999999999" y="-1573.7631184407796"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="WvL-gz-xHl">
-            <objects>
-                <navigationController id="adN-KQ-Xom" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XtR-3f-UB9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="49e-Tb-3d3" kind="relationship" relationship="rootViewController" id="oVr-jn-Vcb"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mvO-KS-NL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1" y="-768"/>
+            <point key="canvasLocation" x="-2" y="-1761"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Pcv-UA-HRd">
@@ -495,15 +479,83 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="wbH-Qn-3NT" kind="relationship" relationship="viewControllers" id="PxN-VU-2OK"/>
-                        <segue destination="6tQ-SC-MJl" kind="relationship" relationship="viewControllers" id="ZGp-RY-nOq"/>
+                        <segue destination="VmL-y4-d5a" kind="relationship" relationship="viewControllers" id="ZRy-M6-eRn"/>
+                        <segue destination="pmP-x4-oXN" kind="relationship" relationship="viewControllers" id="InZ-zZ-IIe"/>
+                        <segue destination="4eH-3z-yjz" kind="relationship" relationship="viewControllers" id="Wbo-NJ-Nb5"/>
+                        <segue destination="nl7-kd-nPA" kind="relationship" relationship="viewControllers" id="1Qf-18-iJd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-2" y="-909"/>
+        </scene>
+        <!--Quick Add-->
+        <scene sceneID="jIu-9Q-A8t">
+            <objects>
+                <navigationController id="pmP-x4-oXN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Quick Add" id="HGa-7D-BEq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Emi-pz-UHb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="2Iu-g5-061"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hQ8-ht-Kga" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1439" y="45"/>
+        </scene>
+        <!--Beer List-->
+        <scene sceneID="Fro-h6-aFJ">
+            <objects>
+                <navigationController id="VmL-y4-d5a" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Beer List" id="coK-5G-aP9"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vbe-wo-BSl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="yTf-1Z-Pvx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihE-cj-fyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-508" y="45"/>
+        </scene>
+        <!--Today's Beers-->
+        <scene sceneID="LVh-Su-p7e">
+            <objects>
+                <navigationController id="4eH-3z-yjz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Today's Beers" id="zf5-FU-UoF"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uoh-DA-LbF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wbH-Qn-3NT" kind="relationship" relationship="rootViewController" id="8AS-n0-Raw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ggb-50-1eK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="45"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="yCS-Wx-EoS">
+            <objects>
+                <navigationController id="nl7-kd-nPA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="OmJ-0s-laH"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hCN-I9-hLJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6tQ-SC-MJl" kind="relationship" relationship="rootViewController" id="GUs-32-G96"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ilu-6Q-IeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1556" y="45"/>
         </scene>
     </scenes>
     <resources>
