@@ -18,9 +18,20 @@ class Server {
     //
     private var allTheInformation:[Credentials:Connoisseur] = [:]
     private var authenticatedUser:Connoisseur?
-    private var theBeerList = BeerList(fromBeerList: true)
+    private var theBeerList:BeerList
     
     static let sharedInstance = Server()
+    
+    
+    
+    //MARK: Initializers
+    //
+    
+    
+    init () {
+        theBeerList = BeerList(fromBeerList: true)
+    }
+    
     
     
     //MARK: Accessors
@@ -33,23 +44,31 @@ class Server {
         }
     }
     
+    
     func requestBeerList() -> BeerList {
         return theBeerList
     }
+    
     
     func requestBeer(withNumber num: Int) -> Beer? {
         return theBeerList.getBeer(withNumber: num)
     }
     
+    
     func requestAuthenticatedUser() -> Connoisseur? {
         return authenticatedUser
     }
     
+    
+    
     //MARK: Mutators
     //
+    
+    
     func registerConnoisseur(withCredentials creds: Credentials) -> Void {
         allTheInformation[creds] = Connoisseur()
     }
+    
     
     func authenticateUser(withCredentials creds: Credentials) -> Void? {
         if let connoisseur = allTheInformation[creds] {

@@ -153,7 +153,6 @@
                         <outlet property="quickAddNavigationItem" destination="rNU-9C-fDO" id="dej-T4-OQf"/>
                         <outlet property="quickAddSearchBar" destination="jOf-OO-GFM" id="mwz-lQ-xtr"/>
                         <outlet property="quickAddTable" destination="jqz-g9-cbf" id="NGe-Ji-iyY"/>
-                        <outlet property="quickAddView" destination="tsR-hK-woN" id="g25-8d-idc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -390,16 +389,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="🍻🍻🍻" translatesAutoresizingMaskIntoConstraints="NO" id="OXa-Oo-0QE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="v9v-Zy-Ebq"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TTi-Ce-mex">
-                                <rect key="frame" x="0.0" y="108" width="375" height="515"/>
+                                <rect key="frame" x="0.0" y="168" width="375" height="455"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -445,6 +436,19 @@
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="8EH-gh-YL1"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="🍻🍻🍻" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OXa-Oo-0QE">
+                                <rect key="frame" x="0.0" y="72" width="375" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Number</string>
+                                    <string>Brewer</string>
+                                    <string>Name</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="v9v-Zy-Ebq"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -474,8 +478,8 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="VmL-y4-d5a" kind="relationship" relationship="viewControllers" id="ZRy-M6-eRn"/>
                         <segue destination="pmP-x4-oXN" kind="relationship" relationship="viewControllers" id="InZ-zZ-IIe"/>
+                        <segue destination="VmL-y4-d5a" kind="relationship" relationship="viewControllers" id="ZRy-M6-eRn"/>
                         <segue destination="4eH-3z-yjz" kind="relationship" relationship="viewControllers" id="Wbo-NJ-Nb5"/>
                         <segue destination="nl7-kd-nPA" kind="relationship" relationship="viewControllers" id="1Qf-18-iJd"/>
                     </connections>

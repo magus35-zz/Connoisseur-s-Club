@@ -8,15 +8,16 @@
 
 import Foundation
 
-class BeerList {
+struct BeerList {
     
     //MARK: Properties
+    //Beer master "list"
     //Store the beers in a dictionary with the beer number as the key
     private var theBeers:[Int:Beer] = [:] {
         didSet { //If theBeers has been changed, update allBeersInList
-            if theBeers.isEmpty {
+            if theBeers.isEmpty { //If the list was cleared, set to nil
                 allBeersInList = nil
-            } else {
+            } else { //Otherwise, put all the beers in the list
                 var newBeerList:[Beer]? = []
                 for key in beerKeys {
                     newBeerList?.append(theBeers[key]!)
@@ -25,12 +26,6 @@ class BeerList {
             }
         }
     }
-    
-    private var allBeersInList:[Beer]? = []
-
-    
-    //Flag denoting whether the list has read from the CSV
-    var hasReadFromCSV:Bool = false
     
     //Get the keys from the master beer list
     var beerKeys:[Int] {
@@ -42,6 +37,15 @@ class BeerList {
             return theKeys
         }
     }
+    
+    //List of all of the beers stored as an array, updated every time theBeers is updated
+    private var allBeersInList:[Beer]? = []
+
+    
+    //Flag denoting whether the list has read from the CSV
+    var hasReadFromCSV:Bool = false
+    
+
     
     
     //MARK: Initializers
@@ -94,16 +98,27 @@ class BeerList {
     //MARK: Mutators:
     //
     //Clears the beer list and resets the hasReadFromCSV flag
-    func clearList() -> Void {
+    mutating func clearList() -> Void {
         theBeers.removeAll()
         hasReadFromCSV = false
     }
     
+    mutating func addBeer(_ beer: (Int,Beer)) -> Void {
+        theBeers[beer.0] = beer.1
+    }
+    
+    mutating func addBeerList(_ beerList: BeerList) -> Void {
+        if let nonEmptyBeerList = beerList.allBeersInList {
+            for beer in nonEmptyBeerList {
+                self.addBeer((beer.beerNumber!,beer))
+            }
+        }
+    }
     
     //MARK: Helper Functions
     
     //Reads the list of beers from TheBeerList.csv and populates them as Beer objects. Sets hasReadFromCSV flag
-    func readBeerFromCSV() -> Void {
+    mutating func readBeerFromCSV() -> Void {
         var arrayOfStrings:[String]?
         do { //Try to get the contents of TheBeerList.csv
             if let path = Bundle.main.path(forResource: "TheBeerList", ofType: "csv") {

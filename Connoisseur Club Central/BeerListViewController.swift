@@ -31,19 +31,24 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         
+        initializeSearchBar()
         //Default search results to be all beers for testing purposes
         searchResults = theServer.requestBeerList()
     } //viewDidLoad()
 
     
     
-    //MARK: Protocol Required Methods
+    //MARK: Table View Methods
     //
     
     
     //Set number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResults.getNumberOfBeers()
+        if searchResults.getNumberOfBeers() == 0 {
+            return 1
+        } else {
+            return searchResults.getNumberOfBeers()
+        }
     } //tableView(_:numberOfRowsInSection:)
     
     
@@ -78,10 +83,92 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     } //tableView(_:cellForRowAt:)
 
     
+    
+    //MARK: Search Bar Methods
+    //
+    
+    
     //Resign first responder on search bar when search button is tapped
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     } //searchBarSearchButtonClicked(_:)
 
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        switch selectedScope {
+        case 0: //User selected number
+            searchBar.keyboardType = .numberPad
+            addSearchToolbar(toSearchBar: searchBar)
+            searchBar.reloadInputViews()
+        case 1: //User selected brewer
+            searchBar.keyboardType = .default
+            removeSearchToolbar(fromSearchBar: searchBar)
+            searchBar.reloadInputViews()
+        case 2: //User selected name
+            searchBar.keyboardType = .default
+            removeSearchToolbar(fromSearchBar: searchBar)
+            searchBar.reloadInputViews()
+        default:
+            break
+        }
+    }
+    
+    
+    func initializeSearchBar() -> Void {
+        beerListSearchBar.selectedScopeButtonIndex = 0
+        beerListSearchBar.keyboardType = .numberPad
+        addSearchToolbar(toSearchBar: beerListSearchBar)
+        beerListSearchBar.reloadInputViews()
+    }
+    
+    
+    //MARK: Search Toolbar Methods
+    //
+    
+    
+    //Dismiss keyboard when user taps the Done button on the search field's keyboard toolbar
+    func userDidPressDoneButton() -> Void {
+        beerListSearchBar.resignFirstResponder()
+    }
+    
+    
+    //Dismiss keyboard when user taps the Search button on the search field's keyboard toolbar
+    func userDidPressSearchButton() -> Void {
+        searchResults.clearList()
+        if let searchResult = theServer.requestBeer(withNumber: Int(beerListSearchBar.text!)!) {
+            searchResults.addBeer((searchResult.beerNumber!, searchResult))
+        }
+        beerListTable.reloadData()
+        beerListSearchBar.resignFirstResponder()
+    }
+    
+    
+    //Adds a search toolbar to a UISearchBar with a Done and Search button
+    func addSearchToolbar(toSearchBar bar: UISearchBar) -> Void {
+        let screenWidth = view.frame.width
+        
+        //Toolbar and its components
+        let doneToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 50))
+        let toolbarFlexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(BeerListViewController.userDidPressDoneButton))
+        let searchButton = UIBarButtonItem(title: "Search", style: .done, target: self, action: #selector(BeerListViewController.userDidPressSearchButton))
+        
+        //Put toolbar items together into array
+        var toolbarItems = [UIBarButtonItem]()
+        toolbarItems.append(doneButton)
+        toolbarItems.append(toolbarFlexSpace)
+        toolbarItems.append(searchButton)
+        
+        //Put the toolbar items in the toolbar and make sure it is sized appropriately
+        doneToolbar.items = toolbarItems
+        doneToolbar.sizeToFit()
+        
+        //Add the toolbar to the searchbar
+        bar.inputAccessoryView = doneToolbar
+    }//addSearchToolbar(toSearchBar:)
+    
+    func removeSearchToolbar(fromSearchBar bar: UISearchBar) -> Void {
+        bar.inputAccessoryView = nil
+    }
 }
 

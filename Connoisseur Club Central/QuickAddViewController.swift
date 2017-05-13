@@ -16,7 +16,6 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
     //
     
     //Outlets
-    @IBOutlet var quickAddView: UIView!
     @IBOutlet weak var quickAddSearchBar: UISearchBar!
     @IBOutlet weak var quickAddTable: UITableView!
     @IBOutlet weak var quickAddNavigationItem: UINavigationItem!
@@ -66,16 +65,18 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.textLabel?.text = "No results found!"
             return cell
         }
-
-}
+    }
     
     
-    //MARK: Actions
+    //MARK: Search Toolbar Methods
+    //
+    
     
     //Dismiss keyboard when user taps the Done button on the search field's keyboard toolbar
     func userDidPressDoneButton() -> Void {
         quickAddSearchBar.resignFirstResponder()
     }
+    
     
     //Dismiss keyboard when user taps the Search button on the search field's keyboard toolbar
     func userDidPressSearchButton() -> Void {
@@ -86,11 +87,9 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     
-    //MARK: Helper Functions
-    
     //Adds a search toolbar to a UISearchBar with a Done and Search button
     func addSearchToolbar(toSearchBar bar: UISearchBar) -> Void {
-        let screenWidth = quickAddView.frame.width
+        let screenWidth = view.frame.width
         
         //Toolbar and its components
         let doneToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 50))
@@ -110,6 +109,6 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
         
         //Add the toolbar to the searchbar
         bar.inputAccessoryView = doneToolbar
-    }
+    }//addSearchToolbar(toSearchBar:)
 }
 
