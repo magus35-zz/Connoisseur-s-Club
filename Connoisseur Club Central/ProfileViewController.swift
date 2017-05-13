@@ -24,7 +24,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
-        profileNavigationItem.title = "Profile"
     }
     
     

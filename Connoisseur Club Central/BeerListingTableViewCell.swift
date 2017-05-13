@@ -12,6 +12,7 @@ class BeerListingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var beerNumberLabel: UILabel!
     @IBOutlet weak var beerNameLabel: UILabel!
+    @IBOutlet weak var beerRatingLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,4 +25,35 @@ class BeerListingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func updateRatingLabel(withRating rating: Rating?) -> Void {
+        if let userRating = rating {
+            switch userRating {
+            case .Bad:
+                beerRatingLabel.textColor = .red
+            case .Meh:
+                beerRatingLabel.textColor = .yellow
+            case .Good:
+                beerRatingLabel.textColor = .blue
+            case .Love:
+                beerRatingLabel.textColor = .green
+            }
+            beerRatingLabel.text = userRating.rawValue
+        } else {
+            beerRatingLabel.textColor = .white
+            beerRatingLabel.text = ""
+        }
+        
+    }
+    
+    func updateBeerNumberLabel(withNumber num: Int?) -> Void {
+        if num != nil {
+            beerNumberLabel.text = "\(num!)"
+        } else {
+            beerNumberLabel.text = ""
+        }
+    }
+    
+    func updateBeerNameLabel(withName name:String, andBrewer brewer:String) -> Void {
+        beerNameLabel.text = brewer + " " + name
+    }
 }

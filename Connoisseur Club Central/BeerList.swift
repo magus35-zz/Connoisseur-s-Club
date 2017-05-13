@@ -12,10 +12,25 @@ class BeerList {
     
     //MARK: Properties
     //Store the beers in a dictionary with the beer number as the key
-    private var theBeers:[Int:Beer] = [:]
-    var hasReadFromCSV:Bool = false
+    private var theBeers:[Int:Beer] = [:] {
+        didSet { //If theBeers has been changed, update allBeersInList
+            if theBeers.isEmpty {
+                allBeersInList = nil
+            } else {
+                var newBeerList:[Beer]? = []
+                for key in beerKeys {
+                    newBeerList?.append(theBeers[key]!)
+                }
+                allBeersInList = newBeerList
+            }
+        }
+    }
     
-    static let sharedInstance = BeerList()
+    private var allBeersInList:[Beer]? = []
+
+    
+    //Flag denoting whether the list has read from the CSV
+    var hasReadFromCSV:Bool = false
     
     //Get the keys from the master beer list
     var beerKeys:[Int] {
@@ -41,8 +56,8 @@ class BeerList {
     }
     
     
-    //MARK: Accessors/Mutators
-    
+    //MARK: Accessors
+    //
     //Attempt to get a beer with the passed beer number
     //Returns the beer or nil if no beer is found with the beer number
     func getBeer(withNumber number: Int) -> Beer? {
@@ -60,12 +75,24 @@ class BeerList {
 
         return beers
     }
+    
+    //Return nil if no beers in list or an array of the beers in the list
+    func getAllBeersInList() -> [Beer]? {
+        if theBeers.isEmpty {
+            return nil
+        } else {
+            return allBeersInList
+        }
+    }
 
     //Return number of beers in list
-    func getBeerCount() -> Int {
+    func getNumberOfBeers() -> Int {
         return theBeers.count
     }
     
+    
+    //MARK: Mutators:
+    //
     //Clears the beer list and resets the hasReadFromCSV flag
     func clearList() -> Void {
         theBeers.removeAll()
@@ -75,7 +102,7 @@ class BeerList {
     
     //MARK: Helper Functions
     
-    //Reads the list of beers from TheBeerList.csv and populates them as Beer objects
+    //Reads the list of beers from TheBeerList.csv and populates them as Beer objects. Sets hasReadFromCSV flag
     func readBeerFromCSV() -> Void {
         var arrayOfStrings:[String]?
         do { //Try to get the contents of TheBeerList.csv

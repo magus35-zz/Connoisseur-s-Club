@@ -41,6 +41,10 @@ class Server {
         return theBeerList.getBeer(withNumber: num)
     }
     
+    func requestAuthenticatedUser() -> Connoisseur? {
+        return authenticatedUser
+    }
+    
     //MARK: Mutators
     //
     func registerConnoisseur(withCredentials creds: Credentials) -> Void {

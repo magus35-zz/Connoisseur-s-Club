@@ -21,23 +21,31 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     
     //Properties
     var theServer = Server.sharedInstance
+    var searchResults:BeerList = BeerList()
     
     
-    //MARK: ViewController maintenance
+    //MARK: View Controller Methods
+    //
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
-        beerListNavigationItem.title = "Beer List"
-    }
+        
+        //Default search results to be all beers for testing purposes
+        searchResults = theServer.requestBeerList()
+    } //viewDidLoad()
 
+    
     
     //MARK: Protocol Required Methods
     //
     
+    
     //Set number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
+        return searchResults.getNumberOfBeers()
+    } //tableView(_:numberOfRowsInSection:)
+    
     
     //Create a cell for each row in table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,24 +54,34 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         guard let cell = self.beerListTable.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.BeerListing, for: indexPath) as? BeerListingTableViewCell
             else {
                 fatalError("The dequeued cell is not an instance of BeerListingTableViewCell")
+        } //guard/else
+        
+        if let beerForCell = searchResults.getAllBeersInList()?[indexPath.row] { //Case that there is a search result for the given indexPath, update the cell accordingly
+            
+            //If the user has rated the beer in the search result, update the rating label
+            if let userRating = theServer.requestAuthenticatedUser()?.getRatingForBeer(withNumber: beerForCell.beerNumber!) {
+                cell.updateRatingLabel(withRating: userRating)
+            } else {
+                cell.updateRatingLabel(withRating: nil)
+            }
+            
+            cell.updateBeerNumberLabel(withNumber: beerForCell.beerNumber)
+            cell.updateBeerNameLabel(withName: beerForCell.beerName!, andBrewer: beerForCell.beerBrewer!)
+            
+        } else { //Case that there is no search result for the given indexPath (no search results), update the cell accordingly
+            cell.updateBeerNameLabel(withName: "No search results", andBrewer: "")
+            cell.updateRatingLabel(withRating: nil)
+            cell.updateBeerNumberLabel(withNumber: nil)
         }
         
-        /* Create the listing using the old beer list model
-        //Fetch the appropriate beer from the beer list
-        let listing = theBeerList.theBeers[beerList.beerKeys[indexPath.row]]!
-        
-        
-        //Populate cell with data
-        cell.beerNumberLabel.text = "#\(listing.beerNumber!)"
-        cell.beerNameLabel.text = listing.beerName*/
-        
         return cell
-    }
+    } //tableView(_:cellForRowAt:)
 
+    
     //Resign first responder on search bar when search button is tapped
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-    }
+    } //searchBarSearchButtonClicked(_:)
 
 }
 

@@ -26,7 +26,6 @@ class TodaysBeersViewController: UIViewController, WKUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        todaysBeersNavigationItem.title = "Today's Beers"
         
         //let theURL = URL(string:"http://www.petesbrassrail.com/FrameSpecials.aspx")
         

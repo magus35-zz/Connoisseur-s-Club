@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -411,37 +410,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✅" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHw-SQ-AVl">
-                                                    <rect key="frame" x="8" y="11" width="23" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#8888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XE-YQ-H24">
+                                                    <rect key="frame" x="8" y="11" width="53" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#8888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XE-YQ-H24">
-                                                    <rect key="frame" x="35" y="11" width="53" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nYZ-Tw-vpw">
+                                                    <rect key="frame" x="69" y="11" width="233" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYZ-Tw-vpw">
-                                                    <rect key="frame" x="96" y="11" width="271" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upp-eu-Nyb">
+                                                    <rect key="frame" x="310" y="11" width="57" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="nYZ-Tw-vpw" firstAttribute="centerY" secondItem="Iar-NZ-vNx" secondAttribute="centerY" id="7KR-Wf-H3L"/>
-                                                <constraint firstItem="4XE-YQ-H24" firstAttribute="centerY" secondItem="Iar-NZ-vNx" secondAttribute="centerY" id="JHN-2I-TA9"/>
-                                                <constraint firstItem="4XE-YQ-H24" firstAttribute="leading" secondItem="iHw-SQ-AVl" secondAttribute="trailing" constant="4" id="W9b-TM-yTI"/>
-                                                <constraint firstItem="iHw-SQ-AVl" firstAttribute="centerY" secondItem="Iar-NZ-vNx" secondAttribute="centerY" id="n5H-ym-cvC"/>
-                                                <constraint firstItem="nYZ-Tw-vpw" firstAttribute="leading" secondItem="4XE-YQ-H24" secondAttribute="trailing" constant="8" id="wcd-PD-7x8"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="iHw-SQ-AVl" secondAttribute="leading" id="yRV-Z0-c1S"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="beerNameLabel" destination="nYZ-Tw-vpw" id="he2-1P-vx4"/>
                                             <outlet property="beerNumberLabel" destination="4XE-YQ-H24" id="e6K-xa-tcF"/>
+                                            <outlet property="beerRatingLabel" destination="Upp-eu-Nyb" id="fya-CC-pzs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
