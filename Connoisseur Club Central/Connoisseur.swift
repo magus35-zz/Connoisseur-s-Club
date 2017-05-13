@@ -29,7 +29,8 @@ class Connoisseur {
     
     
     private var beersTried:[(Int,Rating)] = []
-    private var name:String
+    private var firstName:String
+    private var lastName:String
     private var connoisseurID:Int
     
     static let sharedInstance = Connoisseur()
@@ -41,14 +42,17 @@ class Connoisseur {
     
     
     //Initialize with name and ID
-    init(name: String, connoisseurID: Int) {
-        self.name = name
+    init(firstName: String, lastName: String, connoisseurID: Int) {
+        self.firstName = firstName
+        self.lastName = lastName
         self.connoisseurID = connoisseurID
     } //init(name:connoisseurID:)
     
+    
     //Default initializer
     init() {
-        self.name = ""
+        self.firstName = ""
+        self.lastName = ""
         self.connoisseurID = 0
     } //init()
     
@@ -59,15 +63,26 @@ class Connoisseur {
     
     
     //Return connoiseur's name
-    func getName() -> String {
-        return name
-    } //getName()
+    func getFirstName() -> String {
+        return firstName
+    } //getFirstName()
+    
+    
+    func getLastName() -> String {
+        return lastName
+    } //getLastName()
     
     
     //Return connoisseur's ID
     func getID() -> Int {
         return connoisseurID
     } //getID()
+    
+    
+    //Return the number of beers the Connoisseur has tried
+    func getNumberOfBeersTried() -> Int {
+        return beersTried.count
+    }//getNumberOfBeersTried()
     
     
     //Return whether the connoisseur has tried the beer or not
@@ -143,12 +158,23 @@ class Connoisseur {
     //
     
     
-    func tryBeer(withNumber number: Int, rating: Rating) -> Bool {
+    func setName(newFirstName: String, newLastName: String) {
+        firstName = newFirstName
+        lastName = newLastName
+    } //setName(newFirstName:newLastName:)
+    
+    
+    func setConnoisseurID(newID: Int) {
+        connoisseurID = newID
+    } //setConnoisseurID(newID:)
+    
+    
+    func tryBeer(withNumber number: Int, rating: Rating) -> Void? {
         if self.hasTriedBeer(withNumber: number) {
-            return false
+            return nil
         } else {
             beersTried.append((number,rating))
-            return true
+            return ()
         } //if/else
     } //tryBeer(withNumber:rating:)
     

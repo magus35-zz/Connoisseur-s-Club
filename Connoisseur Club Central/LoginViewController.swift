@@ -10,27 +10,40 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    //MARK: Outlets & Properties
+    //MARK: Outlets
     //
-    //Outlets
+    
+    
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     @IBOutlet weak var statusLabel: UILabel!
     
-    //Properties
+    
+    
+    //MARK: Properties
+    //
+    
+    
     var theServer = Server.sharedInstance
+    
     
     
     //MARK: View Controller methods
     //
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerSampleUsers()
     }
     
+    
+    
     //MARK: Actions
     //
+    
+    
     @IBAction func userDidTapLogin(_ sender: UIButton) {
         if inputIsValid() {
             let connoisseurCredentials = Credentials(username: usernameField.text!, password: passwordField.text!)
@@ -48,6 +61,8 @@ class LoginViewController: UIViewController {
     
     //MARK: Helper functions
     //
+    
+    
     func inputIsValid() -> Bool {
         if usernameField.text == "" || passwordField.text == "" {
             return false
@@ -55,6 +70,7 @@ class LoginViewController: UIViewController {
             return true
         }
     }
+    
     
     func registerSampleUsers() -> Void {
         var sampleCredentials:[Credentials] = []
@@ -64,5 +80,13 @@ class LoginViewController: UIViewController {
         for creds in sampleCredentials {
             theServer.registerConnoisseur(withCredentials: creds)
         }
+        
+        let conn1 = theServer.requestConnoisseur(withCredentials: sampleCredentials[0])
+        conn1?.setConnoisseurID(newID: 1000)
+        conn1?.setName(newFirstName: "John", newLastName: "Smith")
+        conn1?.tryBeer(withNumber: 50, rating: .Meh)
+        conn1?.tryBeer(withNumber: 432, rating: .Good)
+        conn1?.tryBeer(withNumber: 1111, rating: .Bad)
+        conn1?.tryBeer(withNumber: 2500, rating: .Good)
     }
 }
