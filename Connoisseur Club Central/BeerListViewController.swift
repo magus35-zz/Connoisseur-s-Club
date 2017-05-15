@@ -44,9 +44,9 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     
     //Set number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchResults.getNumberOfBeers() == 0 {
+        if searchResults.getNumberOfBeers() == 0 { //If there are no search results, there will only be one "no search results found" cell
             return 1
-        } else {
+        } else { //If there are search results, there will be as many cells as there are search results
             return searchResults.getNumberOfBeers()
         }
     } //tableView(_:numberOfRowsInSection:)

@@ -16,7 +16,7 @@ enum Rating:String {
 }
 
 enum SortType {
-    case ChronologicallyTried
+    case Chronologically
     case Numerically
 }
 
@@ -122,7 +122,7 @@ class Connoisseur {
             } //if/else
             
             switch sorted {
-            case .ChronologicallyTried:
+            case .Chronologically:
                 return beerNumbers
             case .Numerically:
                 beerNumbers.sort()

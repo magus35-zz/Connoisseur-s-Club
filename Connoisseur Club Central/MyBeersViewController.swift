@@ -9,11 +9,11 @@
 import UIKit
 import Firebase
 
-class MyBeersViewController: UIViewController, UISearchBarDelegate {
+class MyBeersViewController: UIViewController{
 
-    //Outlets & Properties
+    //MARK: Outlets
     //
-    //Outlets
+    
     
     //Properties
     var theServer = Server.sharedInstance
@@ -22,18 +22,4 @@ class MyBeersViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    
-    //MARK: Actions
-    
-    //Resign first responder when search bar is tapped
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-    
-    
 }

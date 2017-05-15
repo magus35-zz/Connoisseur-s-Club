@@ -88,5 +88,6 @@ class LoginViewController: UIViewController {
         conn1?.tryBeer(withNumber: 432, rating: .Good)
         conn1?.tryBeer(withNumber: 1111, rating: .Bad)
         conn1?.tryBeer(withNumber: 2500, rating: .Good)
+        conn1?.tryBeer(withNumber: 1734, rating: .Love)
     }
 }
