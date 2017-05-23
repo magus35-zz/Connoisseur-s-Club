@@ -61,6 +61,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let connoisseurBeersTried = authenticatedUser.getNumberOfBeersTried()
         
         updatePersonalInfoLabels(newID: String(connoisseurID), firstName: connoisseurFirstName, lastName: connoisseurLastName, newNumberTried: connoisseurBeersTried)
+        
+        self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
     }
     
     

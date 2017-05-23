@@ -9,8 +9,12 @@
 import Foundation
 
 struct BeerList {
-    
+    //****
     //MARK: Properties
+    //****
+    
+    
+    
     //Beer master "list"
     //Store the beers in a dictionary with the beer number as the key
     private var theBeers:[Int:Beer] = [:] {
@@ -27,6 +31,7 @@ struct BeerList {
         }
     }
     
+    
     //Get the keys from the master beer list
     var beerKeys:[Int] {
         get {
@@ -38,6 +43,7 @@ struct BeerList {
         }
     }
     
+    
     //List of all of the beers stored as an array, updated every time theBeers is updated
     private var allBeersInList:[Beer]? = []
 
@@ -47,26 +53,36 @@ struct BeerList {
     
 
     
-    
+    //****
     //MARK: Initializers
+    //****
+    
+    
     
     //Initialize the beer list with the beers from TheBeerList.csv
-    init (fromBeerList: Bool){
+    init (fromSampleData: Bool){
         readBeerFromCSV()
     }
+    
     
     //Default initializer
     init() {
     }
     
     
+    
+    //****
     //MARK: Accessors
-    //
+    //****
+    
+    
+    
     //Attempt to get a beer with the passed beer number
     //Returns the beer or nil if no beer is found with the beer number
     func getBeer(withNumber number: Int) -> Beer? {
         return theBeers[number]
     }
+    
     
     //Attempt to get all beers with the passed beer numbers
     //Returns an array with results corresponding to the passed beer numbers (beer if beer is found for the number, nil if beer is not found for the number)
@@ -80,6 +96,7 @@ struct BeerList {
         return beers
     }
     
+    
     //Return nil if no beers in list or an array of the beers in the list
     func getAllBeersInList() -> [Beer]? {
         if theBeers.isEmpty {
@@ -89,23 +106,31 @@ struct BeerList {
         }
     }
 
+    
     //Return number of beers in list
     func getNumberOfBeers() -> Int {
         return theBeers.count
     }
     
     
+    
+    //****
     //MARK: Mutators:
-    //
+    //****
+    
+    
+    
     //Clears the beer list and resets the hasReadFromCSV flag
     mutating func clearList() -> Void {
         theBeers.removeAll()
         hasReadFromCSV = false
     }
     
+    
     mutating func addBeer(_ beer: (Int,Beer)) -> Void {
         theBeers[beer.0] = beer.1
     }
+    
     
     mutating func addBeerList(_ beerList: BeerList) -> Void {
         if let nonEmptyBeerList = beerList.allBeersInList {
@@ -115,7 +140,13 @@ struct BeerList {
         }
     }
     
+    
+    
+    //****
     //MARK: Helper Functions
+    //****
+    
+    
     
     //Reads the list of beers from TheBeerList.csv and populates them as Beer objects. Sets hasReadFromCSV flag
     mutating func readBeerFromCSV() -> Void {
@@ -135,6 +166,4 @@ struct BeerList {
             theBeers[currentBeer.beerNumber!] = currentBeer
         }
     }
-    
-    
 }

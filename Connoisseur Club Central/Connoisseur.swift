@@ -8,22 +8,7 @@
 
 import Foundation
 
-enum Rating:String {
-    case Bad
-    case Meh
-    case Good
-    case Love
-}
-
-enum SortType {
-    case Chronologically
-    case Numerically
-}
-
 class Connoisseur {
-    
-    
-    
     //MARK: Properties
     //
     
@@ -97,6 +82,7 @@ class Connoisseur {
     
     
     //Return all beer numbers tried with the selected rating, sorted using the selected sort type
+    //If rating is nil, return beers tried of all ratings
     func getAllBeerNumbersTried(sorted: SortType, withRating rating: Rating?) -> [Int]? {
 
         //If the connoisseur hasn't tried any beers, return nil

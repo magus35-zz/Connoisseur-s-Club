@@ -29,7 +29,7 @@ class Server {
     
     
     init () {
-        theBeerList = BeerList(fromBeerList: true)
+        theBeerList = BeerList(fromSampleData: true)
     }
     
     

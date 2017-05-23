@@ -11,31 +11,51 @@ import Firebase
 import WebKit
 
 class TodaysBeersViewController: UIViewController, WKUIDelegate {
+    //****
+    //MARK: Outlets
+    //****
+    
 
-    //MARK: Outlets & Properties
-    //
-    //Outlets
+    
     @IBOutlet weak var todaysBeersNavigationItem: UINavigationItem!
+    @IBOutlet var containerView : UIView! = nil
     
-    //Properties
-    var theServer = Server.sharedInstance
-    
-    
-    //MARK: ViewController Methods
     
 
+    //****
+    //MARK: Properties
+    //****
+    
+    
+    
+    var theServer = Server.sharedInstance
+    var webView: WKWebView?
+    
+    
+    
+    //****
+    //MARK: View Controller Maintenance
+    //****
+    
+    
+    
+    //Create a webview and set it to a view
+    override func loadView() {
+        super.loadView()
+        
+        self.webView = WKWebView()
+        self.view = self.webView!
+    }
+    
+    
+    //Set up the URL request and have the web view execute web request
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let theURL = URL(string:"http://www.petesbrassrail.com/FrameSpecials.aspx")
+        let url = URL(string:"http://www.petesbrassrail.com/FrameSpecials.aspx")
+        let req = URLRequest(url:url!)
+        self.webView!.load(req as URLRequest)
         
-        //Set up and execute web request
-        //let theURL = URL(string: "https://feheroes.wiki/Main_Page")
- 
+        self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
     }
-    
-    func setUpPetesView() {
-    }
-    
-    
 }

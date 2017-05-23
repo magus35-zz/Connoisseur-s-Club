@@ -10,22 +10,35 @@ import UIKit
 import Firebase
 
 class BeerListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-
+    //****
+    //MARK: Outlets
+    //****
     
-    //MARK: Outlets & Properties
-    //
-    //Outlets
+    
+    
     @IBOutlet weak var beerListSearchBar: UISearchBar!
     @IBOutlet weak var beerListTable: UITableView!
     @IBOutlet weak var beerListNavigationItem: UINavigationItem!
     
-    //Properties
+    
+    
+    //****
+    //MARK: Properties
+    //****
+    
+    
+    
     var theServer = Server.sharedInstance
     var searchResults:BeerList = BeerList()
     
     
+    
+    
+    //****
     //MARK: View Controller Methods
-    //
+    //****
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +47,16 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         initializeSearchBar()
         //Default search results to be all beers for testing purposes
         searchResults = theServer.requestBeerList()
+        
+        self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
     } //viewDidLoad()
 
     
     
+    //****
     //MARK: Table View Methods
-    //
+    //****
+    
     
     
     //Set number of rows in table view
@@ -64,14 +81,9 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         if let beerForCell = searchResults.getAllBeersInList()?[indexPath.row] { //Case that there is a search result for the given indexPath, update the cell accordingly
             
             //If the user has rated the beer in the search result, update the rating label
-            if let userRating = theServer.requestAuthenticatedUser()?.getRatingForBeer(withNumber: beerForCell.beerNumber!) {
-                cell.updateRatingLabel(withRating: userRating)
-            } else {
-                cell.updateRatingLabel(withRating: nil)
-            }
+            let userRating = theServer.requestAuthenticatedUser()?.getRatingForBeer(withNumber: beerForCell.beerNumber!)
             
-            cell.updateBeerNumberLabel(withNumber: beerForCell.beerNumber)
-            cell.updateBeerNameLabel(withName: beerForCell.beerName!, andBrewer: beerForCell.beerBrewer!)
+            cell.updateLabels(forBeer: beerForCell, withRating: userRating)
             
         } else { //Case that there is no search result for the given indexPath (no search results), update the cell accordingly
             cell.updateBeerNameLabel(withName: "No search results", andBrewer: "")
@@ -84,8 +96,10 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
 
     
     
+    //****
     //MARK: Search Bar Methods
-    //
+    //****
+    
     
     
     //Resign first responder on search bar when search button is tapped
@@ -122,8 +136,11 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
+    
+    //****
     //MARK: Search Toolbar Methods
-    //
+    //****
+    
     
     
     //Dismiss keyboard when user taps the Done button on the search field's keyboard toolbar
@@ -167,8 +184,20 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         bar.inputAccessoryView = doneToolbar
     }//addSearchToolbar(toSearchBar:)
     
+    
+    //Remove any toolbar from a search bar
     func removeSearchToolbar(fromSearchBar bar: UISearchBar) -> Void {
         bar.inputAccessoryView = nil
+    }//removeSearchToolbar(fromSearchBar:)
+    
+    
+    
+    //****
+    //MARK: Helper functions
+    //****
+    
+    func searchByBeerName(beerName beer: String) {
+        
     }
 }
 

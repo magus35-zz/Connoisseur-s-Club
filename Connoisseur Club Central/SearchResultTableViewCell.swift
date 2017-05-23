@@ -22,22 +22,4 @@ class SearchResultTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
-
-    @IBAction func userDidRateSearchResult(_ sender: UIButton!) {
-        switch sender.currentTitle! {
-        case "👍":
-            break
-        case "👌":
-            break
-        case "👎":
-            break
-        default:
-            break
-            
-            
-        }
-    }
-    
-    
 }

@@ -7,15 +7,33 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
     struct CellIdentifiers {
         static let BeerListing = "BeerListingTableViewCell"
-        static let SearchResult = "SearchResultTableViewCell"
+        static let QuickAdd = "QuickAddTableViewCell"
         static let FailedSearch = "SearchFailedTableViewCell"
+        
     }
     struct Segues {
         static let MyBeers = "showMyBeersSegue"
         static let login = "loginSegue"
     }
+    struct Colors {
+        static let navigationItem = UIColor(red: CGFloat(0.47), green: CGFloat(0.72), blue: CGFloat(0.67), alpha: 1)//UIColor(colorLiteralRed: Float(120), green: Float(184), blue: Float(171), alpha: 1)
+        
+    }
+}
+
+enum Rating:String {
+    case Bad
+    case Meh
+    case Good
+    case Love
+}
+
+enum SortType {
+    case Chronologically
+    case Numerically
 }

@@ -11,23 +11,37 @@ import Firebase
 
 
 class QuickAddViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-
-    //MARK: Outlets & Properties
-    //
+    //****
+    //MARK: Outlets
+    //****
     
-    //Outlets
+    
+    
     @IBOutlet weak var quickAddSearchBar: UISearchBar!
     @IBOutlet weak var quickAddTable: UITableView!
     @IBOutlet weak var quickAddNavigationItem: UINavigationItem!
     
-    //Properties
+    
+    
+    //****
+    //MARK: Properties
+    //****
+    
+    
+    
     var theServer = Server.sharedInstance
     
     //Contain the searchResults of the user's search
     var searchResults:[Beer?] = []
     
     
+    
+    //****
     //MARK: ViewController Maintenance
+    //****
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,31 +50,60 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
         quickAddNavigationItem.title = "Quick Add"
         
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
     }
     
     
+    
+    //****
     //MARK: Table View Methods
-    //
+    //****
+    
+    
     
     //Set number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
     }
     
+    
     //Create a cell for each row in table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //See if there is a search result at the index path
         if let searchResult = searchResults[indexPath.row] {
+            quickAddTable.rowHeight = CGFloat(88)
             //Try to get a cell of type SearchResultTableViewCell, otherwise catch the error
-            guard let cell = self.quickAddTable.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.SearchResult, for: indexPath) as? SearchResultTableViewCell
+            guard let cell = self.quickAddTable.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.QuickAdd, for: indexPath) as? QuickAddTableViewCell
                 else {
-                    fatalError("The dequeued cell is not an instance of \(Constants.CellIdentifiers.SearchResult)")
+                    fatalError("The dequeued cell is not an instance of \(Constants.CellIdentifiers.BeerListing)")
             }
-            cell.searchResultLabel.text = "\(searchResult.beerName!), \(searchResult.beerNumber!)"
+            
+            let userRating = theServer.requestAuthenticatedUser()?.getRatingForBeer(withNumber: searchResult.beerNumber!)
+            
+            cell.updateLabels(forBeer: searchResult, withRating: userRating)
+
+            cell.ratingAction = { (cell, rating) in
+                self.rateBeer(beerNumber: searchResult.beerNumber!, userRating: rating)
+                let alert = UIAlertController(title: "Beer Rated!", message: nil, preferredStyle: .alert)
+                let cellIndexPath = self.quickAddTable.indexPath(for: cell)
+                alert.addAction(UIAlertAction(title: "Cheers!", style: .default, handler: { (action) in
+                    self.searchResults.remove(at: (cellIndexPath?.row)!)
+                    DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+                        var pathsToUpdate:[IndexPath] = []
+                        pathsToUpdate.append(cellIndexPath!)
+                        self.quickAddTable.beginUpdates()
+                        self.quickAddTable.deleteRows(at: pathsToUpdate, with: .right)
+                        self.quickAddTable.endUpdates()
+                    })
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
             
             return cell
         } else { //If there isn't, display a message in the table
+            quickAddTable.rowHeight = CGFloat(44)
             let cell = self.quickAddTable.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.FailedSearch, for: indexPath)
             cell.textLabel?.text = "No results found!"
             return cell
@@ -68,8 +111,11 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     
+    
+    //****
     //MARK: Search Toolbar Methods
-    //
+    //****
+    
     
     
     //Dismiss keyboard when user taps the Done button on the search field's keyboard toolbar
@@ -110,5 +156,18 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
         //Add the toolbar to the searchbar
         bar.inputAccessoryView = doneToolbar
     }//addSearchToolbar(toSearchBar:)
+    
+    
+    
+    //****
+    //MARK:
+    //****
+    
+    
+    
+    func rateBeer(beerNumber number: Int, userRating rating: Rating) -> Void {
+        let authenticatedUser = theServer.requestAuthenticatedUser()
+        authenticatedUser?.tryBeer(withNumber: number, rating: rating)
+    }
 }
 
