@@ -10,10 +10,10 @@ import UIKit
 import Firebase
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-
+    //****
     //MARK: Outlets
-    //
+    //****
+    
     
     
     @IBOutlet weak var profileNavigationItem: UINavigationItem!
@@ -24,19 +24,21 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
+    //****
     //MARK: Properties
-    //
+    //****
     
     
     var theServer = Server.sharedInstance
-    
     var authenticatedUser:Connoisseur = Connoisseur()
-    
     var connoisseursFavoriteBeers:BeerList?
     
     
+    
+    //****
     //MARK: View Controller Maintenance
-    //
+    //****
+    
     
     
     override func viewDidLoad() {
@@ -46,14 +48,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         authenticatedUser = theServer.requestAuthenticatedUser()!
         
         //If the connoisseur
-        if let connoisseursLovedBeers = authenticatedUser.getAllBeerNumbersTried(sorted: .Chronologically, withRating: .Love) {
-            connoisseursFavoriteBeers = BeerList()
-            for num in connoisseursLovedBeers {
-                if let triedBeer = theServer.requestBeer(withNumber: num) {
-                    connoisseursFavoriteBeers?.addBeer((num,triedBeer))
-                }
-            }
-        }
+        updateFavoriteBeersList()
         
         let connoisseurID = authenticatedUser.getID()
         let connoisseurFirstName = authenticatedUser.getFirstName()
@@ -66,9 +61,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        updateFavoriteBeersList()
+        lovedBeersTable.reloadData()
+    }
     
+    
+    
+    //****
     //MARK: Actions
-    //
+    //****
+    
     
     
     //Navigate to My Beers View
@@ -78,8 +81,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
+    //****
     //MARK: Table View Methods
-    //
+    //****
     
     
     //Return 1 section
@@ -145,8 +149,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
+    //****
     //MARK: Label Mutators
-    //
+    //****
+    
     
     
     //Calls update label function for each label
@@ -185,5 +191,24 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         beerString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: numRange)
         
         beersTriedLabel.attributedText = beerString
+    }
+    
+    
+    
+    //****
+    //MARK: Helper Functions
+    //****
+    
+    
+    
+    func updateFavoriteBeersList() -> Void {
+        if let connoisseursLovedBeers = authenticatedUser.getAllBeerNumbersTried(sorted: .Chronologically, withRating: .Love) {
+            connoisseursFavoriteBeers = BeerList()
+            for num in connoisseursLovedBeers {
+                if let triedBeer = theServer.requestBeer(withNumber: num) {
+                    connoisseursFavoriteBeers?.addBeer((num,triedBeer))
+                }
+            }
+        }
     }
 }

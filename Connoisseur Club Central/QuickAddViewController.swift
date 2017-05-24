@@ -160,7 +160,7 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     //****
-    //MARK:
+    //MARK: Helper Functions
     //****
     
     

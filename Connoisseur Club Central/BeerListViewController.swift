@@ -30,8 +30,8 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     
     var theServer = Server.sharedInstance
     var searchResults:BeerList = BeerList()
-    
-    
+    let fullBeerList:BeerList = BeerList(fromSampleData: true)
+    var selectedSearchMethod:((String) -> Void)! = nil
     
     
     //****
@@ -108,6 +108,7 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     } //searchBarSearchButtonClicked(_:)
 
     
+    //Add the search toolbar to the keyboard when the scope == 0 (search by beer number), otherwise use the default search bar keyboard.
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         switch selectedScope {
         case 0: //User selected number
@@ -117,9 +118,15 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         case 1: //User selected brewer
             searchBar.keyboardType = .default
             removeSearchToolbar(fromSearchBar: searchBar)
+            selectedSearchMethod = {(brewer) in
+                self.searchByBeerBrewer(beerBrewer: brewer)
+            }
             searchBar.reloadInputViews()
         case 2: //User selected name
             searchBar.keyboardType = .default
+            selectedSearchMethod = {(query) in
+                self.searchByBeerName(beerName: query)
+            }
             removeSearchToolbar(fromSearchBar: searchBar)
             searchBar.reloadInputViews()
         default:
@@ -127,7 +134,8 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    
+
+    //Sets the search bar to an appropriate default state
     func initializeSearchBar() -> Void {
         beerListSearchBar.selectedScopeButtonIndex = 0
         beerListSearchBar.keyboardType = .numberPad
@@ -193,11 +201,55 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     //****
+    //MARK: Search Bar Delegate Methods
+    //****
+    
+    
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        beerListSearchBar.showsScopeBar = false
+        if beerListSearchBar.selectedScopeButtonIndex != 0 {
+            selectedSearchMethod(searchBar.text!)
+        }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        beerListSearchBar.showsScopeBar = true
+    }
+    
+    
+    //****
     //MARK: Helper functions
     //****
     
-    func searchByBeerName(beerName beer: String) {
+    
+    
+    func searchByBeerName(beerName: String) -> Void {
+        searchResults.clearList()
+        let allBeerNumbers = fullBeerList.beerKeys
         
+        for number in allBeerNumbers {
+            let resultCandidate = fullBeerList.getBeer(withNumber: number)
+            let resultCandidateName = (resultCandidate?.beerName?.uppercased())!
+            if resultCandidateName.contains(beerName.uppercased()) {
+                searchResults.addBeer((number,resultCandidate!))
+            }
+        }
+        beerListTable.reloadData()
+    }
+    
+    func searchByBeerBrewer(beerBrewer: String) -> Void {
+        searchResults.clearList()
+        let allBeerNumbers = fullBeerList.beerKeys
+        
+        for number in allBeerNumbers {
+            let resultCandidate = fullBeerList.getBeer(withNumber: number)
+            let resultCandidateName = (resultCandidate?.beerBrewer?.uppercased())!
+            if resultCandidateName.contains(beerBrewer.uppercased()) {
+                searchResults.addBeer((number,resultCandidate!))
+            }
+        }
+        beerListTable.reloadData()
     }
 }
 
