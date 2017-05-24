@@ -44,10 +44,15 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Set up search bar and associated keyboard
         quickAddSearchBar.keyboardType = .numberPad
         addSearchToolbar(toSearchBar: quickAddSearchBar)
         quickAddNavigationItem.title = "Quick Add"
+        
+        //Set up table display properties
+        quickAddTable.estimatedRowHeight = 44.0
+        quickAddTable.rowHeight = UITableViewAutomaticDimension
+        quickAddTable.separatorColor = view.backgroundColor
         
         self.automaticallyAdjustsScrollViewInsets = false
         
@@ -73,7 +78,8 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
         
         //See if there is a search result at the index path
         if let searchResult = searchResults[indexPath.row] {
-            quickAddTable.rowHeight = CGFloat(88)
+            //quickAddTable.rowHeight = CGFloat(88)
+            
             //Try to get a cell of type SearchResultTableViewCell, otherwise catch the error
             guard let cell = self.quickAddTable.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.QuickAdd, for: indexPath) as? QuickAddTableViewCell
                 else {
@@ -83,6 +89,7 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
             let userRating = theServer.requestAuthenticatedUser()?.getRatingForBeer(withNumber: searchResult.beerNumber!)
             
             cell.updateLabels(forBeer: searchResult, withRating: userRating)
+            cell.selectionStyle = .none
 
             cell.ratingAction = { (cell, rating) in
                 self.rateBeer(beerNumber: searchResult.beerNumber!, userRating: rating)
@@ -103,7 +110,8 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
             
             return cell
         } else { //If there isn't, display a message in the table
-            quickAddTable.rowHeight = CGFloat(44)
+            //quickAddTable.rowHeight = CGFloat(44)
+            
             let cell = self.quickAddTable.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.FailedSearch, for: indexPath)
             cell.textLabel?.text = "No results found!"
             return cell

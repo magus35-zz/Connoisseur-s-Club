@@ -31,11 +31,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G9E-QH-x3C" id="zhZ-7d-9BA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K9G-3n-XuK">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -48,11 +48,11 @@
                                         <rect key="frame" x="0.0" y="72" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lan-UA-0X0" id="rhP-5M-OQH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#8888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="9Hs-Td-bjz">
-                                                    <rect key="frame" x="8" y="11" width="53" height="21"/>
+                                                    <rect key="frame" x="8" y="11" width="52.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -70,41 +70,41 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Avh-rb-UDZ">
-                                                    <rect key="frame" x="0.0" y="49" width="375" height="30"/>
+                                                    <rect key="frame" x="0.0" y="48.5" width="375" height="30.5"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOk-jM-SWB">
-                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30.5"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-h7-7lK">
-                                                            <rect key="frame" x="69" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="69" y="0.0" width="30" height="30.5"/>
                                                             <state key="normal" title="☹️"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="ya7-3y-PVu"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeE-6s-9Tb">
-                                                            <rect key="frame" x="138" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="138" y="0.0" width="30" height="30.5"/>
                                                             <state key="normal" title="😕"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="1bY-Uk-0ad"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHc-R6-Z6V">
-                                                            <rect key="frame" x="207" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="207" y="0.0" width="30" height="30.5"/>
                                                             <state key="normal" title="🙂"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="cVg-t6-YTt"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cu-Py-uJd">
-                                                            <rect key="frame" x="276" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="276" y="0.0" width="30" height="30.5"/>
                                                             <state key="normal" title="😍"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="9LS-Sb-PW0"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovt-C6-0xF">
-                                                            <rect key="frame" x="345" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="345" y="0.0" width="30" height="30.5"/>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -375,7 +375,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YFI-6N-Nz3" id="E0v-rq-iA7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#8888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="0gg-Kl-GuL">
@@ -454,7 +454,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Im2-Fr-0qR" id="0fL-4L-CYD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#8888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ijz-Re-Qm9">
@@ -585,6 +585,7 @@
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="OXa-Oo-0QE" firstAttribute="width" secondItem="QS5-Rx-YEW" secondAttribute="width" id="1Cb-4D-LgD"/>
                             <constraint firstItem="OXa-Oo-0QE" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="8O5-sr-KNX"/>

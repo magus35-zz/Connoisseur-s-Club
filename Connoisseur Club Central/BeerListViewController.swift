@@ -32,6 +32,9 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     var searchResults:BeerList = BeerList()
     let fullBeerList:BeerList = BeerList(fromSampleData: true)
     var selectedSearchMethod:((String) -> Void)! = nil
+    var tapRecognizer:UITapGestureRecognizer? = nil
+    
+    
     
     
     //****
@@ -42,11 +45,19 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.automaticallyAdjustsScrollViewInsets = false
         
         initializeSearchBar()
+        
         //Default search results to be all beers for testing purposes
         searchResults = theServer.requestBeerList()
+
+        //Set up table display properties
+        beerListTable.estimatedRowHeight = 44.0
+        beerListTable.rowHeight = UITableViewAutomaticDimension
+        beerListTable.separatorColor = view.backgroundColor
+    
+        self.automaticallyAdjustsScrollViewInsets = false
+
         
         self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
     } //viewDidLoad()
@@ -78,6 +89,9 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
                 fatalError("The dequeued cell is not an instance of BeerListingTableViewCell")
         } //guard/else
         
+        cell.selectionStyle = .none
+        
+        
         if let beerForCell = searchResults.getAllBeersInList()?[indexPath.row] { //Case that there is a search result for the given indexPath, update the cell accordingly
             
             //If the user has rated the beer in the search result, update the rating label
@@ -94,6 +108,41 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     } //tableView(_:cellForRowAt:)
 
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let beer = self.searchResults.getAllBeersInList()?[indexPath.row]
+        var indexPathsToUpdate:[IndexPath] = []
+        indexPathsToUpdate.append(indexPath)
+        
+        let alert = UIAlertController(title: "Rate \((beer?.beerBrewer)!) \((beer?.beerName)!)", message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Love 😍", style: .default, handler: { (alert) in
+            self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Love)
+            tableView.reloadRows(at: indexPathsToUpdate, with: .none)
+        }))
+        alert.addAction(UIAlertAction(title: "Good 🙂", style: .default, handler: { (alert) in
+            self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Good)
+            tableView.reloadRows(at: indexPathsToUpdate, with: .none)
+
+        }))
+        alert.addAction(UIAlertAction(title: "Meh 😕", style: .default, handler: { (alert) in
+            self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Meh)
+            tableView.reloadRows(at: indexPathsToUpdate, with: .none)
+
+        }))
+        alert.addAction(UIAlertAction(title: "Bad ☹️", style: .default, handler: { (alert) in
+            self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Bad)
+            tableView.reloadRows(at: indexPathsToUpdate, with: .none)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    }
     
     
     //****
@@ -208,18 +257,22 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         beerListSearchBar.showsScopeBar = false
-        if beerListSearchBar.selectedScopeButtonIndex != 0 {
+        if beerListSearchBar.selectedScopeButtonIndex != 0 && beerListSearchBar.text != "" {
             selectedSearchMethod(searchBar.text!)
         }
+        tapRecognizer = nil
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        let newRecognizer = UITapGestureRecognizer(target: self, action: #selector(BeerListViewController.resignFirstResponderOnTap))
+        tapRecognizer = newRecognizer
         beerListSearchBar.showsScopeBar = true
     }
     
     
+    
     //****
-    //MARK: Helper functions
+    //MARK: Search Methods
     //****
     
     
@@ -250,6 +303,21 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
         beerListTable.reloadData()
+    }
+    
+    
+    
+    //****
+    //MARK: Other Actions
+    //****
+    
+    
+    
+    //Resign first responder on tap
+    @IBAction func resignFirstResponderOnTap(_ sender: UITapGestureRecognizer) {
+        if beerListSearchBar.isFirstResponder {
+            beerListSearchBar.resignFirstResponder()
+        }
     }
 }
 
