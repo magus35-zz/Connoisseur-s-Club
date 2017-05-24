@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -24,7 +25,7 @@ class LoginViewController: UIViewController {
     //MARK: Properties
     //
     
-    
+    var ref: DatabaseReference!
     var theServer = Server.sharedInstance
     
     
@@ -36,6 +37,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerSampleUsers()
+        self.ref = Database.database().reference()
     }
     
     
@@ -58,6 +60,10 @@ class LoginViewController: UIViewController {
         
     }
     
+    @IBAction func userDidThing(_ sender: Any) {
+        let username = usernameField.text!
+        self.ref.child("users").child(username).setValue("value")
+    }
     
     //MARK: Helper functions
     //
