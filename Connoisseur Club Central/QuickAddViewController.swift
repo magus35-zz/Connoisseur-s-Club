@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-
 
 class QuickAddViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     //****

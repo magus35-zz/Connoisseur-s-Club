@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class BeerListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     //****

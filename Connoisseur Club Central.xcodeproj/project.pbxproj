@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C3731EBD78A5F30FA3CA378 /* Pods_Connoisseur_Club_CentralUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8885F15D55BBA745F6C0D392 /* Pods_Connoisseur_Club_CentralUITests.framework */; };
-		68E820BF85ACC0326B2B8F81 /* Pods_Connoisseur_Club_CentralTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7DB8C7B12A7E84A3724AB4 /* Pods_Connoisseur_Club_CentralTests.framework */; };
 		9904A1571ED5CE3700EC3D36 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 9904A1561ED5CE3700EC3D36 /* Assets */; };
 		990EA95A1EC30070002D0842 /* BeerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990EA9591EC30070002D0842 /* BeerList.swift */; };
 		9931F8601E930A19005D9D20 /* ProfilePic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9931F85F1E930A19005D9D20 /* ProfilePic.jpg */; };
@@ -32,7 +30,6 @@
 		99C52BD71E6E27B800B7F9F6 /* BeerListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BD61E6E27B800B7F9F6 /* BeerListingTableViewCell.swift */; };
 		99C52BD91E6E3FA200B7F9F6 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BD81E6E3FA200B7F9F6 /* Beer.swift */; };
 		99D5D7B91E985B3800096426 /* TheBeerList.csv in Resources */ = {isa = PBXBuildFile; fileRef = 99D5D7B81E985B3800096426 /* TheBeerList.csv */; };
-		E5FC4CC4AA7C7518C89DE5BA /* Pods_Connoisseur_Club_Central.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436DDFD46741864D5A86732D /* Pods_Connoisseur_Club_Central.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0F239D2FE018428C34A4A5CF /* Pods-Connoisseur Club Central.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connoisseur Club Central.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Connoisseur Club Central/Pods-Connoisseur Club Central.debug.xcconfig"; sourceTree = "<group>"; };
-		1A2FB9D5116025299C7796C2 /* Pods-Connoisseur Club Central.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connoisseur Club Central.release.xcconfig"; path = "Pods/Target Support Files/Pods-Connoisseur Club Central/Pods-Connoisseur Club Central.release.xcconfig"; sourceTree = "<group>"; };
-		436DDFD46741864D5A86732D /* Pods_Connoisseur_Club_Central.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connoisseur_Club_Central.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D7DB8C7B12A7E84A3724AB4 /* Pods_Connoisseur_Club_CentralTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connoisseur_Club_CentralTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		85D2FC08BCD342B7D7E314D2 /* Pods-Connoisseur Club CentralTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connoisseur Club CentralTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Connoisseur Club CentralTests/Pods-Connoisseur Club CentralTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8885F15D55BBA745F6C0D392 /* Pods_Connoisseur_Club_CentralUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connoisseur_Club_CentralUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9904A1561ED5CE3700EC3D36 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		990EA9591EC30070002D0842 /* BeerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerList.swift; sourceTree = "<group>"; };
 		9931F85F1E930A19005D9D20 /* ProfilePic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ProfilePic.jpg; sourceTree = "<group>"; };
@@ -88,9 +79,6 @@
 		99C52BD61E6E27B800B7F9F6 /* BeerListingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerListingTableViewCell.swift; sourceTree = "<group>"; };
 		99C52BD81E6E3FA200B7F9F6 /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		99D5D7B81E985B3800096426 /* TheBeerList.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TheBeerList.csv; sourceTree = "<group>"; };
-		AA37F94CF319798AA7437C0B /* Pods-Connoisseur Club CentralUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connoisseur Club CentralUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Connoisseur Club CentralUITests/Pods-Connoisseur Club CentralUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		B30263A7BD8517BB97E96C85 /* Pods-Connoisseur Club CentralUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connoisseur Club CentralUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Connoisseur Club CentralUITests/Pods-Connoisseur Club CentralUITests.release.xcconfig"; sourceTree = "<group>"; };
-		EDC5CDD4705F3420A94130DF /* Pods-Connoisseur Club CentralTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connoisseur Club CentralTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Connoisseur Club CentralTests/Pods-Connoisseur Club CentralTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +86,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5FC4CC4AA7C7518C89DE5BA /* Pods_Connoisseur_Club_Central.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68E820BF85ACC0326B2B8F81 /* Pods_Connoisseur_Club_CentralTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +100,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C3731EBD78A5F30FA3CA378 /* Pods_Connoisseur_Club_CentralUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,8 +135,6 @@
 				99C52BBC1E6E26C300B7F9F6 /* Connoisseur Club CentralTests */,
 				99C52BC71E6E26C300B7F9F6 /* Connoisseur Club CentralUITests */,
 				99C52BA41E6E26C300B7F9F6 /* Products */,
-				B47D288BE804D76DF5CC5440 /* Pods */,
-				B99BF0F52D72C8552105F83B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,29 +197,6 @@
 			name = "Data Model";
 			sourceTree = "<group>";
 		};
-		B47D288BE804D76DF5CC5440 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0F239D2FE018428C34A4A5CF /* Pods-Connoisseur Club Central.debug.xcconfig */,
-				1A2FB9D5116025299C7796C2 /* Pods-Connoisseur Club Central.release.xcconfig */,
-				85D2FC08BCD342B7D7E314D2 /* Pods-Connoisseur Club CentralTests.debug.xcconfig */,
-				EDC5CDD4705F3420A94130DF /* Pods-Connoisseur Club CentralTests.release.xcconfig */,
-				AA37F94CF319798AA7437C0B /* Pods-Connoisseur Club CentralUITests.debug.xcconfig */,
-				B30263A7BD8517BB97E96C85 /* Pods-Connoisseur Club CentralUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		B99BF0F52D72C8552105F83B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				436DDFD46741864D5A86732D /* Pods_Connoisseur_Club_Central.framework */,
-				7D7DB8C7B12A7E84A3724AB4 /* Pods_Connoisseur_Club_CentralTests.framework */,
-				8885F15D55BBA745F6C0D392 /* Pods_Connoisseur_Club_CentralUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,12 +204,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99C52BCD1E6E26C300B7F9F6 /* Build configuration list for PBXNativeTarget "Connoisseur Club Central" */;
 			buildPhases = (
-				D65FFC4B8449B6B95B5D012C /* [CP] Check Pods Manifest.lock */,
 				99C52B9F1E6E26C300B7F9F6 /* Sources */,
 				99C52BA01E6E26C300B7F9F6 /* Frameworks */,
 				99C52BA11E6E26C300B7F9F6 /* Resources */,
-				B207A1E2CB3D605D8DC20F92 /* [CP] Embed Pods Frameworks */,
-				4046AFCA22193B957D544B7B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -264,12 +221,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99C52BD01E6E26C300B7F9F6 /* Build configuration list for PBXNativeTarget "Connoisseur Club CentralTests" */;
 			buildPhases = (
-				2CA1CF2B4B3AD3DC1A74CC91 /* [CP] Check Pods Manifest.lock */,
 				99C52BB51E6E26C300B7F9F6 /* Sources */,
 				99C52BB61E6E26C300B7F9F6 /* Frameworks */,
 				99C52BB71E6E26C300B7F9F6 /* Resources */,
-				EBC8F8E64B4BF7E2C3AD3197 /* [CP] Embed Pods Frameworks */,
-				492E6DFAB648C6BE4070A027 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,12 +239,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99C52BD31E6E26C300B7F9F6 /* Build configuration list for PBXNativeTarget "Connoisseur Club CentralUITests" */;
 			buildPhases = (
-				8EEBBF5A9C0534068C63B291 /* [CP] Check Pods Manifest.lock */,
 				99C52BC01E6E26C300B7F9F6 /* Sources */,
 				99C52BC11E6E26C300B7F9F6 /* Frameworks */,
 				99C52BC21E6E26C300B7F9F6 /* Resources */,
-				64190D304D7E9E48CF1D4C88 /* [CP] Embed Pods Frameworks */,
-				48FC5C733E65F568043EB338 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -379,144 +330,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2CA1CF2B4B3AD3DC1A74CC91 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		4046AFCA22193B957D544B7B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Connoisseur Club Central/Pods-Connoisseur Club Central-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48FC5C733E65F568043EB338 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Connoisseur Club CentralUITests/Pods-Connoisseur Club CentralUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		492E6DFAB648C6BE4070A027 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Connoisseur Club CentralTests/Pods-Connoisseur Club CentralTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		64190D304D7E9E48CF1D4C88 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Connoisseur Club CentralUITests/Pods-Connoisseur Club CentralUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8EEBBF5A9C0534068C63B291 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		B207A1E2CB3D605D8DC20F92 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Connoisseur Club Central/Pods-Connoisseur Club Central-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D65FFC4B8449B6B95B5D012C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		EBC8F8E64B4BF7E2C3AD3197 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Connoisseur Club CentralTests/Pods-Connoisseur Club CentralTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		99C52B9F1E6E26C300B7F9F6 /* Sources */ = {
@@ -684,7 +497,6 @@
 		};
 		99C52BCE1E6E26C300B7F9F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F239D2FE018428C34A4A5CF /* Pods-Connoisseur Club Central.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UZ35626636;
@@ -699,7 +511,6 @@
 		};
 		99C52BCF1E6E26C300B7F9F6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A2FB9D5116025299C7796C2 /* Pods-Connoisseur Club Central.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UZ35626636;
@@ -714,7 +525,6 @@
 		};
 		99C52BD11E6E26C300B7F9F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85D2FC08BCD342B7D7E314D2 /* Pods-Connoisseur Club CentralTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -729,7 +539,6 @@
 		};
 		99C52BD21E6E26C300B7F9F6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EDC5CDD4705F3420A94130DF /* Pods-Connoisseur Club CentralTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -744,7 +553,6 @@
 		};
 		99C52BD41E6E26C300B7F9F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA37F94CF319798AA7437C0B /* Pods-Connoisseur Club CentralUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "Connoisseur Club CentralUITests/Info.plist";
@@ -758,7 +566,6 @@
 		};
 		99C52BD51E6E26C300B7F9F6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B30263A7BD8517BB97E96C85 /* Pods-Connoisseur Club CentralUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "Connoisseur Club CentralUITests/Info.plist";
