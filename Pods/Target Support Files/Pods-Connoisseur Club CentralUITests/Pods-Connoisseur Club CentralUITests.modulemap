@@ -1,6 +1,0 @@
-framework module Pods_Connoisseur_Club_CentralUITests {
-  umbrella header "Pods-Connoisseur Club CentralUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
