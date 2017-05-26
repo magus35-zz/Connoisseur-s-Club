@@ -58,6 +58,7 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
         
         //Set up navigation item for when view is selected
         self.tabBarController?.navigationItem.title = "Quick Add"
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
     }
     
     

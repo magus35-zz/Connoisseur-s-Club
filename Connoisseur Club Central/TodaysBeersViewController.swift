@@ -59,6 +59,9 @@ class TodaysBeersViewController: UIViewController, WKUIDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
+        //Set up navigation item
         self.tabBarController?.navigationItem.title = "Today's Specials"
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
     }
 }

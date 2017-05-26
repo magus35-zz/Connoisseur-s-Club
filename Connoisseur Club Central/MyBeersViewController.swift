@@ -51,7 +51,9 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
     func viewDidAppear() {
         super.viewDidAppear(true)
         
+        //Set up navigation item
         self.tabBarController?.navigationItem.title = "My Beers"
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
     }
     
     

@@ -61,8 +61,12 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.tabBarController?.navigationItem.title = "Beer List"
+
         beerListTable.reloadData()
+        
+        //Setup navigation item
+        self.tabBarController?.navigationItem.title = "Beer List"
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
     }//viewDidAppear()
     
     

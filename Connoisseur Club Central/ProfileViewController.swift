@@ -58,24 +58,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let connoisseurLastName = authenticatedUser.getLastName()
         let connoisseurBeersTried = authenticatedUser.getNumberOfBeersTried()
         updatePersonalInfoLabels(newID: String(connoisseurID), firstName: connoisseurFirstName, lastName: connoisseurLastName, newNumberTried: connoisseurBeersTried)
-        
-        //Set up navigation item
-        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
-        self.tabBarController?.navigationItem.rightBarButtonItem = logoutButton
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        //Setup navigation item
+        //Set up navigation item
         self.tabBarController?.navigationItem.title = "Profile"
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
+        self.tabBarController?.navigationItem.rightBarButtonItem = logoutButton
         
-        //Setup beers tried label
+        //Set up beers tried label
         let connoisseurBeersTried = authenticatedUser.getNumberOfBeersTried()
         updateBeersTriedLabelText(newNumberTried: connoisseurBeersTried)
         
-        //Setup favorite beers table
+        //Set up favorite beers table
         updateFavoriteBeersList()
         lovedBeersTable.reloadData()
     }
