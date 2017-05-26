@@ -16,7 +16,6 @@ class TodaysBeersViewController: UIViewController, WKUIDelegate {
     
 
     
-    @IBOutlet weak var todaysBeersNavigationItem: UINavigationItem!
     @IBOutlet var containerView : UIView! = nil
     
     
@@ -55,6 +54,11 @@ class TodaysBeersViewController: UIViewController, WKUIDelegate {
         let req = URLRequest(url:url!)
         self.webView!.load(req as URLRequest)
         
-        self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.tabBarController?.navigationItem.title = "Today's Specials"
     }
 }

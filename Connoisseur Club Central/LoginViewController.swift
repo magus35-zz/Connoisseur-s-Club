@@ -9,6 +9,11 @@
 import UIKit
 import Firebase
 
+extension Notification.Name {
+    static let requestLogout = Notification.Name("RequestLogOut")
+}
+
+
 class LoginViewController: UIViewController {
     //****
     //MARK: Outlets
@@ -38,10 +43,16 @@ class LoginViewController: UIViewController {
     //****
     
     
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerSampleUsers()
-        self.ref = Database.database().reference()
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveRequestForLogout(notification:)), name: .requestLogout, object: nil)
     }
     
     
@@ -86,6 +97,10 @@ class LoginViewController: UIViewController {
         } else {
             return true
         }
+    }
+    
+    func didReceiveRequestForLogout(notification: Notification) -> Void {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     

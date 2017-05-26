@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XHk-kJ-VbN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pYy-MN-RtA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -48,7 +48,7 @@
                                         <rect key="frame" x="0.0" y="72" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lan-UA-0X0" id="rhP-5M-OQH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#8888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="9Hs-Td-bjz">
@@ -70,41 +70,41 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Avh-rb-UDZ">
-                                                    <rect key="frame" x="0.0" y="48.5" width="375" height="30.5"/>
+                                                    <rect key="frame" x="0.0" y="48" width="375" height="31"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOk-jM-SWB">
-                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="31"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-h7-7lK">
-                                                            <rect key="frame" x="69" y="0.0" width="30" height="30.5"/>
+                                                            <rect key="frame" x="69" y="0.0" width="30" height="31"/>
                                                             <state key="normal" title="☹️"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="ya7-3y-PVu"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeE-6s-9Tb">
-                                                            <rect key="frame" x="138" y="0.0" width="30" height="30.5"/>
+                                                            <rect key="frame" x="138" y="0.0" width="30" height="31"/>
                                                             <state key="normal" title="😕"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="1bY-Uk-0ad"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHc-R6-Z6V">
-                                                            <rect key="frame" x="207" y="0.0" width="30" height="30.5"/>
+                                                            <rect key="frame" x="207" y="0.0" width="30" height="31"/>
                                                             <state key="normal" title="🙂"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="cVg-t6-YTt"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cu-Py-uJd">
-                                                            <rect key="frame" x="276" y="0.0" width="30" height="30.5"/>
+                                                            <rect key="frame" x="276" y="0.0" width="30" height="31"/>
                                                             <state key="normal" title="😍"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="9LS-Sb-PW0"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovt-C6-0xF">
-                                                            <rect key="frame" x="345" y="0.0" width="30" height="30.5"/>
+                                                            <rect key="frame" x="345" y="0.0" width="30" height="31"/>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -182,9 +182,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Quick Add" image="QuickAddTabIcon" selectedImage="QuickAddTabIcon" id="acW-dT-cKf" userLabel="Quick Add"/>
-                    <navigationItem key="navigationItem" title="Quick Add" id="rNU-9C-fDO"/>
                     <connections>
-                        <outlet property="quickAddNavigationItem" destination="rNU-9C-fDO" id="dej-T4-OQf"/>
                         <outlet property="quickAddSearchBar" destination="jOf-OO-GFM" id="mwz-lQ-xtr"/>
                         <outlet property="quickAddTable" destination="jqz-g9-cbf" id="NGe-Ji-iyY"/>
                     </connections>
@@ -196,6 +194,7 @@
         <!--Today's Beers-->
         <scene sceneID="G4X-EZ-Jxk">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sp1-mW-eMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="wbH-Qn-3NT" userLabel="Today's Beers" customClass="TodaysBeersViewController" customModule="Connoisseur_Club_Central" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K9j-9g-He4"/>
@@ -214,13 +213,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Today's Specials" image="TodaysSpecialsTabIcon" selectedImage="TodaysSpecialsTabIcon" id="DKh-dh-de4" userLabel="Today's Beers"/>
-                    <navigationItem key="navigationItem" title="Today's Specials" id="Y1w-ac-JU7"/>
                     <connections>
                         <outlet property="containerView" destination="bc2-gT-6XE" id="aw8-gr-nHq"/>
-                        <outlet property="todaysBeersNavigationItem" destination="Y1w-ac-JU7" id="QId-aR-kJK"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sp1-mW-eMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="552.79999999999995" y="867.61619190404804"/>
         </scene>
@@ -290,16 +286,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="iDI-Ue-NS1"/>
                     <connections>
                         <outlet property="passwordField" destination="yn0-aH-omc" id="hUD-pG-W7z"/>
                         <outlet property="statusLabel" destination="Pe1-IZ-w7y" id="yAZ-Gc-9XD"/>
                         <outlet property="usernameField" destination="aWJ-QI-Dkv" id="qae-0u-xCg"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="loginSegue" id="N5Y-y5-5xZ"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="loginSegue" id="OIY-ym-R2j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Lt-Bh-cC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2" y="-1761"/>
+            <point key="canvasLocation" x="60" y="-1119"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Pcv-UA-HRd">
@@ -383,7 +380,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YFI-6N-Nz3" id="E0v-rq-iA7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#8888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="0gg-Kl-GuL">
@@ -425,13 +422,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="ProfileTabIcon" selectedImage="ProfileTabIcon" id="3sM-oU-gTI" userLabel="Profile"/>
-                    <navigationItem key="navigationItem" title="Profile" id="k1Q-Mg-OIx"/>
                     <connections>
                         <outlet property="beersTriedLabel" destination="6sq-CL-Cwe" id="y5z-5x-agZ"/>
                         <outlet property="connoisseurIDLabel" destination="kyh-HF-rma" id="oRG-sq-Vge"/>
                         <outlet property="lovedBeersTable" destination="KdN-u8-dXr" id="E0n-RN-ZBf"/>
                         <outlet property="nameLabel" destination="bGe-M3-Aq7" id="icv-6X-VyP"/>
-                        <outlet property="profileNavigationItem" destination="k1Q-Mg-OIx" id="F7o-9y-6qS"/>
                         <segue destination="ZHb-Oj-nQX" kind="show" identifier="showMyBeersSegue" id="GWB-BB-15N"/>
                     </connections>
                 </viewController>
@@ -439,7 +434,7 @@
             </objects>
             <point key="canvasLocation" x="1556" y="877.51124437781118"/>
         </scene>
-        <!--My Beers-->
+        <!--My Beers View Controller-->
         <scene sceneID="es3-5T-YCH">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="ZHb-Oj-nQX" customClass="MyBeersViewController" customModule="Connoisseur_Club_Central" customModuleProvider="target" sceneMemberID="viewController">
@@ -460,7 +455,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Im2-Fr-0qR" id="0fL-4L-CYD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#8888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ijz-Re-Qm9">
@@ -501,7 +496,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Beers" id="Y2q-Wr-1FM"/>
                     <connections>
                         <outlet property="myBeersTable" destination="c2e-he-75O" id="DjL-pT-9sS"/>
                     </connections>
@@ -531,7 +525,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kSw-IQ-gZW" id="Iar-NZ-vNx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#8888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="4XE-YQ-H24">
@@ -595,10 +589,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Beer List" image="BeerListTabIcon" selectedImage="BeerListTabIcon" id="cPa-gy-q4n" userLabel="Beer List"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Beer List" id="Olv-dl-IMe"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="beerListNavigationItem" destination="Olv-dl-IMe" id="3xr-79-kff"/>
                         <outlet property="beerListSearchBar" destination="OXa-Oo-0QE" id="Zza-JU-JmJ"/>
                         <outlet property="beerListTable" destination="TTi-Ce-mex" id="4sC-9Y-sRf"/>
                         <outlet property="tapRecognizer" destination="4dC-7Y-Dcc" id="Yy5-se-Lv6"/>
@@ -625,83 +617,33 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="pmP-x4-oXN" kind="relationship" relationship="viewControllers" id="InZ-zZ-IIe"/>
-                        <segue destination="VmL-y4-d5a" kind="relationship" relationship="viewControllers" id="ZRy-M6-eRn"/>
-                        <segue destination="4eH-3z-yjz" kind="relationship" relationship="viewControllers" id="Wbo-NJ-Nb5"/>
-                        <segue destination="nl7-kd-nPA" kind="relationship" relationship="viewControllers" id="1Qf-18-iJd"/>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="ilZ-59-gm9"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="8XC-BY-Xcj"/>
+                        <segue destination="wbH-Qn-3NT" kind="relationship" relationship="viewControllers" id="tos-ZC-AGf"/>
+                        <segue destination="6tQ-SC-MJl" kind="relationship" relationship="viewControllers" id="Xw4-Hi-ayb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2" y="-909"/>
+            <point key="canvasLocation" x="60" y="-177"/>
         </scene>
-        <!--Quick Add-->
-        <scene sceneID="jIu-9Q-A8t">
+        <!--Navigation Controller-->
+        <scene sceneID="yny-hI-Rru">
             <objects>
-                <navigationController id="pmP-x4-oXN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Quick Add" id="HGa-7D-BEq"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Emi-pz-UHb">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pYy-MN-RtA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WzP-Mb-Ay5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="2Iu-g5-061"/>
+                        <segue destination="XHk-kJ-VbN" kind="relationship" relationship="rootViewController" id="gDI-5s-V0K"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hQ8-ht-Kga" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ErZ-20-A4W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1439" y="45"/>
-        </scene>
-        <!--Beer List-->
-        <scene sceneID="Fro-h6-aFJ">
-            <objects>
-                <navigationController id="VmL-y4-d5a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Beer List" id="coK-5G-aP9"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vbe-wo-BSl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="yTf-1Z-Pvx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ihE-cj-fyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-508" y="45"/>
-        </scene>
-        <!--Today's Specials-->
-        <scene sceneID="LVh-Su-p7e">
-            <objects>
-                <navigationController id="4eH-3z-yjz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Today's Specials" id="zf5-FU-UoF"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uoh-DA-LbF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="wbH-Qn-3NT" kind="relationship" relationship="rootViewController" id="8AS-n0-Raw"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ggb-50-1eK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="553" y="45"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="yCS-Wx-EoS">
-            <objects>
-                <navigationController id="nl7-kd-nPA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="OmJ-0s-laH"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hCN-I9-hLJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="6tQ-SC-MJl" kind="relationship" relationship="rootViewController" id="GUs-32-G96"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ilu-6Q-IeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1556" y="45"/>
+            <point key="canvasLocation" x="60" y="-2010"/>
         </scene>
     </scenes>
     <resources>

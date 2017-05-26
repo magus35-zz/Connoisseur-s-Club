@@ -15,7 +15,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
-    @IBOutlet weak var profileNavigationItem: UINavigationItem!
     @IBOutlet weak var connoisseurIDLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var beersTriedLabel: UILabel!
@@ -26,6 +25,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     //****
     //MARK: Properties
     //****
+    
     
     
     var theServer = Server.sharedInstance
@@ -44,34 +44,41 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         
+        //Get authenticated user
         authenticatedUser = theServer.requestAuthenticatedUser()!
         
-        //If the connoisseur
+        //Set up lovedBeersTable
         updateFavoriteBeersList()
+        lovedBeersTable.separatorColor = view.backgroundColor
         
+        
+        //Set up Profile labels
         let connoisseurID = authenticatedUser.getID()
         let connoisseurFirstName = authenticatedUser.getFirstName()
         let connoisseurLastName = authenticatedUser.getLastName()
         let connoisseurBeersTried = authenticatedUser.getNumberOfBeersTried()
-        
-        lovedBeersTable.separatorColor = view.backgroundColor
-
-        
         updatePersonalInfoLabels(newID: String(connoisseurID), firstName: connoisseurFirstName, lastName: connoisseurLastName, newNumberTried: connoisseurBeersTried)
         
-        self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
+        //Set up navigation item
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
+        self.tabBarController?.navigationItem.rightBarButtonItem = logoutButton
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
-        let connoisseurBeersTried = authenticatedUser.getNumberOfBeersTried()
+        super.viewDidAppear(true)
         
+        //Setup navigation item
+        self.tabBarController?.navigationItem.title = "Profile"
+        
+        //Setup beers tried label
+        let connoisseurBeersTried = authenticatedUser.getNumberOfBeersTried()
         updateBeersTriedLabelText(newNumberTried: connoisseurBeersTried)
         
-        
+        //Setup favorite beers table
         updateFavoriteBeersList()
         lovedBeersTable.reloadData()
-    }
+    }
     
     
     
@@ -85,7 +92,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func userDidPressMyBeers(_ sender: Any) {
         performSegue(withIdentifier: Constants.Segues.MyBeers, sender: nil)
     }
-    
+
     
     
     //****
@@ -208,6 +215,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     //****
     
     
+    
+    func logout() {
+        NotificationCenter.default.post(name: .requestLogout, object: nil)
+    }
     
     func updateFavoriteBeersList() -> Void {
         if let connoisseursLovedBeers = authenticatedUser.getAllBeerNumbersTried(sorted: .Chronologically, withRating: .Love) {

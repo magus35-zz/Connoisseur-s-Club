@@ -17,7 +17,6 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var beerListSearchBar: UISearchBar!
     @IBOutlet weak var beerListTable: UITableView!
-    @IBOutlet weak var beerListNavigationItem: UINavigationItem!
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     
     
@@ -57,12 +56,12 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         beerListTable.separatorColor = view.backgroundColor
     
         self.automaticallyAdjustsScrollViewInsets = false
-        
-        self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
     } //viewDidLoad()
 
     
-    func viewDidAppear() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.tabBarController?.navigationItem.title = "Beer List"
         beerListTable.reloadData()
     }//viewDidAppear()
     

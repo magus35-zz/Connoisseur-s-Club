@@ -48,6 +48,13 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
+    func viewDidAppear() {
+        super.viewDidAppear(true)
+        
+        self.tabBarController?.navigationItem.title = "My Beers"
+    }
+    
+    
     
     //****
     //MARK: Table View Methods

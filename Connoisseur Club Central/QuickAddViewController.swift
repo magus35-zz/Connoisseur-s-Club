@@ -17,7 +17,6 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var quickAddSearchBar: UISearchBar!
     @IBOutlet weak var quickAddTable: UITableView!
-    @IBOutlet weak var quickAddNavigationItem: UINavigationItem!
     
     
     
@@ -45,16 +44,20 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
         //Set up search bar and associated keyboard
         quickAddSearchBar.keyboardType = .numberPad
         addSearchToolbar(toSearchBar: quickAddSearchBar)
-        quickAddNavigationItem.title = "Quick Add"
         
         //Set up table display properties
         quickAddTable.estimatedRowHeight = 44.0
         quickAddTable.rowHeight = UITableViewAutomaticDimension
         quickAddTable.separatorColor = view.backgroundColor
-        
         self.automaticallyAdjustsScrollViewInsets = false
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
-        self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
+        //Set up navigation item for when view is selected
+        self.tabBarController?.navigationItem.title = "Quick Add"
     }
     
     
