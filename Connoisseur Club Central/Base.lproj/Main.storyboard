@@ -57,7 +57,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5y-cA-GIh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5y-cA-GIh">
                                                     <rect key="frame" x="69" y="11" width="233" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -181,7 +181,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Quick Add" image="first" id="acW-dT-cKf" userLabel="Quick Add"/>
+                    <tabBarItem key="tabBarItem" title="Quick Add" image="QuickAddTabIcon" selectedImage="QuickAddTabIcon" id="acW-dT-cKf" userLabel="Quick Add"/>
                     <navigationItem key="navigationItem" title="Quick Add" id="rNU-9C-fDO"/>
                     <connections>
                         <outlet property="quickAddNavigationItem" destination="rNU-9C-fDO" id="dej-T4-OQf"/>
@@ -213,7 +213,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Today's Specials" id="DKh-dh-de4" userLabel="Today's Beers"/>
+                    <tabBarItem key="tabBarItem" title="Today's Specials" image="TodaysSpecialsTabIcon" selectedImage="TodaysSpecialsTabIcon" id="DKh-dh-de4" userLabel="Today's Beers"/>
                     <navigationItem key="navigationItem" title="Today's Specials" id="Y1w-ac-JU7"/>
                     <connections>
                         <outlet property="containerView" destination="bc2-gT-6XE" id="aw8-gr-nHq"/>
@@ -393,7 +393,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P29-Tb-9Uo">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P29-Tb-9Uo">
                                                     <rect key="frame" x="69" y="11" width="233" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -424,7 +424,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="3sM-oU-gTI" userLabel="Profile"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileTabIcon" selectedImage="ProfileTabIcon" id="3sM-oU-gTI" userLabel="Profile"/>
                     <navigationItem key="navigationItem" title="Profile" id="k1Q-Mg-OIx"/>
                     <connections>
                         <outlet property="beersTriedLabel" destination="6sq-CL-Cwe" id="y5z-5x-agZ"/>
@@ -541,7 +541,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nYZ-Tw-vpw">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nYZ-Tw-vpw">
                                                     <rect key="frame" x="69" y="11" width="233" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -589,8 +589,11 @@
                             <constraint firstItem="OXa-Oo-0QE" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="8O5-sr-KNX"/>
                             <constraint firstItem="OXa-Oo-0QE" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="mHf-fb-RO1"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4dC-7Y-Dcc" appends="YES" id="l5l-86-V2n"/>
+                        </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Beer List" image="second" id="cPa-gy-q4n" userLabel="Beer List"/>
+                    <tabBarItem key="tabBarItem" title="Beer List" image="BeerListTabIcon" selectedImage="BeerListTabIcon" id="cPa-gy-q4n" userLabel="Beer List"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Beer List" id="Olv-dl-IMe"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -598,9 +601,15 @@
                         <outlet property="beerListNavigationItem" destination="Olv-dl-IMe" id="3xr-79-kff"/>
                         <outlet property="beerListSearchBar" destination="OXa-Oo-0QE" id="Zza-JU-JmJ"/>
                         <outlet property="beerListTable" destination="TTi-Ce-mex" id="4sC-9Y-sRf"/>
+                        <outlet property="tapRecognizer" destination="4dC-7Y-Dcc" id="Yy5-se-Lv6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4dC-7Y-Dcc">
+                    <connections>
+                        <action selector="userDidTap:" destination="8rJ-Kc-sve" id="FuD-aM-uMS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-508" y="878.41079460269873"/>
         </scene>
@@ -696,8 +705,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BeerListTabIcon" width="17" height="23"/>
         <image name="ProfilePic.jpg" width="132" height="132"/>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="ProfileTabIcon" width="21" height="21"/>
+        <image name="QuickAddTabIcon" width="18" height="21"/>
+        <image name="TodaysSpecialsTabIcon" width="23" height="19"/>
     </resources>
 </document>

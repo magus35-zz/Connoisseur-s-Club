@@ -41,6 +41,9 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
         authenticatedUser = theServer.requestAuthenticatedUser()!
         beersTried = authenticatedUser.getAllBeerNumbersTried(sorted: .Chronologically, withRating: nil)!
         
+        myBeersTable.separatorColor = view.backgroundColor
+
+        
         self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
     }
     
@@ -80,6 +83,7 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
         let beerForCell:Beer = theServer.requestBeer(withNumber: beerNumberForCell)!
         let beerRatingForCell:Rating = authenticatedUser.getRatingForBeer(withNumber: beerNumberForCell)!
         
+        cell.selectionStyle = .none
         cell.updateLabels(forBeer: beerForCell, withRating: beerRatingForCell)
         
         

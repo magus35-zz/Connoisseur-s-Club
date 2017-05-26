@@ -29,19 +29,15 @@ class QuickAddTableViewCell: BeerListingTableViewCell {
         if let title = sender.currentTitle { //Extra validation to make sure that the correct action is being performed
             switch title {
             case "☹️":
-                print(title)
                 ratingAction?(self, .Bad)
                 break
             case "😕":
-                print(title)
                 ratingAction?(self, .Meh)
                 break
             case "🙂":
-                print(title)
                 ratingAction?(self, .Good)
                 break
             case "😍":
-                print(title)
                 ratingAction?(self, .Love)
                 break
             default:

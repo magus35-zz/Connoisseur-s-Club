@@ -18,6 +18,7 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var beerListSearchBar: UISearchBar!
     @IBOutlet weak var beerListTable: UITableView!
     @IBOutlet weak var beerListNavigationItem: UINavigationItem!
+    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     
     
     
@@ -31,8 +32,11 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     var searchResults:BeerList = BeerList()
     let fullBeerList:BeerList = BeerList(fromSampleData: true)
     var selectedSearchMethod:((String) -> Void)! = nil
-    var tapRecognizer:UITapGestureRecognizer? = nil
-    
+    /*var ratingAlertCompletionHandler:((UIAlertAction) -> Void) = { (alert) in
+        self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Bad)
+        tableView.reloadRows(at: indexPathsToUpdate, with: .none)
+        tableView.deselectRow(at: indexPath, animated: false)
+    }*/
     
     
     
@@ -47,20 +51,21 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         
         initializeSearchBar()
         
-        //Default search results to be all beers for testing purposes
-        searchResults = theServer.requestBeerList()
-
         //Set up table display properties
         beerListTable.estimatedRowHeight = 44.0
         beerListTable.rowHeight = UITableViewAutomaticDimension
         beerListTable.separatorColor = view.backgroundColor
     
         self.automaticallyAdjustsScrollViewInsets = false
-
         
         self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
     } //viewDidLoad()
 
+    
+    func viewDidAppear() {
+        beerListTable.reloadData()
+    }//viewDidAppear()
+    
     
     
     //****
@@ -106,42 +111,7 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     } //tableView(_:cellForRowAt:)
-
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let beer = self.searchResults.getAllBeersInList()?[indexPath.row]
-        var indexPathsToUpdate:[IndexPath] = []
-        indexPathsToUpdate.append(indexPath)
-        
-        let alert = UIAlertController(title: "Rate \((beer?.beerBrewer)!) \((beer?.beerName)!)", message: nil, preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "Love 😍", style: .default, handler: { (alert) in
-            self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Love)
-            tableView.reloadRows(at: indexPathsToUpdate, with: .none)
-        }))
-        alert.addAction(UIAlertAction(title: "Good 🙂", style: .default, handler: { (alert) in
-            self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Good)
-            tableView.reloadRows(at: indexPathsToUpdate, with: .none)
-
-        }))
-        alert.addAction(UIAlertAction(title: "Meh 😕", style: .default, handler: { (alert) in
-            self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Meh)
-            tableView.reloadRows(at: indexPathsToUpdate, with: .none)
-
-        }))
-        alert.addAction(UIAlertAction(title: "Bad ☹️", style: .default, handler: { (alert) in
-            self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Bad)
-            tableView.reloadRows(at: indexPathsToUpdate, with: .none)
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    }
     
     
     //****
@@ -223,12 +193,12 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         //Toolbar and its components
         let doneToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 50))
         let toolbarFlexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(BeerListViewController.userDidPressDoneButton))
+        //let doneButton = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(BeerListViewController.userDidPressDoneButton))
         let searchButton = UIBarButtonItem(title: "Search", style: .done, target: self, action: #selector(BeerListViewController.userDidPressSearchButton))
         
         //Put toolbar items together into array
         var toolbarItems = [UIBarButtonItem]()
-        toolbarItems.append(doneButton)
+        //toolbarItems.append(doneButton)
         toolbarItems.append(toolbarFlexSpace)
         toolbarItems.append(searchButton)
         
@@ -256,16 +226,25 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         beerListSearchBar.showsScopeBar = false
+        beerListSearchBar.showsCancelButton = false
         if beerListSearchBar.selectedScopeButtonIndex != 0 && beerListSearchBar.text != "" {
             selectedSearchMethod(searchBar.text!)
         }
-        tapRecognizer = nil
+        //tapRecognizer = nil
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        let newRecognizer = UITapGestureRecognizer(target: self, action: #selector(BeerListViewController.resignFirstResponderOnTap))
-        tapRecognizer = newRecognizer
+        //let newRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(BeerListViewController.resignFirstResponderOnTap))
+        //tapRecognizer = newRecognizer
         beerListSearchBar.showsScopeBar = true
+        beerListSearchBar.showsCancelButton = true
+
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        beerListSearchBar.text = ""
+        beerListSearchBar.resignFirstResponder()
+        beerListTable.reloadData()
     }
     
     
@@ -313,9 +292,41 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     //Resign first responder on tap
-    @IBAction func resignFirstResponderOnTap(_ sender: UITapGestureRecognizer) {
-        if beerListSearchBar.isFirstResponder {
+    @IBAction func userDidTap(_ sender: UITapGestureRecognizer) {
+        if beerListSearchBar.isFirstResponder { //If the search bar is first responder, resign it from being first responder
             beerListSearchBar.resignFirstResponder()
+        } else if searchResults.getNumberOfBeers() != 0 { //If the search bar is not first responder and there are search results, try to figure out which cell was tapped
+            let tapLocation = sender.location(in: beerListTable)
+            if let tappedIndexPath = beerListTable.indexPathForRow(at: tapLocation) {
+                let beer = self.searchResults.getAllBeersInList()?[tappedIndexPath.row]
+                var indexPathsToUpdate:[IndexPath] = []
+                indexPathsToUpdate.append(tappedIndexPath)
+                
+                let alert = UIAlertController(title: "Rate \((beer?.beerBrewer)!) \((beer?.beerName)!)", message: nil, preferredStyle: .actionSheet)
+                
+                alert.addAction(UIAlertAction(title: "Love 😍", style: .default, handler: { (alert) in
+                    self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Love)
+                    self.beerListTable.reloadRows(at: indexPathsToUpdate, with: .none)
+                }))
+                alert.addAction(UIAlertAction(title: "Good 🙂", style: .default, handler: { (alert) in
+                    self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Good)
+                    self.beerListTable.reloadRows(at: indexPathsToUpdate, with: .none)
+                    
+                }))
+                alert.addAction(UIAlertAction(title: "Meh 😕", style: .default, handler: { (alert) in
+                    self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Meh)
+                    self.beerListTable.reloadRows(at: indexPathsToUpdate, with: .none)
+                    
+                }))
+                alert.addAction(UIAlertAction(title: "Bad ☹️", style: .default, handler: { (alert) in
+                    self.theServer.requestAuthenticatedUser()?.tryBeer(withNumber: (beer?.beerNumber)!, rating: .Bad)
+                    self.beerListTable.reloadRows(at: indexPathsToUpdate, with: .none)
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                
+                
+                present(alert, animated: true, completion: nil)
+            }
         }
     }
 }

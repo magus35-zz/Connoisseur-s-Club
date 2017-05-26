@@ -10,9 +10,9 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController {
-
+    //****
     //MARK: Outlets
-    //
+    //****
     
     
     @IBOutlet weak var usernameField: UITextField!
@@ -22,16 +22,20 @@ class LoginViewController: UIViewController {
     
     
     
+    //****
     //MARK: Properties
-    //
+    //****
+    
+    
     
     var ref: DatabaseReference!
     var theServer = Server.sharedInstance
     
     
     
+    //****
     //MARK: View Controller methods
-    //
+    //****
     
     
     override func viewDidLoad() {
@@ -42,8 +46,10 @@ class LoginViewController: UIViewController {
     
     
     
+    //****
     //MARK: Actions
-    //
+    //****
+    
     
     
     @IBAction func userDidTapLogin(_ sender: UIButton) {
@@ -60,13 +66,18 @@ class LoginViewController: UIViewController {
         
     }
     
+    
     @IBAction func userDidThing(_ sender: Any) {
         let username = usernameField.text!
         self.ref.child("users").child(username).setValue("value")
     }
     
+    
+    
+    //****
     //MARK: Helper functions
-    //
+    //****
+    
     
     
     func inputIsValid() -> Bool {

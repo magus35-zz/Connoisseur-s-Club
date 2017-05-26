@@ -54,6 +54,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let connoisseurLastName = authenticatedUser.getLastName()
         let connoisseurBeersTried = authenticatedUser.getNumberOfBeersTried()
         
+        lovedBeersTable.separatorColor = view.backgroundColor
+
+        
         updatePersonalInfoLabels(newID: String(connoisseurID), firstName: connoisseurFirstName, lastName: connoisseurLastName, newNumberTried: connoisseurBeersTried)
         
         self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
@@ -61,9 +64,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     override func viewDidAppear(_ animated: Bool) {
+        let connoisseurBeersTried = authenticatedUser.getNumberOfBeersTried()
+        
+        updateBeersTriedLabelText(newNumberTried: connoisseurBeersTried)
+        
+        
         updateFavoriteBeersList()
         lovedBeersTable.reloadData()
-    }
+    }
     
     
     
@@ -114,7 +122,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 fatalError("The dequeued cell is not an instance of BeerListingTableViewCell")
         } //guard/else
         
-        if let beerForCell = connoisseursFavoriteBeers?.getAllBeersInList()?[indexPath.row] { //Case that there is a search result for the given indexPath, update the cell accordingly
+        if let beerForCell = connoisseursFavoriteBeers?.getAllBeersInList()?[indexPath.row] { //Case that there is a favorite beer for the given indexPath, update the cell accordingly
             
             //If the user has rated the beer in the search result, update the rating label
             if let userRating = theServer.requestAuthenticatedUser()?.getRatingForBeer(withNumber: beerForCell.beerNumber!) {
@@ -123,6 +131,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 cell.updateRatingLabel(withRating: nil)
             }
             
+            cell.selectionStyle = .none
             cell.updateBeerNumberLabel(withNumber: beerForCell.beerNumber)
             cell.updateBeerNameLabel(withName: beerForCell.beerName!, andBrewer: beerForCell.beerBrewer!)
             

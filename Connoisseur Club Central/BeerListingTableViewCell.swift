@@ -60,17 +60,15 @@ class BeerListingTableViewCell: UITableViewCell {
         if let userRating = rating {
             switch userRating {
             case .Bad:
-                beerRatingLabel.textColor = .red
+                beerRatingLabel.text = "☹️"
             case .Meh:
-                beerRatingLabel.textColor = .yellow
+                beerRatingLabel.text = "😕"
             case .Good:
-                beerRatingLabel.textColor = .blue
+                beerRatingLabel.text = "🙂"
             case .Love:
-                beerRatingLabel.textColor = .green
+                beerRatingLabel.text = "😍"
             }
-            beerRatingLabel.text = userRating.rawValue
         } else {
-            beerRatingLabel.textColor = .white
             beerRatingLabel.text = ""
         }
         

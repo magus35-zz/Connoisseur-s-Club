@@ -155,12 +155,18 @@ class Connoisseur {
     } //setConnoisseurID(newID:)
     
     
-    func tryBeer(withNumber number: Int, rating: Rating) -> Void? {
+    func tryBeer(withNumber number: Int, rating: Rating) -> Void {
         if self.hasTriedBeer(withNumber: number) {
-            return nil
+            var loopCounter = 0
+            while loopCounter < getNumberOfBeersTried() {
+                if beersTried[loopCounter].0 == number {
+                    beersTried[loopCounter].1 = rating
+                    break
+                }
+                loopCounter += 1
+            }
         } else {
             beersTried.append((number,rating))
-            return ()
         } //if/else
     } //tryBeer(withNumber:rating:)
     
