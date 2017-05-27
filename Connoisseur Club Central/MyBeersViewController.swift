@@ -30,24 +30,27 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
     var beersTried:[Int]!
     
     
+    
     //****
     //MARK: ViewController Maintenance
     //****
     
     
     
+    //Get the beers tried by the connoisseur and set up visuals
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Set up model
         authenticatedUser = theServer.requestAuthenticatedUser()!
         beersTried = authenticatedUser.getAllBeerNumbersTried(sorted: .Chronologically, withRating: nil)
         
+        //Set up beer table
         myBeersTable.separatorColor = view.backgroundColor
-
-        
-        self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
+        self.tabBarController?.automaticallyAdjustsScrollViewInsets = false
     }
     
     
+    //Set up different visuals
     func viewWillAppear() {
         super.viewWillAppear(true)
         
@@ -69,7 +72,7 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
     //Return one section, for all beers tried
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
-    }
+    }//numberOfSections(in:)
     
     
     //Return number of beers tried for section 0
@@ -78,13 +81,13 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
         case 0: //Currently only section - return number of beers tried
             if let numberOfBeersTried = beersTried?.count {
                 return numberOfBeersTried
-            } else {
+            } else { //if
                 return 0
-            }
+            } //else
         default:
             return 0
-        }
-    }
+        }//switch
+    }//tableView(_:numberOfRowsInSection:)
     
     
     //Format a cell for each beer tried
@@ -92,7 +95,7 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let cell = myBeersTable.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.BeerListing, for: indexPath) as? BeerListingTableViewCell
             else {
                 fatalError("shit happened")
-        }
+        }//guard-else
         
         let beerNumberForCell:Int = beersTried[indexPath.row]
         let beerForCell:Beer = theServer.requestBeer(withNumber: beerNumberForCell)!
@@ -102,5 +105,5 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.updateLabels(forBeer: beerForCell, withRating: beerRatingForCell)
         
         return cell
-    }
+    }//tableView(_:cellForRowAt:indexPath:)
 }

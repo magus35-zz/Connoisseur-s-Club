@@ -70,41 +70,41 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Avh-rb-UDZ">
-                                                    <rect key="frame" x="0.0" y="48" width="375" height="31"/>
+                                                    <rect key="frame" x="0.0" y="48.5" width="375" height="30.5"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOk-jM-SWB">
-                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="31"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30.5"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-h7-7lK">
-                                                            <rect key="frame" x="69" y="0.0" width="30" height="31"/>
+                                                            <rect key="frame" x="69" y="0.0" width="30" height="30.5"/>
                                                             <state key="normal" title="☹️"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="ya7-3y-PVu"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeE-6s-9Tb">
-                                                            <rect key="frame" x="138" y="0.0" width="30" height="31"/>
+                                                            <rect key="frame" x="138" y="0.0" width="30" height="30.5"/>
                                                             <state key="normal" title="😕"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="1bY-Uk-0ad"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHc-R6-Z6V">
-                                                            <rect key="frame" x="207" y="0.0" width="30" height="31"/>
+                                                            <rect key="frame" x="207" y="0.0" width="30" height="30.5"/>
                                                             <state key="normal" title="🙂"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="cVg-t6-YTt"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cu-Py-uJd">
-                                                            <rect key="frame" x="276" y="0.0" width="30" height="31"/>
+                                                            <rect key="frame" x="276" y="0.0" width="30" height="30.5"/>
                                                             <state key="normal" title="😍"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="9LS-Sb-PW0"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovt-C6-0xF">
-                                                            <rect key="frame" x="345" y="0.0" width="30" height="31"/>
+                                                            <rect key="frame" x="345" y="0.0" width="30" height="30.5"/>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -182,6 +182,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Quick Add" image="QuickAddTabIcon" selectedImage="QuickAddTabIcon" id="acW-dT-cKf" userLabel="Quick Add"/>
+                    <navigationItem key="navigationItem" title="Title" id="w9g-Q2-TWk"/>
                     <connections>
                         <outlet property="quickAddSearchBar" destination="jOf-OO-GFM" id="mwz-lQ-xtr"/>
                         <outlet property="quickAddTable" destination="jqz-g9-cbf" id="NGe-Ji-iyY"/>
@@ -234,6 +235,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Export236.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="32e-Xs-EtV">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="admin" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWJ-QI-Dkv">
                                 <rect key="frame" x="108" y="288" width="251" height="30"/>
@@ -297,6 +299,9 @@
                             <constraint firstAttribute="trailing" secondItem="32e-Xs-EtV" secondAttribute="trailing" id="etd-XN-b5k"/>
                             <constraint firstItem="Rcs-1n-BZf" firstAttribute="top" secondItem="32e-Xs-EtV" secondAttribute="bottom" id="sch-8d-BGE"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PfH-fm-rQB" appends="YES" id="KCg-Mj-VXC"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="iDI-Ue-NS1"/>
                     <connections>
@@ -307,6 +312,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Lt-Bh-cC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="PfH-fm-rQB">
+                    <connections>
+                        <action selector="userDidTap:" destination="XHk-kJ-VbN" id="4zx-kD-Yi6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="60" y="-1119.4902548725638"/>
         </scene>
@@ -434,6 +444,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="ProfileTabIcon" selectedImage="ProfileTabIcon" id="3sM-oU-gTI" userLabel="Profile"/>
+                    <navigationItem key="navigationItem" title="Title" id="Q4x-7g-7i0"/>
                     <connections>
                         <outlet property="beersTriedLabel" destination="6sq-CL-Cwe" id="y5z-5x-agZ"/>
                         <outlet property="connoisseurIDLabel" destination="kyh-HF-rma" id="oRG-sq-Vge"/>
@@ -601,6 +612,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Beer List" image="BeerListTabIcon" selectedImage="BeerListTabIcon" id="cPa-gy-q4n" userLabel="Beer List"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="xm1-pc-q0j"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="beerListSearchBar" destination="OXa-Oo-0QE" id="Zza-JU-JmJ"/>

@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Defines the properties of each beer
 struct Beer {
     var beerNumber:Int?
     var beerName:String?

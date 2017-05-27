@@ -27,17 +27,16 @@ class BeerListingTableViewCell: UITableViewCell {
     
     
     
+    //Default override in case it needs to be called by child class
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
+    }//awakeFromNib()
 
     
+    //Default override in case it needs to be called by child class
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    }//setSelected(_:animated:)
 
     
     
@@ -67,22 +66,25 @@ class BeerListingTableViewCell: UITableViewCell {
                 beerRatingLabel.text = "🙂"
             case .Love:
                 beerRatingLabel.text = "😍"
-            }
+            }//switch
         } else {
             beerRatingLabel.text = ""
-        }
-        
-    }
+        }//if-else
+    }//updateRatingLabel(withRating:)
     
+    
+    //Update the beer number label
     func updateBeerNumberLabel(withNumber num: Int?) -> Void {
         if num != nil {
             beerNumberLabel.text = "\(num!)"
         } else {
             beerNumberLabel.text = ""
         }
-    }
+    }//updateBeerNumberLabel(withNumber:)
     
+    
+    //Update the beer name label with beer name and brewer
     func updateBeerNameLabel(withName name:String, andBrewer brewer:String) -> Void {
         beerNameLabel.text = brewer + " " + name
-    }
+    }//updateBeerNameLabel(withName:andBrewer:)
 }

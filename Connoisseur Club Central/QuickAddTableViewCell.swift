@@ -14,16 +14,20 @@ class QuickAddTableViewCell: BeerListingTableViewCell {
     //****
     
     
+    
     var beerNumber:Int?
     var ratingAction: ((BeerListingTableViewCell, Rating) -> Void)?
     @IBOutlet weak var buttonStack: UIStackView!
     
     
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    //****
+    //MARK: Actions
+    //****
 
+    
+    
+    //Perform the assigned rating action based on which button was tapped
     @IBAction func userTappedRating(_ sender: UIButton!) {
         
         if let title = sender.currentTitle { //Extra validation to make sure that the correct action is being performed
@@ -42,9 +46,7 @@ class QuickAddTableViewCell: BeerListingTableViewCell {
                 break
             default:
                 break
-            }
-        }
-        
-    }
-    
+            }//switch
+        }//if
+    }//userTappedRating(_:)
 }

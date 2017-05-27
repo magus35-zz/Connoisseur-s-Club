@@ -9,10 +9,13 @@
 import Foundation
 
 class Connoisseur {
+    //****
     //MARK: Properties
-    //
+    //****
     
     
+    
+    //Array of beer number, rating tuples
     private var beersTried:[(Int,Rating)] = []
     private var firstName:String
     private var lastName:String
@@ -22,8 +25,10 @@ class Connoisseur {
     
     
     
+    //****
     //MARK: Initializers
-    //
+    //****
+    
     
     
     //Initialize with name and ID
@@ -43,8 +48,10 @@ class Connoisseur {
     
     
     
+    //****
     //MARK: Accessors
-    //
+    //****
+    
     
     
     //Return connoiseur's name
@@ -81,8 +88,10 @@ class Connoisseur {
     } //hasTriedBeer(withNumber:)
     
     
-    //Return all beer numbers tried with the selected rating, sorted using the selected sort type
+    //Return all beer numbers tried with the selected rating
     //If rating is nil, return beers tried of all ratings
+    //Return nil if no beers are found
+    //Sorts using the selected sort type
     func getAllBeerNumbersTried(sorted: SortType, withRating rating: Rating?) -> [Int]? {
 
         //If the connoisseur hasn't tried any beers, return nil
@@ -140,21 +149,27 @@ class Connoisseur {
     
     
     
+    //****
     //MARK: Mutators
-    //
+    //****
     
     
+    //Set connoisseur's first and last name
     func setName(newFirstName: String, newLastName: String) {
         firstName = newFirstName
         lastName = newLastName
     } //setName(newFirstName:newLastName:)
     
     
+    //Set connoisseur's ID
     func setConnoisseurID(newID: Int) {
         connoisseurID = newID
     } //setConnoisseurID(newID:)
     
     
+    //Rates the beer with the selected number and rating
+    //If the beer has already been tried, update the rating
+    //Otherwise, add the beer to the beers tried array
     func tryBeer(withNumber number: Int, rating: Rating) -> Void {
         if self.hasTriedBeer(withNumber: number) {
             var loopCounter = 0

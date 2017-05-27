@@ -43,20 +43,20 @@ class TodaysBeersViewController: UIViewController, WKUIDelegate {
         
         self.webView = WKWebView()
         self.view = self.webView!
-    }
+    }//loadView()
     
     
-    //Set up the URL request and have the web view execute web request
+    //Set up the URL request and have the web view execute web request when the view loads
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let url = URL(string:"http://www.petesbrassrail.com/FrameSpecials.aspx")
         let req = URLRequest(url:url!)
         self.webView!.load(req as URLRequest)
-        
-    }
+    }//viewDidLoad()
     
     
+    //Set up the navigation item before the view appears
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
@@ -65,5 +65,5 @@ class TodaysBeersViewController: UIViewController, WKUIDelegate {
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
         self.tabBarController?.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationController?.isNavigationBarHidden = false
-    }
+    }//viewWillAppear(_:)
 }

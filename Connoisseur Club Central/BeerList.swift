@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Structure for storing and retrieving a list of beers
 struct BeerList {
     //****
     //MARK: Properties
@@ -25,10 +26,10 @@ struct BeerList {
                 var newBeerList:[Beer]? = []
                 for key in beerKeys {
                     newBeerList?.append(theBeers[key]!)
-                }
+                }//if-else
                 allBeersInList = newBeerList
             }
-        }
+        }//didSet
     }
     
     
@@ -40,7 +41,7 @@ struct BeerList {
                 theKeys.append(key)
             }
             return theKeys
-        }
+        }//get
     }
     
     
@@ -62,12 +63,12 @@ struct BeerList {
     //Initialize the beer list with the beers from TheBeerList.csv
     init (fromSampleData: Bool){
         readBeerFromCSV()
-    }
+    }//init(fromSampleData:)
     
     
     //Default initializer
     init() {
-    }
+    }//init()
     
     
     
@@ -81,7 +82,7 @@ struct BeerList {
     //Returns the beer or nil if no beer is found with the beer number
     func getBeer(withNumber number: Int) -> Beer? {
         return theBeers[number]
-    }
+    }//getBeer(withNumber:)
     
     
     //Attempt to get all beers with the passed beer numbers
@@ -94,7 +95,7 @@ struct BeerList {
         }
 
         return beers
-    }
+    }//getBeers(withNumbers:)
     
     
     //Return nil if no beers in list or an array of the beers in the list
@@ -104,13 +105,13 @@ struct BeerList {
         } else {
             return allBeersInList
         }
-    }
+    }//getAllBeersInList()
 
     
     //Return number of beers in list
     func getNumberOfBeers() -> Int {
         return theBeers.count
-    }
+    }//getNumberOfBeers()
     
     
     
@@ -124,21 +125,23 @@ struct BeerList {
     mutating func clearList() -> Void {
         theBeers.removeAll()
         hasReadFromCSV = false
-    }
+    }//clearList()
     
     
+    //Adds a beer to the master list given by its beer number and information
     mutating func addBeer(_ beer: (Int,Beer)) -> Void {
         theBeers[beer.0] = beer.1
-    }
+    }//addBeer(_:)
     
     
+    //Adds a beer list to the master list
     mutating func addBeerList(_ beerList: BeerList) -> Void {
         if let nonEmptyBeerList = beerList.allBeersInList {
             for beer in nonEmptyBeerList {
                 self.addBeer((beer.beerNumber!,beer))
             }
         }
-    }
+    }//addBeerList(_:)
     
     
     
@@ -156,14 +159,16 @@ struct BeerList {
                 let data = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
                 arrayOfStrings = data.components(separatedBy: "\n")
                 hasReadFromCSV = true
-            }
+            }//do
         } catch let err as NSError {
             print(err)
-        }
+        }//catch
+        var newBeerList:[Int:Beer] = [:]
         for beer in arrayOfStrings! { //Add the beers to the beer list
             let beerInfo = beer.components(separatedBy: ",")
             let currentBeer:Beer = Beer(beerNumber: Int(beerInfo[0])!, beerName: beerInfo[1], beerBrewer: beerInfo[2])
-            theBeers[currentBeer.beerNumber!] = currentBeer
-        }
-    }
+            newBeerList[currentBeer.beerNumber!] = currentBeer
+        }//for
+        theBeers = newBeerList
+    }//readBeerFromCSV()
 }
