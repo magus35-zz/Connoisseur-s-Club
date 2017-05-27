@@ -9,21 +9,23 @@
 import UIKit
 import Firebase
 
+//Define a notification name used for listening to logout requests
 extension Notification.Name {
     static let requestLogout = Notification.Name("RequestLogOut")
 }
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     //****
     //MARK: Outlets
     //****
     
     
+    
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
     @IBOutlet weak var statusLabel: UILabel!
+    
     
     
     
@@ -39,7 +41,7 @@ class LoginViewController: UIViewController {
     
     
     //****
-    //MARK: View Controller methods
+    //MARK: View Controller Methods
     //****
     
     
@@ -53,6 +55,44 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         registerSampleUsers()
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveRequestForLogout(notification:)), name: .requestLogout, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
+    }
+    
+    
+    
+    //****
+    //MARK: Text Field Methods
+    //****
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameField {
+            passwordField.becomeFirstResponder()
+        } else if textField == passwordField {
+            if inputIsValid() {
+                let connoisseurCredentials = Credentials(username: usernameField.text!, password: passwordField.text!)
+                if let _ = theServer.authenticateUser(withCredentials: connoisseurCredentials) {
+                    statusLabel.text = ""
+                    statusLabel.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0)
+                    performSegue(withIdentifier: Constants.Segues.login, sender: nil)
+                } else {
+                    statusLabel.text = "Please enter valid credentials"
+                    statusLabel.backgroundColor = Constants.Colors.loginLabel
+                }
+            } else {
+                statusLabel.text = "Please enter username and password"
+                statusLabel.backgroundColor = Constants.Colors.loginLabel
+            }
+        }
+        textField.resignFirstResponder()
+        return true
     }
     
     

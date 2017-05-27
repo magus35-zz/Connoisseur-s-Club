@@ -61,13 +61,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         //Set up navigation item
         self.tabBarController?.navigationItem.title = "Profile"
         let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
         self.tabBarController?.navigationItem.rightBarButtonItem = logoutButton
+        self.tabBarController?.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationController?.isNavigationBarHidden = false
         
         //Set up beers tried label
         let connoisseurBeersTried = authenticatedUser.getNumberOfBeersTried()
@@ -215,12 +217,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func logout() {
+        theServer.revokeAuthentication()
         NotificationCenter.default.post(name: .requestLogout, object: nil)
     }
     
     func updateFavoriteBeersList() -> Void {
+        connoisseursFavoriteBeers = BeerList()
         if let connoisseursLovedBeers = authenticatedUser.getAllBeerNumbersTried(sorted: .Chronologically, withRating: .Love) {
-            connoisseursFavoriteBeers = BeerList()
             for num in connoisseursLovedBeers {
                 if let triedBeer = theServer.requestBeer(withNumber: num) {
                     connoisseursFavoriteBeers?.addBeer((num,triedBeer))

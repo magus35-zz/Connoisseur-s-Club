@@ -53,12 +53,14 @@ class QuickAddViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
-        //Set up navigation item for when view is selected
+        //Set up navigation item
         self.tabBarController?.navigationItem.title = "Quick Add"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
+        self.tabBarController?.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationController?.isNavigationBarHidden = false
     }
     
     

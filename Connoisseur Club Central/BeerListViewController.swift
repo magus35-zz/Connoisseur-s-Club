@@ -55,18 +55,21 @@ class BeerListViewController: UIViewController, UITableViewDelegate, UITableView
         beerListTable.rowHeight = UITableViewAutomaticDimension
         beerListTable.separatorColor = view.backgroundColor
     
-        self.automaticallyAdjustsScrollViewInsets = false
+        self.automaticallyAdjustsScrollViewInsets = true
     } //viewDidLoad()
 
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
 
-        beerListTable.reloadData()
-        
-        //Setup navigation item
+        //Set up navigation item
         self.tabBarController?.navigationItem.title = "Beer List"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
+        self.tabBarController?.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationController?.isNavigationBarHidden = false
+        
+        //Set up beer table
+        beerListTable.reloadData()
     }//viewDidAppear()
     
     

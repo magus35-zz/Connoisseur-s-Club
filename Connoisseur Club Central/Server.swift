@@ -78,6 +78,10 @@ class Server {
             return nil
         }
     }
+    
+    func revokeAuthentication() -> Void {
+        authenticatedUser = nil
+    }
 }
 
 extension Credentials: Hashable {

@@ -57,11 +57,13 @@ class TodaysBeersViewController: UIViewController, WKUIDelegate {
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         //Set up navigation item
         self.tabBarController?.navigationItem.title = "Today's Specials"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
+        self.tabBarController?.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationController?.isNavigationBarHidden = false
     }
 }

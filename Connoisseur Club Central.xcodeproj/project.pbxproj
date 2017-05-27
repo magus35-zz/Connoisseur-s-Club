@@ -10,6 +10,7 @@
 		6538FFBE7DD04B124609C2E6 /* Pods_Connoisseur_Club_Central.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6865B1F5C1515BCB04313427 /* Pods_Connoisseur_Club_Central.framework */; };
 		9904A1571ED5CE3700EC3D36 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 9904A1561ED5CE3700EC3D36 /* Assets */; };
 		990EA95A1EC30070002D0842 /* BeerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990EA9591EC30070002D0842 /* BeerList.swift */; };
+		9920E08E1ED91405008D6BA3 /* Export236.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9920E08D1ED91405008D6BA3 /* Export236.jpg */; };
 		9931F8601E930A19005D9D20 /* ProfilePic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9931F85F1E930A19005D9D20 /* ProfilePic.jpg */; };
 		9931F8621E931B16005D9D20 /* MyBeersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9931F8611E931B16005D9D20 /* MyBeersViewController.swift */; };
 		99692A771ED27897003AC326 /* QuickAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99692A761ED27897003AC326 /* QuickAddTableViewCell.swift */; };
@@ -61,6 +62,7 @@
 		95CC7599D9236874BE0BA8E7 /* Pods_Connoisseur_Club_CentralTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connoisseur_Club_CentralTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9904A1561ED5CE3700EC3D36 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		990EA9591EC30070002D0842 /* BeerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerList.swift; sourceTree = "<group>"; };
+		9920E08D1ED91405008D6BA3 /* Export236.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Export236.jpg; path = Assets/Export236.jpg; sourceTree = "<group>"; };
 		9931F85F1E930A19005D9D20 /* ProfilePic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ProfilePic.jpg; sourceTree = "<group>"; };
 		9931F8611E931B16005D9D20 /* MyBeersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBeersViewController.swift; sourceTree = "<group>"; };
 		99692A761ED27897003AC326 /* QuickAddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickAddTableViewCell.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				99C52BAC1E6E26C300B7F9F6 /* Main.storyboard */,
 				99C52BA61E6E26C300B7F9F6 /* AppDelegate.swift */,
 				998775511E9C23490003B13F /* Constants.swift */,
+				9920E08D1ED91405008D6BA3 /* Export236.jpg */,
 				99D5D7BE1E98601D00096426 /* Data Model */,
 				998775531E9C23630003B13F /* ViewControllers */,
 				998668551E8DF4BD0094FFC0 /* Table Cells */,
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99C52BB31E6E26C300B7F9F6 /* LaunchScreen.storyboard in Resources */,
+				9920E08E1ED91405008D6BA3 /* Export236.jpg in Resources */,
 				99D5D7B91E985B3800096426 /* TheBeerList.csv in Resources */,
 				99C52BB01E6E26C300B7F9F6 /* Assets.xcassets in Resources */,
 				9931F8601E930A19005D9D20 /* ProfilePic.jpg in Resources */,

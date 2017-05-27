@@ -27,7 +27,7 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var theServer = Server.sharedInstance
     var authenticatedUser:Connoisseur = Connoisseur()
-    var beersTried:[Int] = []
+    var beersTried:[Int]!
     
     
     //****
@@ -39,7 +39,7 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         authenticatedUser = theServer.requestAuthenticatedUser()!
-        beersTried = authenticatedUser.getAllBeerNumbersTried(sorted: .Chronologically, withRating: nil)!
+        beersTried = authenticatedUser.getAllBeerNumbersTried(sorted: .Chronologically, withRating: nil)
         
         myBeersTable.separatorColor = view.backgroundColor
 
@@ -48,12 +48,14 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    func viewDidAppear() {
-        super.viewDidAppear(true)
+    func viewWillAppear() {
+        super.viewWillAppear(true)
         
         //Set up navigation item
         self.tabBarController?.navigationItem.title = "My Beers"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
+        self.tabBarController?.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationController?.isNavigationBarHidden = false
     }
     
     
@@ -74,7 +76,11 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: //Currently only section - return number of beers tried
-            return beersTried.count
+            if let numberOfBeersTried = beersTried?.count {
+                return numberOfBeersTried
+            } else {
+                return 0
+            }
         default:
             return 0
         }
@@ -94,8 +100,6 @@ class MyBeersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.selectionStyle = .none
         cell.updateLabels(forBeer: beerForCell, withRating: beerRatingForCell)
-        
-        
         
         return cell
     }
