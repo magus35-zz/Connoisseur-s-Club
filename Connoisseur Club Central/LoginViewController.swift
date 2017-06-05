@@ -49,7 +49,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //Register sample users and add a logout observer when view loads
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerSampleUsers()
+        //registerSampleUsers()
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveRequestForLogout(notification:)), name: .requestLogout, object: nil)
     }//viewDidLoad()
     
@@ -60,6 +60,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.navigationBar.barTintColor = Constants.Colors.navigationItem
+        
+        ref = Database.database().reference()
     }//viewWillAppear(_:)
     
     
@@ -81,7 +83,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if textField == usernameField { //Case that the text field that should return is the username field
             passwordField.becomeFirstResponder()
         } else if textField == passwordField { //Case that the text field that should return is the password field
-            if inputIsValid() { //If the user entered text into each field, attempt to log the connoisseur in with the entered credentials
+            if inputsHaveText() { //If the user entered text into each field, attempt to log the connoisseur in with the entered credentials
                 let connoisseurCredentials = Credentials(username: usernameField.text!, password: passwordField.text!)
                 if let _ = theServer.authenticateUser(withCredentials: connoisseurCredentials) { //Case that credentials are valid
                     statusLabel.text = ""
@@ -110,7 +112,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //Attempt to log the user in with the credentials entered if the user taps login
     @IBAction func userDidTapLogin(_ sender: UIButton) {
-        if inputIsValid() { //Case that the user entered text into both text fields
+        if inputsHaveText() { //Case that the user entered text into both text fields
             let connoisseurCredentials = Credentials(username: usernameField.text!, password: passwordField.text!)
             if let _ = theServer.authenticateUser(withCredentials: connoisseurCredentials) { //case that the user entered valid credentials
                 statusLabel.text = ""
@@ -125,6 +127,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             statusLabel.backgroundColor = Constants.Colors.loginLabel
         }//if-else
     }//userDidTapLogin(_:)
+    
+    
+    @IBAction func userDidTapRegister(_ sender: UIButton) {
+        if inputsHaveText() { //Case that the user entered text into both text fields
+            Auth.auth().createUser(withEmail: usernameField.text!, password: passwordField.text!, completion: { (user, error) in
+                guard let user = user, error == nil
+                    else { //If process did not create a user and an error occurred, display the error in the status label and return
+                        self.statusLabel.text = error!.localizedDescription
+                        return
+                }
+                
+                self.statusLabel.text = ""
+                self.statusLabel.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0)
+                self.writeUserInfoToDatabase(user, withEmail: self.usernameField.text!)
+            })
+        } else { //Case that the user did not enter text into both text fields
+            statusLabel.text = "Please enter username and password"
+            statusLabel.backgroundColor = Constants.Colors.loginLabel
+        }
+    }
     
     
     //Handles taps, dismisses keyboard if user taps on view with keyboard presented
@@ -154,19 +176,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     //Check if there is text in each text field
-    func inputIsValid() -> Bool {
+    func inputsHaveText() -> Bool {
         if usernameField.text == "" || passwordField.text == "" {
             return false
         } else {
             return true
         }
-    }//inputIsValid()
+    }//inputsHaveText()
     
     
     //Method to be called when the user taps logout from the Profile
     func didReceiveRequestForLogout(notification: Notification) -> Void {
         navigationController?.popToRootViewController(animated: true)
     }//didReceiveRequestForLogout(notification:)
+    
+    
+    func writeUserInfoToDatabase(_ user: Firebase.User, withEmail email: String) {
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        
+        changeRequest?.commitChanges() { (error) in
+            if let error = error {
+                self.statusLabel.text = error.localizedDescription
+                return
+            }//if-let
+            
+            self.ref.child("users").child(user.uid).setValue(["email": email])
+            self.performSegue(withIdentifier: Constants.Segues.login, sender: nil)
+        }//commitChanges()
+    }//writeUserInfoToDatabase(_:withUsername:)
     
     
     //Registers sample users in the mock server
