@@ -30,6 +30,7 @@
 		99C52BC91E6E26C300B7F9F6 /* Connoisseur_Club_CentralUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BC81E6E26C300B7F9F6 /* Connoisseur_Club_CentralUITests.swift */; };
 		99C52BD71E6E27B800B7F9F6 /* BeerListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BD61E6E27B800B7F9F6 /* BeerListingTableViewCell.swift */; };
 		99C52BD91E6E3FA200B7F9F6 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C52BD81E6E3FA200B7F9F6 /* Beer.swift */; };
+		99D1A2CF1EE4F99A00ECCC78 /* LoginBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99D1A2CE1EE4F99A00ECCC78 /* LoginBackground.jpg */; };
 		99D5D7B91E985B3800096426 /* TheBeerList.csv in Resources */ = {isa = PBXBuildFile; fileRef = 99D5D7B81E985B3800096426 /* TheBeerList.csv */; };
 		C4510B5E040BF8F80C5D4CDF /* Pods_Connoisseur_Club_CentralTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CC7599D9236874BE0BA8E7 /* Pods_Connoisseur_Club_CentralTests.framework */; };
 		CAD5F34D10AC1ADF99F47C06 /* Pods_Connoisseur_Club_CentralUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B8F61980CB0337E1E62DDE /* Pods_Connoisseur_Club_CentralUITests.framework */; };
@@ -87,6 +88,7 @@
 		99C52BCA1E6E26C300B7F9F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99C52BD61E6E27B800B7F9F6 /* BeerListingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerListingTableViewCell.swift; sourceTree = "<group>"; };
 		99C52BD81E6E3FA200B7F9F6 /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		99D1A2CE1EE4F99A00ECCC78 /* LoginBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = LoginBackground.jpg; path = Assets/LoginBackground.jpg; sourceTree = "<group>"; };
 		99D5D7B81E985B3800096426 /* TheBeerList.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TheBeerList.csv; sourceTree = "<group>"; };
 		A3FEF1FF31E7C28AA45AA975 /* Pods-Connoisseur Club CentralUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connoisseur Club CentralUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Connoisseur Club CentralUITests/Pods-Connoisseur Club CentralUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7F024FD6DEA828FB02E138E /* Pods-Connoisseur Club CentralTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connoisseur Club CentralTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Connoisseur Club CentralTests/Pods-Connoisseur Club CentralTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				998668551E8DF4BD0094FFC0 /* Table Cells */,
 				9904A1561ED5CE3700EC3D36 /* Assets */,
 				99C52BAF1E6E26C300B7F9F6 /* Assets.xcassets */,
+				99D1A2CE1EE4F99A00ECCC78 /* LoginBackground.jpg */,
 				9931F85F1E930A19005D9D20 /* ProfilePic.jpg */,
 				99C52BB11E6E26C300B7F9F6 /* LaunchScreen.storyboard */,
 				99D5D7B81E985B3800096426 /* TheBeerList.csv */,
@@ -357,6 +360,7 @@
 				99C52BB31E6E26C300B7F9F6 /* LaunchScreen.storyboard in Resources */,
 				99D5D7B91E985B3800096426 /* TheBeerList.csv in Resources */,
 				99C52BB01E6E26C300B7F9F6 /* Assets.xcassets in Resources */,
+				99D1A2CF1EE4F99A00ECCC78 /* LoginBackground.jpg in Resources */,
 				9931F8601E930A19005D9D20 /* ProfilePic.jpg in Resources */,
 				99C52BAE1E6E26C300B7F9F6 /* Main.storyboard in Resources */,
 				998775501E9B6DA80003B13F /* GoogleService-Info.plist in Resources */,

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,16 +22,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Export236.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="L2c-fX-2AT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Bq4-r4-5v2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Bq4-r4-5v2" secondAttribute="height" multiplier="375:667" id="T2z-e3-bIL"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="L2c-fX-2AT" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="5h5-Zg-hcd"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="L2c-fX-2AT" secondAttribute="bottom" id="5qN-TT-gR3"/>
-                            <constraint firstAttribute="trailing" secondItem="L2c-fX-2AT" secondAttribute="trailing" id="HiB-MF-e8l"/>
-                            <constraint firstItem="L2c-fX-2AT" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="V2E-1n-0eu"/>
+                            <constraint firstItem="Bq4-r4-5v2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hII-QI-IdY"/>
+                            <constraint firstItem="Bq4-r4-5v2" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="qn9-Pu-iXU"/>
+                            <constraint firstItem="Bq4-r4-5v2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ssr-hG-lRm"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,6 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Export236.jpg" width="1080" height="1920"/>
+        <image name="LoginBackground.jpg" width="1080" height="1920"/>
     </resources>
 </document>

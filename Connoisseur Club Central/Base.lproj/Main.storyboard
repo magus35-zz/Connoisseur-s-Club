@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -233,9 +234,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Export236.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="32e-Xs-EtV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IRl-Fu-LDT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="IRl-Fu-LDT" secondAttribute="height" multiplier="375:667" id="92J-Ly-nV1"/>
+                                </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email@domain.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWJ-QI-Dkv">
                                 <rect key="frame" x="108" y="288" width="251" height="30"/>
@@ -303,10 +306,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="32e-Xs-EtV" firstAttribute="leading" secondItem="bKx-xS-y7T" secondAttribute="leading" id="FXG-7x-FqQ"/>
-                            <constraint firstItem="32e-Xs-EtV" firstAttribute="top" secondItem="bKx-xS-y7T" secondAttribute="top" id="ODJ-hQ-2Md"/>
-                            <constraint firstAttribute="trailing" secondItem="32e-Xs-EtV" secondAttribute="trailing" id="etd-XN-b5k"/>
-                            <constraint firstItem="Rcs-1n-BZf" firstAttribute="top" secondItem="32e-Xs-EtV" secondAttribute="bottom" id="sch-8d-BGE"/>
+                            <constraint firstItem="IRl-Fu-LDT" firstAttribute="centerX" secondItem="bKx-xS-y7T" secondAttribute="centerX" id="2Lc-Ug-fBs"/>
+                            <constraint firstItem="IRl-Fu-LDT" firstAttribute="height" secondItem="bKx-xS-y7T" secondAttribute="height" id="RdD-Wk-XHZ"/>
+                            <constraint firstItem="IRl-Fu-LDT" firstAttribute="centerY" secondItem="bKx-xS-y7T" secondAttribute="centerY" id="oiF-dl-BOW"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="PfH-fm-rQB" appends="YES" id="KCg-Mj-VXC"/>
@@ -681,7 +683,7 @@
     </scenes>
     <resources>
         <image name="BeerListTabIcon" width="17" height="23"/>
-        <image name="Export236.jpg" width="1080" height="1920"/>
+        <image name="LoginBackground.jpg" width="1080" height="1920"/>
         <image name="ProfilePic.jpg" width="132" height="132"/>
         <image name="ProfileTabIcon" width="21" height="21"/>
         <image name="QuickAddTabIcon" width="18" height="21"/>
