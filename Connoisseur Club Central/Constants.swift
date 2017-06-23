@@ -17,8 +17,9 @@ struct Constants {
         
     }
     struct Segues {
-        static let MyBeers = "showMyBeersSegue"
+        static let myBeers = "showMyBeersSegue"
         static let login = "loginSegue"
+        static let registerForm = "registerFormSegue"
     }
     struct Colors {
         static let navigationItem = UIColor(red: CGFloat(0.47), green: CGFloat(0.72), blue: CGFloat(0.67), alpha: 1)//UIColor(colorLiteralRed: Float(120), green: Float(184), blue: Float(171), alpha: 1)

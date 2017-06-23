@@ -98,6 +98,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 statusLabel.backgroundColor = Constants.Colors.loginLabel
             }//if-else
         }//if-else
+        else if textField.tag == 1 || textField.tag == 2 {
+            guard let nextField = view.viewWithTag(textField.tag + 1)
+            else {
+                return true
+            }
+            nextField.becomeFirstResponder()
+        }
         textField.resignFirstResponder()
         return true
     }//textFieldShouldReturn(_:)
@@ -141,7 +148,52 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 self.statusLabel.text = ""
                 self.statusLabel.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0)
-                self.writeUserInfoToDatabase(user, withEmail: self.usernameField.text!)
+                let registerForm = UIAlertController(title: "Personal Information", message: "Please enter some information about yourself.", preferredStyle: .alert)
+                //Add first name text field
+                registerForm.addTextField(configurationHandler: { (field) in
+                    field.returnKeyType = .next
+                    field.delegate = self
+                    field.placeholder = "First Name"
+                    field.tag = 1
+                })
+                //Add last name text field
+                registerForm.addTextField(configurationHandler: { (field) in
+                    field.returnKeyType = .next
+                    field.delegate = self
+                    field.placeholder = "Last Name"
+                    field.tag = 2
+                })
+                //Add Connoisseur ID text field
+                registerForm.addTextField(configurationHandler: { (field) in
+                    field.keyboardType = .numberPad
+                    field.delegate = self
+                    field.placeholder = "Connoisseur ID"
+                    field.tag = 3
+                })
+                //Add submit button
+                registerForm.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
+                    for field in registerForm.textFields! {
+                        if field.isFirstResponder {
+                            field.resignFirstResponder()
+                        }
+                    }
+                    var userDetails:[String:String] = [:]
+                    if let firstName = registerForm.textFields?[0].text {
+                        userDetails["firstName"] = firstName
+                    }
+                    if let lastName = registerForm.textFields?[1].text {
+                        userDetails["lastName"] = lastName
+                    }
+                    if let connoisseurID = registerForm.textFields?[2].text {
+                        userDetails["connoisseurID"] = connoisseurID
+                    }
+                    
+                    self.ref.child("users").child(user.uid).setValue(userDetails)
+                    
+                    self.performSegue(withIdentifier: Constants.Segues.login, sender: nil)
+                }))
+   
+                self.present(registerForm, animated: true, completion: nil)
             })
         } else { //Case that the user did not enter text into both text fields
             statusLabel.text = "Please enter username and password"
@@ -192,6 +244,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }//didReceiveRequestForLogout(notification:)
     
     
+    //**DEPRECATE?
     func writeUserInfoToDatabase(_ user: Firebase.User, withEmail email: String) {
         //Create a new change request
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
@@ -227,7 +280,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         let conn1 = theServer.requestConnoisseur(withCredentials: sampleCredentials[0])
-        conn1?.setConnoisseurID(newID: 1000)
+        conn1?.setConnoisseurID(newID: "1000")
         conn1?.setName(newFirstName: "John", newLastName: "Smith")
         conn1?.tryBeer(withNumber: 50, rating: .Meh)
         conn1?.tryBeer(withNumber: 432, rating: .Good)
@@ -236,11 +289,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         conn1?.tryBeer(withNumber: 1734, rating: .Love)
         
         let conn2 = theServer.requestConnoisseur(withCredentials: sampleCredentials[1])
-        conn2?.setConnoisseurID(newID: 666)
+        conn2?.setConnoisseurID(newID: "666")
         conn2?.setName(newFirstName: "Joe", newLastName: "Schmo")
         
         let conn3 = theServer.requestConnoisseur(withCredentials: sampleCredentials[2])
-        conn3?.setConnoisseurID(newID: 1337)
+        conn3?.setConnoisseurID(newID: "1337")
         conn3?.setName(newFirstName: "Colin", newLastName: "Schatz")
     }//registerSampleUsers()
+    
+    
+    
 }

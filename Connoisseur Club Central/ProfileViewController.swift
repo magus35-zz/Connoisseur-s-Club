@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //****
@@ -28,8 +29,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
-    var theServer = Server.sharedInstance
-    var authenticatedUser:Connoisseur = Connoisseur()
+    let ref:DatabaseReference = Database.database().reference()
+    var connoisseur:Connoisseur!
     var connoisseursFavoriteBeers:BeerList?
     
     
@@ -45,22 +46,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         
-        //Get authenticated user
-        authenticatedUser = theServer.requestAuthenticatedUser()!
-        
-        //Set up lovedBeersTable
+        //Set up favorite beers table
         updateFavoriteBeersList()
-        lovedBeersTable.separatorColor = view.backgroundColor
-        self.tabBarController?.automaticallyAdjustsScrollViewInsets = false
-
-        
-        //Set up Profile labels
-        let connoisseurID = authenticatedUser.getID()
-        let connoisseurFirstName = authenticatedUser.getFirstName()
-        let connoisseurLastName = authenticatedUser.getLastName()
-        let connoisseurBeersTried = authenticatedUser.getNumberOfBeersTried()
-        updatePersonalInfoLabels(newID: String(connoisseurID), firstName: connoisseurFirstName, lastName: connoisseurLastName, newNumberTried: connoisseurBeersTried)
+        lovedBeersTable.reloadData()
     }//viewDidLoad()
+    
     
     
     //Set up different visuals for the view before it appears
@@ -74,13 +64,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tabBarController?.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationController?.isNavigationBarHidden = false
         
-        //Set up beers tried label
-        let connoisseurBeersTried = authenticatedUser.getNumberOfBeersTried()
-        updateBeersTriedLabelText(newNumberTried: connoisseurBeersTried)
+        if let _ = Auth.auth().currentUser {
+            connoisseur = Connoisseur()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+                self.connoisseur.readDetailsFromServer(serverReference: self.ref, user: Auth.auth().currentUser!)
+            })
+            updatePersonalInfoLabels(newID: self.connoisseur?.getID(), firstName: self.connoisseur?.getFirstName(), lastName: self.connoisseur?.getLastName(), newNumberTried: self.connoisseur?.getNumberOfBeersTried())
+        }
         
-        //Set up favorite beers table
-        updateFavoriteBeersList()
-        lovedBeersTable.reloadData()
+
     }//viewWillAppear(_:)
     
     
@@ -89,11 +82,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: Actions
     //****
     
-    
+ 
     
     //Navigate to My Beers View
     @IBAction func userDidPressMyBeers(_ sender: Any) {
-        performSegue(withIdentifier: Constants.Segues.MyBeers, sender: nil)
+        performSegue(withIdentifier: Constants.Segues.myBeers, sender: nil)
     }//userDidPressMyBeers(_:)
 
     
@@ -136,11 +129,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let beerForCell = connoisseursFavoriteBeers?.getAllBeersInList()?[indexPath.row] { //Case that there is a favorite beer for the given indexPath, update the cell accordingly
             
             //Error checking to make sure the connoisseur has actually rated the beer
-            if let userRating = theServer.requestAuthenticatedUser()?.getRatingForBeer(withNumber: beerForCell.beerNumber!) {
+            /*if let userRating = theServer.requestAuthenticatedUser()?.getRatingForBeer(withNumber: beerForCell.beerNumber!) {
                 cell.updateRatingLabel(withRating: userRating)
             } else {
                 cell.updateRatingLabel(withRating: nil)
-            }
+            }*/
             
             //Set up cell visuals
             cell.selectionStyle = .none
@@ -176,7 +169,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     //Calls update label function for each label
-    func updatePersonalInfoLabels(newID id: String, firstName: String, lastName: String, newNumberTried num: Int) {
+    func updatePersonalInfoLabels(newID id: String?, firstName: String?, lastName: String?, newNumberTried num: Int?) {
         updateIDLabelText(newID: id)
         updateNameLabelText(firstName: firstName, lastName: lastName)
         updateBeersTriedLabelText(newNumberTried: num)
@@ -184,33 +177,64 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     //Updates and formats attributed text (underlined, red) for ID label with the connoisseur's id
-    func updateIDLabelText(newID id: String) {
-        let idLength = id.characters.count
-        let idString = NSMutableAttributedString(string: "Connoisseur #\(id)")
-        let idRange = NSRange(location: 13, length: idLength)
-        
-        idString.addAttribute(NSUnderlineStyleAttributeName, value: 1, range: idRange)
-        idString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: idRange)
-        
-        connoisseurIDLabel.attributedText = idString
+    func updateIDLabelText(newID id: String?) {
+        //If id not nil, format a string and update the ID label
+        if let newID = id {
+            let idLength = newID.characters.count
+            let idString = NSMutableAttributedString(string: "Connoisseur #\(newID)")
+            let idRange = NSRange(location: 13, length: idLength)
+            
+            idString.addAttribute(NSUnderlineStyleAttributeName, value: 1, range: idRange)
+            idString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: idRange)
+            
+            connoisseurIDLabel.attributedText = idString
+        } else { //If id is nil, update the ID label
+            let idString = NSMutableAttributedString(string: "No Connoisseur ID")
+            connoisseurIDLabel.attributedText = idString
+        }
     }//updateIDLabelText(newID:)
     
     
     //Updates and formats text for name label with the connoisseur's first and last names
-    func updateNameLabelText(firstName: String, lastName: String) {
-        nameLabel.text = lastName + ", " + firstName
+    func updateNameLabelText(firstName: String?, lastName: String?) {
+        var nameString = ""
+        //Format the name string according to which of the first and last name were entered
+        //Case that user has last name
+        if let lastName = lastName {
+            nameString += lastName
+        }
+        //Case that user has first name
+        if let firstName = firstName {
+            if lastName == nil {    //Case that user has no last name
+                nameString += firstName
+            } else { //Case that user has last name
+                nameString += ", "
+                nameString += firstName
+            }
+        }
+        //Case that connoisseur has no name
+        if nameString == "" {
+            nameString = "A Connoisseur Has No Name"
+        }
+        nameLabel.text = nameString
     }//updateNameLabelText(firstName:lastName:)
     
     
     //Updates and formats the beers tried label text with the amount of beers that the connoisseur has tred
-    func updateBeersTriedLabelText(newNumberTried num: Int) {
-        let numLength = String(num).characters.count
-        let beerString = NSMutableAttributedString(string: "Beers: \(String(num))")
-        let numRange = NSRange(location: 7, length: numLength)
-        
-        beerString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: numRange)
-        
-        beersTriedLabel.attributedText = beerString
+    func updateBeersTriedLabelText(newNumberTried num: Int?) {
+        if let num = num {
+            let numLength = String(num).characters.count
+            let beerString = NSMutableAttributedString(string: "Beers: \(String(num))")
+            let numRange = NSRange(location: 7, length: numLength)
+            
+            beerString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: numRange)
+            
+            beersTriedLabel.text = nil
+            beersTriedLabel.attributedText = beerString
+        } else {
+            beersTriedLabel.attributedText = nil
+            beersTriedLabel.text = "No beers tried :("
+        }
     }//updateBeersTriedLabelText(newNumberTried:)
     
     
@@ -223,7 +247,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //Log the connoisseur out, return to login view
     func logout() {
-        theServer.revokeAuthentication()
+        //theServer.revokeAuthentication()
         NotificationCenter.default.post(name: .requestLogout, object: nil)
     }//logout()
     
@@ -231,11 +255,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     //Refresh the list of the connoisseur's favorite beers, sorted chronologically
     func updateFavoriteBeersList() -> Void {
         connoisseursFavoriteBeers = BeerList()
-        if let connoisseursLovedBeers = authenticatedUser.getAllBeerNumbersTried(sorted: .Chronologically, withRating: .Love) {
+        if let connoisseursLovedBeers = connoisseur?.getAllBeerNumbersTried(sorted: .Chronologically, withRating: .Love) {
             for num in connoisseursLovedBeers {
-                if let triedBeer = theServer.requestBeer(withNumber: num) {
+                /*if let triedBeer = theServer.requestBeer(withNumber: num) {
                     connoisseursFavoriteBeers?.addBeer((num,triedBeer))
-                }//if
+                }//if*/
             }//for
         }//if
     }//updateFavoriteBeersList()

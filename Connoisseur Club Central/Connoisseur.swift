@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class Connoisseur {
     //****
@@ -17,11 +18,11 @@ class Connoisseur {
     
     //Array of beer number, rating tuples
     private var beersTried:[(Int,Rating)] = []
-    private var firstName:String
-    private var lastName:String
-    private var connoisseurID:Int
+    private var firstName:String?
+    private var lastName:String?
+    private var connoisseurID:String?
     
-    static let sharedInstance = Connoisseur()
+    static let sharedInstance:Connoisseur? = Connoisseur()
     
     
     
@@ -32,7 +33,7 @@ class Connoisseur {
     
     
     //Initialize with name and ID
-    init(firstName: String, lastName: String, connoisseurID: Int) {
+    init(firstName: String?, lastName: String?, connoisseurID: String?) {
         self.firstName = firstName
         self.lastName = lastName
         self.connoisseurID = connoisseurID
@@ -41,9 +42,6 @@ class Connoisseur {
     
     //Default initializer
     init() {
-        self.firstName = ""
-        self.lastName = ""
-        self.connoisseurID = 0
     } //init()
     
     
@@ -55,18 +53,18 @@ class Connoisseur {
     
     
     //Return connoiseur's name
-    func getFirstName() -> String {
+    func getFirstName() -> String? {
         return firstName
     } //getFirstName()
     
     
-    func getLastName() -> String {
+    func getLastName() -> String? {
         return lastName
     } //getLastName()
     
     
     //Return connoisseur's ID
-    func getID() -> Int {
+    func getID() -> String? {
         return connoisseurID
     } //getID()
     
@@ -162,7 +160,7 @@ class Connoisseur {
     
     
     //Set connoisseur's ID
-    func setConnoisseurID(newID: Int) {
+    func setConnoisseurID(newID: String) {
         connoisseurID = newID
     } //setConnoisseurID(newID:)
     
@@ -185,4 +183,26 @@ class Connoisseur {
         } //if/else
     } //tryBeer(withNumber:rating:)
     
+    
+    
+    //****
+    //MARK: Server Calls
+    //****
+    
+    
+    
+    func readDetailsFromServer(serverReference ref: DatabaseReference, user: User) -> Void {
+        ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            let userInfo = snapshot.value as? NSDictionary
+            let firstName = userInfo?["firstName"] as? String? ?? nil
+            let lastName = userInfo?["lastName"] as? String? ?? nil
+            let connoisseurID = userInfo?["connoisseurID"] as? String? ?? nil
+            
+            self.firstName = firstName
+            self.lastName = lastName
+            self.connoisseurID = connoisseurID
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
 }

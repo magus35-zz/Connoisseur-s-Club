@@ -71,41 +71,41 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Avh-rb-UDZ">
-                                                    <rect key="frame" x="0.0" y="48.5" width="375" height="30.5"/>
+                                                    <rect key="frame" x="0.0" y="48" width="375" height="31"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOk-jM-SWB">
-                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="31"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-h7-7lK">
-                                                            <rect key="frame" x="69" y="0.0" width="30" height="30.5"/>
+                                                            <rect key="frame" x="69" y="0.0" width="30" height="31"/>
                                                             <state key="normal" title="☹️"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="ya7-3y-PVu"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeE-6s-9Tb">
-                                                            <rect key="frame" x="138" y="0.0" width="30" height="30.5"/>
+                                                            <rect key="frame" x="138" y="0.0" width="30" height="31"/>
                                                             <state key="normal" title="😕"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="1bY-Uk-0ad"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHc-R6-Z6V">
-                                                            <rect key="frame" x="207" y="0.0" width="30" height="30.5"/>
+                                                            <rect key="frame" x="207" y="0.0" width="30" height="31"/>
                                                             <state key="normal" title="🙂"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="cVg-t6-YTt"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cu-Py-uJd">
-                                                            <rect key="frame" x="276" y="0.0" width="30" height="30.5"/>
+                                                            <rect key="frame" x="276" y="0.0" width="30" height="31"/>
                                                             <state key="normal" title="😍"/>
                                                             <connections>
                                                                 <action selector="userTappedRating:" destination="lan-UA-0X0" eventType="touchUpInside" id="9LS-Sb-PW0"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovt-C6-0xF">
-                                                            <rect key="frame" x="345" y="0.0" width="30" height="30.5"/>
+                                                            <rect key="frame" x="345" y="0.0" width="30" height="31"/>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
